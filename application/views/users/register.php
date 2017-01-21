@@ -16,6 +16,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin: 0px;
 		font: 13px/20px normal Helvetica, Arial, sans-serif;
 		color: #4F5155;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		
 	}
 
 	a {
@@ -49,8 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	#container {
 		margin: auto;
-		margin-top: 30%;
-		margin-bottom: 30%;
+		margin-top: 20%;
+		margin-bottom: 20%;
 		border: 1px solid #D0D0D0;
 		box-shadow: 0 0 8px #D0D0D0;
 		width: 70%;
@@ -79,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     border: none;
     border-radius: 4px;
     cursor: pointer;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	}
 
 	input[type=submit]:hover {
@@ -99,6 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	font-size: 14px;
 	}
 
+
 	
 	</style>
 </head>
@@ -110,16 +114,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	<div class="w3-half">
 		<div id="container">
-			<h1><font face = "Eraser" >U share </font></h1>
+			<h1><font face = "Eraser"> U share </font></h1>
 
 			<div id="body">
-				<form method = "POST" action ="Login">
+				<form method = "POST" action ="Register2">
 					<font face = "Calibri" size = "3">
-						Username: <input type = "text" name = "username" placeholder = "Username"> <?php echo form_error('username'); ?> 
-						Password: <input type = "password" name = "password" placeholder = "Password"> <?php echo form_error('password'); ?> 
-						<input type = "Submit" value = "Login"/> <br>
+						<input type = "hidden" name = "id" placeholder = "Username"> 
+						Username: <input type = "text" name = "username" placeholder = "Username"><br>  <?php echo form_error('username'); ?> 
+						Password: <input type = "password" name = "password" placeholder = "Password"><br>  <?php echo form_error('password'); ?> 
+						Confirm Password: <input type = "password" name = "cpassword" placeholder = "Password"><br>  <?php echo form_error('cpassword'); ?>
+						First Name: <input type = "text" name = "fname" placeholder = "First Name"><br> <?php echo form_error('fname'); ?>
+						Last Name: <input type = "text" name = "lname" placeholder = "Last Name"><br> <?php echo form_error('lname'); ?>
+						<input type = "Submit" value = "Sign Up"/>  <br>
+						<a href = "index" >Login</a>
 					</font>
-					<a href = "register"> Register</a> 
+					 
 				</form>
 				
 			</div>
