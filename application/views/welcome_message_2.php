@@ -78,6 +78,9 @@ hr{
 	width: 100%;
 	padding: 3px;
 }
+.infoMargin{
+	margin: 0px 5px 5px 20px
+}
 </style>	
 	
 <body style = "background-color: #fbf3f2;">
@@ -105,7 +108,9 @@ hr{
 	<font color = "white" size = "6"> | </font>	  <font face = "Century Gothic" size = "5" color = "white"> Confessions </font>
     <div style = "float: right; margin-right: 2%; ">
 		<font face = "Calibri" size = "6" color = "white">  Jasver Salva </font>
-		<img style = "margin: 0% 0% -5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="40" width="40">
+		<a onclick="document.getElementById('id02').style.display='block'">
+			<img style = "margin: 0% 0% -5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="40" width="40"> 
+		</a>
 	</div>
 </header>
 <div id="main">
@@ -116,101 +121,29 @@ hr{
 		 
 	  </div>
 	  
-	  <div class="w3-container w3-col" style="width:50%">				
+	  <div class="w3-container w3-col" style="width:50%">	
+
+		<?php foreach($posts as $post){?>
+		
 		<img style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">
-		<font face = "Calibri" size = "4" color = "black"> Hidden Name | </font> <font face = "Calibri" size = "4" color = "darkgray"> College	 </font>
+		<font face = "Calibri" size = "4" color = "black"> &nbsp; <?php echo $post->hidden_name;?>| </font> <font face = "Calibri" size = "4" color = "darkgray"> <?php echo $post->college;?>	 </font>
 		<div style = "margin-top: -1.5%" class="w3-container w3-section w3-pale-red w3-round w3-border">
-			<p>I stand in fear
-				As she gets near
-				Then everything's okay
-				I hope this feeling never goes 
+			<p><font color = "darkred"> <b><?php echo $post->confession_title;?></b></font></p>
+			<p><?php echo $post->confession_text;?>
 			<hr></p>
 			
 			<div> 
 				<a href = "#"> <font class = "postMargin left" style = "margin-right: 10px;" size = "2" >Agree </font> </a> 
 				<a href = "#"> <font class = "postMargin left" size = "2" >Disagree </font> </a>
-				<font class = "postMargin right" size = "2" >Time/Date </font>
+				<font class = "postMargin right" size = "2" ><?php echo $post->time;?>/<?php echo $post->date;?> </font>
 			</div>
 		</div>
-
-
 		
 		<br>
-		<img style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">
-		<font face = "Calibri" size = "4" color = "black"> Hidden Name | </font><font face = "Calibri" size = "4" color = "darkgray"> College	 </font> <br />
-		<div class="w3-container w3-section w3-pale-red w3-round w3-border">
-		<p>London is the most populous city in the United Kingdom,
-		with a metropolitan area of over 9 million inhabitants. <hr></p>
-			<div > 
-				<a href = "#"> <font class = "postMargin left" style = "margin-right: 10px;" size = "2" >Agree </font> </a> 
-				<a href = "#"> <font class = "postMargin left" size = "2" >Disagree </font> </a>
-				<font class = "postMargin right" size = "2" >Time/Date </font>
-			</div>
-		</div>
-
-		
-		<br>
-		<img style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">
-		<font face = "Calibri" size = "4" color = "black"> Hidden Name | </font><font face = "Calibri" size = "4" color = "darkgray"> College	 </font> <br />
-		<div class="w3-container w3-section w3-pale-red w3-round w3-border">
-		<p>London is the most populous city in the United Kingdom,
-		with a metropolitan area of over 9 million inhabitants. <hr></p>
-			<div > 
-				<a href = "#"> <font class = "postMargin left" style = "margin-right: 10px;" size = "2" >Agree </font> </a> 
-				<a href = "#"> <font class = "postMargin left" size = "2" >Disagree </font> </a>
-				<font class = "postMargin right" size = "2" >Time/Date </font>
-			</div>
-		</div>
-
-		<br>
-		<img style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">
-		<font style = "margin: auto;" face = "Calibri" size = "4" color = "white"> Hidden Name	 </font> <br />
-		<div  class = "container3 post">
-				<font style = "margin: 5px;" face = "Calibri" size = "4" color = "white"> Pictures or posts anything else	 </font> <br><hr>
-				<div style = "margin-top: 5px;">
-					<font style = "margin: 0 3% 0 3%" face = "Calibri" size = "3" color = "white"> Like </font>
-					<font style = "margin: 0 3% 0 3%" face = "Calibri" size = "3" color = "white"> Comment </font>
-					<font style = "margin: 5px; float: right;" face = "Calibri" size = "2" color = "white"> Date/Time </font>
-				</div>
-		</div>
-		
-		<br>
-		<img style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">
-		<font style = "margin: auto;" face = "Calibri" size = "4" color = "white"> Hidden Name</font> <br />
-		<div class = "container3 post">
-				<font style = "margin: 5px;" face = "Calibri" size = "4" color = "white"> Pictures or posts anything else	 </font> <br><hr>
-				<div style = "margin-top: 5px;">
-					<font style = "margin: 0 3% 0 3%" face = "Calibri" size = "3" color = "white"> Like </font>
-					<font style = "margin: 0 3% 0 3%" face = "Calibri" size = "3" color = "white"> Comment </font>
-					<font style = "margin: 5px; float: right;" face = "Calibri" size = "2" color = "white"> Date/Time </font>
-				</div>
-		</div>
-		
-		<br>
-		<img style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">
-		<font style = "margin: auto;" face = "Calibri" size = "4" color = "white"> Hakeem Polistico	 </font> <br />
-		<div  class = "container3 post">
-				<font style = "margin: 5px;" face = "Calibri" size = "4" color = "white"> Pictures or posts anything else	 </font> <br><hr>
-				<div style = "margin-top: 5px;">
-					<font style = "margin: 0 3% 0 3%" face = "Calibri" size = "3" color = "white"> Like </font>
-					<font style = "margin: 0 3% 0 3%" face = "Calibri" size = "3" color = "white"> Comment </font>
-					<font style = "margin: 5px; float: right;" face = "Calibri" size = "2" color = "white"> Date/Time </font>
-				</div>
-		</div>
-		
-		<br>
-		<img style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">
-		<font style = "margin: auto;" face = "Calibri" size = "4" color = "white"> Hakeem Polistico	 </font> <br />
-		<div class = "container3 post">
-				<font style = "margin: 5px;" face = "Calibri" size = "4" color = "white"> Pictures or posts anything else	 </font> <br><hr>
-				<div style = "margin-top: 5px;">
-					<font style = "margin: 0 3% 0 3%" face = "Calibri" size = "3" color = "white"> Like </font>
-					<font style = "margin: 0 3% 0 3%" face = "Calibri" size = "3" color = "white"> Comment </font>
-					<font style = "margin: 5px; float: right;" face = "Calibri" size = "2" color = "white"> Date/Time </font>
-				</div>
-		</div>
-		
-		<br>	
+    
+         
+         
+     <?php }?>  
 		
 	  </div>
 	  
@@ -250,9 +183,9 @@ function w3_close() {
 	
 		<p>
 			<form method = "POST" action ="reqcon">
-				<input type = "hidden" name = "id_no"> 
-				<input type = "hidden" name = "date"> 
-				<input type = "hidden" name = "time"> 
+				<input type = "hidden" name = "id_no"  > 
+				<input type = "hidden" name = "date" value = "<?php echo date("Y-m-d");?>"> 
+				<input type = "hidden" name = "time" value = "<?php echo date("h:ia");?>"> 
 				<input type = "hidden" name = "account_name"> 
 
 
@@ -277,9 +210,40 @@ function w3_close() {
   </div>
 </div>
 
+<div id="id02" class="w3-modal">
+  <div style = "width: 40%; margin-top: -3%;" class="w3-modal-content w3-animate-top">
+    <header class="w3-container postModal">
+      <span onclick="document.getElementById('id02').style.display='none'"
+      class="w3-closebtn">&times;</span>
+      <h4>Full Name</h4>
+    </header>
+    <div class="w3-container ">
+		<p> <b>Info</b> </p>
+		<p class = "infoMargin" > Email: </p>
+		<p class = "infoMargin"> Contact No: </p>
+		<p class = "infoMargin"> Birthday: </p>
+		<p class = "infoMargin"> Gender: </p>
+		<hr>
+		
+		<p> <b>Student Info</b> </p>
+		<p class = "infoMargin" > Student No: </p>
+		<p class = "infoMargin"> Course: </p>
+		<p class = "infoMargin"> College: </p>
+		<hr>
+		
+		<p> <b>Confessions</b> </p>
+		<p class = "infoMargin" > Confessions Approved: </p>
+		<p class = "infoMargin"> Confessed: </p>
+		
+		<br>
+    </div>
+  </div>
+</div>
+
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
+var modal = document.getElementById('id02');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {

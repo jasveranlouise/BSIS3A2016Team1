@@ -54,8 +54,13 @@ class Users extends CI_Controller {
 	}
 	
 	public function userlist()
-	{
-		$this->load->view('welcome_message_2');
+	{	
+		$this->load->database(); // load database
+		$this->load->model('reqconfess_model'); // load model
+		$this->data['posts'] = $this->reqconfess_model->getPosts(); 
+
+		
+		$this->load->view('welcome_message_2', $this->data);
 	}
 	
 	public function register()
@@ -107,13 +112,4 @@ class Users extends CI_Controller {
 		}
 	}
 	
-	public function try2() {
-		$this->load->model('reqconfess_model');
-		if($this->input->post()) {
-				$data = $this->input->post();
-				$result = $this->reqconfess_model->try2($data);
-				redirect('users/userlist');
-		}
-			
-	}
 }
