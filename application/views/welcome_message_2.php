@@ -125,6 +125,8 @@ hr{
   <img style = "margin-right: 6%" src="<?php echo base_url();?>img/people_2.png" alt="Smiley face" height="20" width="20">People</font></a>
   <a style = "padding: 4%" href="tryit_426.htm#"><font color = "white" size = "3" style = "margin-left: 25%;" >
   <img style = "margin-right: 6%" src="<?php echo base_url();?>img/about_2.png" alt="Smiley face" height="20" width="20">About</font></a>
+  <a style = "padding: 4%" href="tryit_426.htm#"><font color = "white" size = "3" style = "margin-left: 25%;" >
+  <img style = "margin-right: 6%" src="<?php echo base_url();?>img/logout_4.png" alt="Smiley face" height="20" width="20">Logout</font></a>
 </nav>
 
 
@@ -168,9 +170,9 @@ hr{
 			
 			
 			<div> 
-				<a href = "#"> <font class = "postMargin left" size = "2" >Agree </font> </a> 
-				<a href = "#"> <font class = "postMargin left" size = "2" >Disagree </font> </a>
-				<a class = "pointer" onclick="document.getElementById('id04').style.display='block'"> <font class = "postMargin left" size = "2" >Comments </font> </a>
+				<a href = "#"> <img style = "margin: -1.2% 0% -5% 0%" class = "postMargin left" src="<?php echo base_url();?>img/agree.png" alt="Smiley face" height="20" width="20"> </a>
+				<a href = "#"> <img style = "margin: -.5% 0% -5% 5%" class = "postMargin left" src="<?php echo base_url();?>img/disagree.png" alt="Smiley face" height="20" width="20">  </a>
+				<a class = "pointer" onclick="document.getElementById('id04').style.display='block'"> <font class = "postMargin left"  style = "margin-left: 65px;" size = "2" >Comments </font> </a>
 				
 				<font class = "postMargin right" size = "2" ><?php echo $post->time;?> / <?php echo $post->date;?> </font>
 			</div>
