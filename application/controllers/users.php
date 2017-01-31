@@ -30,13 +30,10 @@ class Users extends CI_Controller {
 		{
 		if ($this->input->post())
 		{
-			
-			$this->load->model('Users_model');	
-			
+			$this->load->model('Users_model');				
 			$data = $this->input->post();
-
 			$this->Users_model->login($data['username'], $data ['password']);
-			
+	
 			$result=$this->Users_model->login($data['username'], $data ['password']);
 			
 			if(!$result) {
@@ -57,7 +54,11 @@ class Users extends CI_Controller {
 	{	
 		$this->load->database(); // load database
 		$this->load->model('reqconfess_model'); // load model
+		$this->load->model('active_model'); // load model
 		$this->data['posts'] = $this->reqconfess_model->getPosts(); 
+		$this->data['details'] = $this->active_model->getPosts();
+		$this->data['details2'] = $this->active_model->getPosts2();
+		$this->data['details3'] = $this->active_model->getPosts3();
 
 		
 		$this->load->view('welcome_message_2', $this->data);
@@ -82,8 +83,8 @@ class Users extends CI_Controller {
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]|max_length[20]|is_unique[users.username]');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]|max_length[20]|matches[cpassword]');
 		$this->form_validation->set_rules('cpassword', 'Confirm Password', 'trim|required|min_length[3]|max_length[20]');
-		$this->form_validation->set_rules('fname', 'First Name', 'trim|required|min_length[3]|max_length[20]');
-		$this->form_validation->set_rules('lname', 'Last Name', 'trim|required|min_length[3]|max_length[20]');
+		$this->form_validation->set_rules('firstname', 'First Name', 'trim|required|min_length[3]|max_length[40]');
+		$this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|min_length[3]|max_length[20]');
 				
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -113,8 +114,28 @@ class Users extends CI_Controller {
 	}
 	
 	public function profile(){
-		$this->load->view('profile');
-			
+		$this->load->view('profile');	
 	}
+	
+	public function update_info(){
+			$this->load->model('active_model');
+			
+			if($this->input->post()) {
+				$data = $this->input->post();
+				$result = $this->active_model->update($data);
+				redirect('users/userlist');
+			}
+	}
+	
+	public function update_info2(){
+			$this->load->model('active_model');
+			
+			if($this->input->post()) {
+				$data = $this->input->post();
+				$result = $this->active_model->update2($data);
+				redirect('users/userlist');
+			}
+	}
+	
 	
 }

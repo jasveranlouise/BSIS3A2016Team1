@@ -119,12 +119,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div id="body">
 				<form method = "POST" action ="Register2">
 					<font face = "Calibri" size = "3">
-						<input type = "hidden" name = "id" placeholder = "Username"> 
+						<input type = "hidden" name = "id_users" placeholder = "Username"> 
 						Username: <input type = "text" name = "username" placeholder = "Username"><br>  <?php echo form_error('username'); ?> 
 						Password: <input type = "password" name = "password" placeholder = "Password"><br>  <?php echo form_error('password'); ?> 
 						Confirm Password: <input type = "password" name = "cpassword" placeholder = "Password"><br>  <?php echo form_error('cpassword'); ?>
-						First Name: <input type = "text" name = "fname" placeholder = "First Name"><br> <?php echo form_error('fname'); ?>
-						Last Name: <input type = "text" name = "lname" placeholder = "Last Name"><br> <?php echo form_error('lname'); ?>
+						First Name: <input type = "text" name = "firstname" placeholder = "First Name"><br> <?php echo form_error('fname'); ?>
+						Last Name: <input type = "text" name = "lastname" placeholder = "Last Name"><br> <?php echo form_error('lname'); ?>
 						<input type = "Submit" value = "Sign Up"/>  <br>
 						<a href = "index" >Login</a>
 					</font>
