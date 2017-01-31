@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?php echo base_url();?>img/w3.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
 
@@ -109,6 +110,14 @@ hr{
 	margin-top: 25px;
 	margin-bottom: 25px;
 }
+.userName{
+	background-color: #8b0000; 
+	color: white; border-style: solid; 
+	border-width: 1px; 
+	border-color: gray; 
+	text-align: center;
+	width: 70%
+}
 </style>	
 	
 <body style = "background-color: #fbf3f2;">
@@ -133,16 +142,33 @@ hr{
 
 <header style = "padding: 1%" class="w3-border-bottom w3-border-black theme w3-container fix width">
     
+	<?php foreach($details as $detail){?>
+	
 	<span class="w3-opennav w3-xlarge" onclick="w3_open()" id="openNav">&#9776;</span> 
 	<font face = "Eraser" size = "5" color = "white"> &nbsp; 	U share </font>
 	<font color = "white" size = "6"> | </font>	  <font face = "Century Gothic" size = "5" color = "white"> Confessions </font>
-    <div style = "float: right; margin-right: 2%; ">
-		<font face = "Calibri" size = "6" color = "white">  Jasver Salva </font>
-		<a onclick="document.getElementById('id02').style.display='block'">
-			<img class = "pointer" style = "margin: 0% 0% -5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="40" width="40"> 
-		</a>
+    <div style = "float: right; margin-right: 20px; margin-top: 3px;">
+		<table>
+			<tr>
+				<td>
+					<font face = "Century Gothic" size = "5" color = "white">  <?php echo $detail->display_name;?> </font>
+				</td>
+				<td style = "padding-left: 10px" >
+					<a onclick="document.getElementById('id02').style.display='block'">
+						<img class = "pointer" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="40" width="40"> 
+					</a>
+				</td>
+			</tr>	
+			
+		</table>
 	</div>
+	
+	<?php }?> 
+	
 </header>
+
+
+
 <div id="main">
 <br><br><br><br><br>
 
@@ -170,9 +196,9 @@ hr{
 			
 			
 			<div> 
-				<a href = "#"> <img style = "margin: -1.2% 0% -5% 0%" class = "postMargin left" src="<?php echo base_url();?>img/agree.png" alt="Smiley face" height="20" width="20"> </a>
-				<a href = "#"> <img style = "margin: -.5% 0% -5% 5%" class = "postMargin left" src="<?php echo base_url();?>img/disagree.png" alt="Smiley face" height="20" width="20">  </a>
-				<a class = "pointer" onclick="document.getElementById('id04').style.display='block'"> <font class = "postMargin left"  style = "margin-left: 65px;" size = "2" >Comments </font> </a>
+				<a href = "#"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-up fa-lg left" aria-hidden="true"></i> </a>
+				<a href = "#"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-down fa-lg left" aria-hidden="true"></i>  </a>
+				<a href = "#" onclick="document.getElementById('id04').style.display='block'"> <i style = "margin-top: -2px; margin-right: 15px;" class="fa fa-comments-o fa-lg left" aria-hidden="true"></i>  </a>
 				
 				<font class = "postMargin right" size = "2" ><?php echo $post->time;?> / <?php echo $post->date;?> </font>
 			</div>
@@ -222,7 +248,7 @@ function w3_close() {
 	
 		<p>
 			<form method = "POST" action ="reqcon">
-				<input type = "hidden" name = "id_no"  > 
+				<input type = "hidden" name = "id_confession"  > 
 				<input type = "hidden" name = "date" value = "<?php echo date("Y-m-d");?>"> 
 				<input type = "hidden" name = "time" value = "<?php echo date("h:ia");?>"> 
 				<input type = "hidden" name = "account_name"> 
@@ -232,8 +258,6 @@ function w3_close() {
 					<input class = "textBox w3-border-red" type = "text" name = "confession_title" placeholder = "Confession title">
 				<h4>Confession Text</h4> 
 					<textarea rows = "5" class = "textArea  w3-border-red" name = "confession_text" > </textarea>					
-				<h4>Confess Anonymously?
-					<input class = "w3-border w3-border-red" type = "checkbox" name = "anonymous" value = "anonymous"> </h4>
 				<h4>Hidden Name</h4>
 					<input class = "textBox w3-border-red" type = "text" name = "hidden_name" placeholder = "Hidden Name">
 				<h4>College</h4>
@@ -255,22 +279,71 @@ function w3_close() {
     <header class="w3-container postModal">
 		  <span onclick="document.getElementById('id02').style.display='none'"
 		  class="w3-closebtn">&times;</span>
-		  <center><img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>img/hakeem_2.jpg" alt="Smiley face" height="150" width="150"> </center>
-		  <h4><center>Hakeem Polistico</center></h4>
+		  
+		  <?php foreach($details as $detail){?>
+		  
+			<center>
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>img/hakeem_2.jpg" alt="Smiley face" height="150" width="150"> 
+			</center>
+			
+			<h4>
+				<center>
+					<?php echo $detail->display_name;?>  
+				</center>
+			</h4>
+			
     </header>
     <div class="w3-container ">
 	
 	<font face = "Century Gothic" size = "3" >
 		
-		<p> <b style = "left">Info</b> <a class = "pointer" onclick="document.getElementById('id03').style.display='block'" style = "float: right;" > edit </a></p>
+		<p> 
+			<b style = "left">Info</b> 
+			<a class = "pointer" onclick="document.getElementById('id03').style.display='block'" style = "float: right;" > 
+				<i  class="fa fa-edit fa-2x left" aria-hidden="true"></i> 
+			</a>
+		</p>
+		
+		
+		
 		<table>
 			<tr >
-				<td width = "25%">
+				<td width = "28%">
+					<p class = "infoMargin" > First Name:</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <font color = "gray"> <?php echo $detail->first_name;?>   </font></p>
+				</td>
+			</tr>
+			
+			<tr >
+				<td width = "28%">
+					<p class = "infoMargin" > Last Name:</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <font color = "gray"> <?php echo $detail->last_name;?>   </font></p>
+				</td>
+			</tr>
+			
+			<tr >
+				<td width = "28%">
+					<p class = "infoMargin" > Middle Name:</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <font color = "gray"> <?php echo $detail->middle_name;?>   </font></p>
+				</td>
+			</tr>
+			
+			<tr >
+				<td width = "28%">
 					<p class = "infoMargin" > Email:</p>
 				</td>
 				
 				<td>
-					<p class = "infoMargin" > <font color = "gray"> hjpolistico@gmail.com </font></p>
+					<p class = "infoMargin" > <font color = "gray"> <?php echo $detail->email;?>   </font></p>
 				</td>
 			</tr>
 			
@@ -280,17 +353,17 @@ function w3_close() {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" > <font color = "gray"> 0997-586-4782 </font></p>
+					<p class = "infoMargin" > <font color = "gray"> <?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>   </font></p>
 				</td>
 			</tr>
 			
 			<tr>
 				<td>
-					<p class = "infoMargin" > Birthday:</p>
+					<p class = "infoMargin" > Birthdate:</p>
 				</td>
 				
 				<td>
-					<p class = "infoMargin" > <font color = "gray"> July 22 </font></p>
+					<p class = "infoMargin" > <font color = "gray"> <?php $a = $detail->birthdate; if( $a == '0000-00-00') {echo "";} else {echo "$a";} ?>   </font></p>
 				</td>
 			</tr>
 			
@@ -300,21 +373,24 @@ function w3_close() {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" > <font color = "gray"> Male </font></p>
+					<p class = "infoMargin" > <font color = "gray"> <?php echo $detail->sex;?>   </font></p>
 				</td>
 			</tr>
 		</table>
 		<hr>
+		<?php }?>
+		
+		<?php foreach($details2 as $detail2){?>
 		
 		<p> <b>Student Info</b> </p>
 		<table>
 			<tr >
-				<td width = "25%">
+				<td width = "28%">
 					<p class = "infoMargin" > Student No:</p>
 				</td>
 				
 				<td>
-					<p class = "infoMargin" > <font color = "gray"> 14-038-014 </font></p>
+					<p class = "infoMargin" > <font color = "gray"> <?php echo $detail2->student_no;?> </font></p>
 				</td>
 			</tr>
 			 
@@ -324,7 +400,7 @@ function w3_close() {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" > <font color = "gray"> Bachelor of Science in Information System </font></p>
+					<p class = "infoMargin" > <font color = "gray"> <?php echo $detail2->course;?> </font></p>
 				</td>
 			</tr>
 			
@@ -334,7 +410,7 @@ function w3_close() {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" > <font color = "gray"> College of Science </font></p>
+					<p class = "infoMargin" > <font color = "gray"> <?php echo $detail2->college;?> </font></p>
 				</td>
 			</tr>
 			
@@ -344,7 +420,7 @@ function w3_close() {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" > <font color = "gray"> N/A </font></p>
+					<p class = "infoMargin" > <font color = "gray"> <?php $a = $detail2->year_graduated; if($a == '0000'){echo "";} else {echo $a;} ?> </font></p>
 				</td>
 			</tr>
 			
@@ -354,30 +430,34 @@ function w3_close() {
 			
 		</table>
 		<hr>
+		<?php }?>
 		
+		<?php foreach($details3 as $detail3){?>
 		<p> <b>Confessions</b> </p>
 		<table>
 			<tr >
-				<td width = "25%">
+				<td width = "28%">
 					<p class = "infoMargin" > Confession Approved:</p>
 				</td>
 				
 				<td>
-					<p class = "infoMargin" > <font color = "gray"> 2 </font></p>
+					<p class = "infoMargin" > <font color = "gray"> <?php echo $detail3->confession_approved;?> </font></p>
 				</td>
 			</tr>
 			
 			<tr>
 				<td>
-					<p class = "infoMargin" > Confessions:</p>
+					<p class = "infoMargin" > Confession Requests:</p>
 				</td>
 				
 				<td>
-					<p class = "infoMargin" > <font color = "gray"> 10 </font></p>
+					<p class = "infoMargin" > <font color = "gray"> <?php echo $detail3->confession_requests;?> </font></p>
 				</td>
 			</tr>
 						
 		</table>
+		<?php }?>
+		  
 		
 		<br>
 	</font>
@@ -389,11 +469,24 @@ function w3_close() {
 <div id="id03" class="w3-modal">
  
   <div style = "width: 40%; margin-top: -1%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
+  
+  <?php foreach($details as $detail){?>
+  
     <header class="w3-container postModal">
 		  <span onclick="document.getElementById('id03').style.display='none'"
 		  class="w3-closebtn">&times;</span>
-		  <center><img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>img/hakeem_2.jpg" alt="Smiley face" height="150" width="150"> </center>
-		  <h4><center>Hakeem Polistico</center></h4>
+		  
+		<center>
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>img/hakeem_2.jpg" alt="Smiley face" height="150" width="150"> 
+		</center>
+		  
+	<form method = "POST" action ="update_info">	
+		
+		<h4>
+			<center> 
+				<input class = "userName" type "text" name = "display_name" value = "<?php echo $detail->display_name;?>">
+			</center>
+		</h4>
     </header>
     <div class="w3-container ">
 	
@@ -401,14 +494,44 @@ function w3_close() {
 		
 		<p> <b>Info</b> </p>
 		<table>
-			<form>
+			
+			<tr >
+				<td width = "28%">
+					<p class = "infoMargin" > First Name:</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" >  <input class = "inputWidth" type = "text" name = "first_name" value = "<?php echo $detail->first_name;?>"  > </p>
+				</td>
+			</tr>
+			
+			<tr >
+				<td width = "25%">
+					<p class = "infoMargin" > Last Name:</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" >  <input class = "inputWidth" type = "text" name = "last_name" value = "<?php echo $detail->last_name;?>" > </p>
+				</td>
+			</tr>
+			
+			<tr >
+				<td width = "25%">
+					<p class = "infoMargin" > Middle Name:</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" >  <input class = "inputWidth" type = "text" name = "middle_name" value = "<?php echo $detail->middle_name;?>" > </p>
+				</td>
+			</tr>
+			
 			<tr >
 				<td width = "25%">
 					<p class = "infoMargin" > Email:</p>
 				</td>
 				
 				<td>
-					<p class = "infoMargin" >  <input class = "inputWidth" type = "email" name = "email" > </p>
+					<p class = "infoMargin" >  <input class = "inputWidth" type = "email" name = "email" value = "<?php echo $detail->email;?>"  > </p>
 				</td>
 			</tr>
 			
@@ -418,7 +541,7 @@ function w3_close() {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" ><input class = "inputWidth" type = "text" name = "contact_no" ></p>
+					<p class = "infoMargin" ><input class = "inputWidth" type = "number" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
 				</td>
 			</tr>
 			
@@ -428,7 +551,7 @@ function w3_close() {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" > <input class = "inputWidth" type = "date" name = "birthdate" ></p>
+					<p class = "infoMargin" > <input class = "inputWidth" type = "date" name = "birthdate" value = "<?php $a = $detail->birthdate; if( $a == '0000-00-00') {echo "";} else {echo "$a";} ?>"></p>
 				</td>
 			</tr>
 			
@@ -440,76 +563,85 @@ function w3_close() {
 				<td>
 					<p class = "infoMargin" > 
 					<select class="w3-select w3-border paddingtb inputWidth" name="sex">
-						<option value="" disabled selected>Choose your option</option>
-						<option value="male">Male</option>
-						<option value="female">Female</option>
+						<option <?php $s = $detail->sex; if($s == "") echo "selected"?> value="" disabled selected>Choose your option</option>
+						<option <?php $s = $detail->sex; if($s == "Male") echo "selected"?> value="Male">Male</option>
+						<option <?php $s = $detail->sex; if($s == "Female") echo "selected"?> value="Female">Female</option>
 					</select></p>
 				</td>
 			</tr>
 		</table>
+		
+		<input style = "margin-left: 82%;" type = "submit" value = "save">
+		</form>	
+		
+		<?php }?>  
+		
 		<hr>
 		
 		<p> <b>Student Info</b> </p>
-		<table>
-			<tr >
-				<td width = "25%">
-					<p class = "infoMargin" > Student No:</p>
-				</td>
+			
+		<form method = "POST" action ="update_info2">
+			<?php foreach($details2 as $detail2){?>
+			<table>
+				<tr >
+					<td width = "28%">
+						<p class = "infoMargin" > Student No:</p>
+					</td>
+					
+					<td>
+						<p class = "infoMargin" > <input class = "inputWidth" value = "<?php echo $detail2->student_no;?>" placeholder = "xx-xxx-xx" pattern = "\d{2}[\-]\d{3}[\-]\d{3}" type = "text" name = "student_no" ></p>
+					</td>
+				</tr>
+					
+				<tr>
+					<td>
+						<p class = "infoMargin" > Course:</p>
+					</td>
+					
+					<td>
+						<p class = "infoMargin" > <input class = "inputWidth" type = "text" name = "course" value = "<?php echo $detail2->course;?>"></p>
+					</td>
+				</tr>
 				
-				<td>
-					<p class = "infoMargin" > <input class = "inputWidth" placeholder = "xx-xxx-xx" pattern = "\d{2}[\-]\d{3}[\-]\d{3}" type = "text" name = "student_no" ></p>
-				</td>
-			</tr>
+				<tr>
+					<td>
+						<p class = "infoMargin" > College:</p>
+					</td>
+					
+					<td>
+						<p class = "infoMargin" > <select class="w3-select w3-border paddingtb inputWidth" name="college">
+							<option <?php $c = $detail2->college; if($c == "") echo "selected"?> value="" disabled selected>Choose your option</option>
+							<option <?php $c = $detail2->college; if($c == "College of Science") echo "selected"?> value="College of Science">College of Science</option>
+							<option <?php $c = $detail2->college; if($c == "College of Engineering") echo "selected"?> value="College of Engineering">College of Engineering</option>
+							<option <?php $c = $detail2->college; if($c == "College of Industrial Technology") echo "selected"?> value="College of Industrial Technology">College of Industrial Technology</option>
+							<option <?php $c = $detail2->college; if($c == "College of Industrial Education") echo "selected"?> value="College of Industrial Education">College of Industrial Education</option>
+							<option <?php $c = $detail2->college; if($c == "College of Architecture and Fine Arts") echo "selected"?> value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
+							<option <?php $c = $detail2->college; if($c == "College of Liberal Arts") echo "selected"?> value="College of Liberal Arts">College of Liberal Arts</option>
+						</select></p>
+					</td>
+				</tr>
 				
-			<tr>
-				<td>
-					<p class = "infoMargin" > Course:</p>
-				</td>
-				
-				<td>
-					<p class = "infoMargin" > <input class = "inputWidth" type = "text" name = "course" ></p>
-				</td>
-			</tr>
+				<tr >
+					<td width = "25%">
+						<p class = "infoMargin" > Year Graduated:</p>
+					</td>
+					
+					<td>
+						<p class = "infoMargin" ><input class = "inputWidth" type = "month" name = "year_graduated" value = "<?php echo $detail2->year_graduated;?>" ></p>
+					</td> 
+				</tr>
+			</table>
 			
-			<tr>
-				<td>
-					<p class = "infoMargin" > College:</p>
-				</td>
-				
-				<td>
-					<p class = "infoMargin" > <select class="w3-select w3-border paddingtb inputWidth" name="college">
-						<option value="" disabled selected>Choose your option</option>
-						<option value="College of Science">College of Science</option>
-						<option value="College of Engineering">College of Engineering</option>
-						<option value="College of Industrial Technology">College of Industrial Technology</option>
-						<option value="College of Industrial Education">College of Industrial Education</option>
-						<option value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
-						<option value="College of Liberal Arts">College of Liberal Arts</option>
-					</select></p>
-				</td>
-			</tr>
+			<input style = "margin-left: 82%;" type = "submit" value = "save">
 			
-			<tr >
-				<td width = "25%">
-					<p class = "infoMargin" > Year Graduated:</p>
-				</td>
-				
-				<td>
-					<p class = "infoMargin" ><input class = "inputWidth" type = "month" name = "year_graduated" ></p>
-				</td> 
-			</tr>
-			
-			
-			
-			
-			
-		</table>
+			<?php }?>  
+		</form>
 		<hr>
 		
 		<p> <b>Confessions</b> </p>
 		<table>
 			<tr >
-				<td width = "25%">
+				<td width = "28%">
 					<p class = "infoMargin" > Confession Approved:</p>
 				</td>
 				
@@ -520,7 +652,7 @@ function w3_close() {
 			
 			<tr>
 				<td>
-					<p class = "infoMargin" > Confessions:</p>
+					<p class = "infoMargin" > Confession Requests:</p>
 				</td>
 				
 				<td>
@@ -528,8 +660,7 @@ function w3_close() {
 				</td>
 			</tr>
 		</table>
-			<input style = "margin-left: 45%;" type = "submit" value = "save">
-		</form>			
+					
 		
 		<br>
 		<br>
