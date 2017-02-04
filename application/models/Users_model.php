@@ -20,19 +20,18 @@ class Users_model extends CI_Model{
 		}
 		
 		else {
+			
 		
 		$data2 = array(
                'log' => 1,
             );
 			
 		$this->db->update('users', $data2, "username = '$username'");		
-			
-			
-		return TRUE;
 		
 		
+		return $result;
 		
-	}
+		}	
 	}
 	
 	public function add($data) {

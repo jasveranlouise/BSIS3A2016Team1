@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?php echo base_url();?>img/w3.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>ushare.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
@@ -118,7 +119,9 @@ hr{
 	text-align: center;
 	width: 70%
 }
-</style>	
+</style>
+</style>
+	
 	
 <body style = "background-color: #fbf3f2;">
 
@@ -126,46 +129,71 @@ hr{
   <a href="javascript:void(0)"
   onclick="w3_close()"
   class="w3-closenav w3-large " style = "padding: 3%"  > <font color = "white">  Close &times; </font></a>
-  <a style = "padding: 4%;" href="tryit_426.htm#"><font color = "white" size = "3" style = "margin-left: 25%;">
-  <img style = "margin-right: 6%;" src="<?php echo base_url();?>img/home_2.png" alt="Smiley face" height="20" width="20">Feed</font></a>
-  <a style = "padding: 4%" href="profile"><font color = "white" size = "3" style = "margin-left: 25%;" >
-  <img style = "margin-right: 6%" src="<?php echo base_url();?>img/profile_2.png" alt="Smiley face" height="20" width="20">Profile</font></a>
-  <a style = "padding: 4%" href="tryit_426.htm#"><font color = "white" size = "3" style = "margin-left: 25%;" >
-  <img style = "margin-right: 6%" src="<?php echo base_url();?>img/people_2.png" alt="Smiley face" height="20" width="20">People</font></a>
-  <a style = "padding: 4%" href="tryit_426.htm#"><font color = "white" size = "3" style = "margin-left: 25%;" >
-  <img style = "margin-right: 6%" src="<?php echo base_url();?>img/about_2.png" alt="Smiley face" height="20" width="20">About</font></a>
-  <a style = "padding: 4%" href="tryit_426.htm#"><font color = "white" size = "3" style = "margin-left: 25%;" >
-  <img style = "margin-right: 6%" src="<?php echo base_url();?>img/logout_4.png" alt="Smiley face" height="20" width="20">Logout</font></a>
+  
+  
+	<a style = "padding: 4%;" href="tryit_426.htm#">
+		<font color = "white" size = "3" style = "margin-left: 25%;">
+			<img style = "margin-right: 6%;" src="<?php echo base_url();?>img/home_2.png" alt="Smiley face" height="20" width="20">Feed
+		</font>
+	</a>
+	
+	<a style = "padding: 4%" href="tryit_426.htm#">
+		<font color = "white" size = "3" style = "margin-left: 25%;" >
+			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/people_2.png" alt="Smiley face" height="20" width="20">People
+		</font>
+	</a>
+	
+	<a style = "padding: 4%" href="tryit_426.htm#">
+		<font color = "white" size = "3" style = "margin-left: 25%;" >
+			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/about_2.png" alt="Smiley face" height="20" width="20">About
+		</font>
+	</a>
+	
+	<a style = "padding: 4%" href="tryit_426.htm#">
+		<font color = "white" size = "3" style = "margin-left: 25%;" >
+			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/logout_4.png" alt="Smiley face" height="20" width="20">Logout
+		</font>
+	</a>
 </nav>
 
 
+<div id="header">
+	<header style = "padding: 1%; height: 12%.0" class="w3-border-bottom w3-border-black theme w3-container fix width">
+		
+		<?php foreach($details as $detail){?>
+		
+		<span class="w3-opennav w3-xlarge" onclick="w3_open()" id="openNav">&#9776;</span> 
 
-<header style = "padding: 1%" class="w3-border-bottom w3-border-black theme w3-container fix width">
-    
-	<?php foreach($details as $detail){?>
-	
-	<span class="w3-opennav w3-xlarge" onclick="w3_open()" id="openNav">&#9776;</span> 
-	<font face = "Eraser" size = "5" color = "white"> &nbsp; 	U share </font>
-	<font color = "white" size = "6"> | </font>	  <font face = "Century Gothic" size = "5" color = "white"> Confessions </font>
-    <div style = "float: right; margin-right: 20px; margin-top: 3px;">
-		<table>
-			<tr>
-				<td>
-					<font face = "Century Gothic" size = "5" color = "white">  <?php echo $detail->display_name;?> </font>
-				</td>
-				<td style = "padding-left: 10px" >
-					<a onclick="document.getElementById('id02').style.display='block'">
-						<img class = "pointer" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="40" width="40"> 
-					</a>
-				</td>
-			</tr>	
-			
-		</table>
-	</div>
-	
-	<?php }?> 
-	
-</header>
+			<font face = "Eraser" size = "5" color = "white"> 
+				&nbsp; 	U share 
+			</font>
+			<font color = "white" size = "6"> 
+				| 
+			</font>	 
+			<font face = "Century Gothic" size = "5" color = "white">
+				Confessions 
+			</font>
+
+		<div id = "user" style = "float: right; margin-right: 20px; margin-top: 5px;">
+			<table>
+				<tr>
+					<td>
+						<font face = "Century Gothic" size = "5" color = "white">  <?php echo $detail->display_name;?> </font>
+					</td>
+					<td style = "padding-left: 10px" >
+						<a onclick="document.getElementById('id02').style.display='block'">
+							<img class = "pointer" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="40" width="40"> 
+						</a>
+					</td>
+				</tr>	
+				
+			</table>
+		</div>
+		
+		<?php }?> 
+		
+	</header>
+</div>
 
 
 
@@ -222,14 +250,18 @@ hr{
       
 <script>
 function w3_open() {
-  document.getElementById("main").style.marginLeft = "18%";
-  document.getElementById("mySidenav").style.marginTop = "76px";
-  document.getElementById("mySidenav").style.width = "18%";
+   
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("header").style.marginLeft = "20%";
+  document.getElementById("user").style.marginRight = "20%";
+  document.getElementById("mySidenav").style.width = "20%";
   document.getElementById("mySidenav").style.display = "block";
   document.getElementById("openNav").style.display = 'none';
 }
 function w3_close() {
+  document.getElementById("user").style.marginRight = "1.5%";
   document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("header").style.marginLeft = "0%";
   document.getElementById("mySidenav").style.display = "none";
   document.getElementById("openNav").style.display = "inline-block";
 }

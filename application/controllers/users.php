@@ -23,33 +23,37 @@ class Users extends CI_Controller {
 		
 		
 		if ($this->form_validation->run() == FALSE)
-		{
-			$this->load->view('users/index');
-		}
+			{
+				$this->load->view('users/index');
+			}
+		
+		
 		else
 		{
-		if ($this->input->post())
-		{
-			$this->load->model('Users_model');				
-			$data = $this->input->post();
-			$this->Users_model->login($data['username'], $data ['password']);
-	
-			$result=$this->Users_model->login($data['username'], $data ['password']);
-			
-			if(!$result) {
-				redirect('/users/');
+			if ($this->input->post())
+			{
+				$this->load->model('Users_model');				
+				$data = $this->input->post();
+				$this->Users_model->login($data['username'], $data ['password']);
+		
+				$result=$this->Users_model->login($data['username'], $data ['password']);
+				
+				if(!$result) {
+					redirect('/users/');
+				}
+				
+				else {
+					redirect ('/users/userlist');
+				}
+				
+				echo $result;
+				exit();
 			}
-			else {
-				redirect ('/users/userlist');
-			}
-			
-			echo $result;
-			exit();
-		}
 		}
 		
 	}
-	
+		
+
 	public function userlist()
 	{	
 		$this->load->database(); // load database

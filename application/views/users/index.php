@@ -5,6 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?php echo base_url();?>img/w3.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>css/ushare.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
 
@@ -12,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 	body {
-        background-image: url(<?=base_url()?>img/1.jpg);
+        
 		margin: 0px;
 		font: 13px/20px normal Helvetica, Arial, sans-serif;
 		color: #4F5155;
@@ -49,30 +52,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	#container {
 		margin: auto;
-		margin-top: 30%;
-		margin-bottom: 30%;
+		margin-top: 22.5%;
+		margin-bottom: 22.5%;
 		border: 1px solid #D0D0D0;
 		box-shadow: 0 0 8px #D0D0D0;
-		width: 70%;
+		width: 300px;
 		color: white;
 	}
 	
-	input[type=text]{
-		width: 98%;
-		margin: 4px;
-		margin-left: 2px;
-		padding: 3px;
-	}
-		input[type=password]{
-		width: 98%;
-		margin: 4px;
-		margin-left: 2px;
-		padding: 3px;
-	}
-	
+
 	input[type=submit] {
     width: 99%;
-    background-color: #3d3d3d;
+    background-color: #5c1526;
     color: white;
     padding: 10px 20px;
     margin: 8px 0;
@@ -103,20 +94,53 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</style>
 </head>
 <body>
-<div  class="w3-row-padding">
-	<div class="w3-half">
-		.
+
+
+
+<div  class="w3-row w3-border">
+
+	<div class="w3-third w3-border">
+		<div style = "padding: 15px;" class = "theme" >
+			<br><br><br><br><br><br><br><br><br>
+			<center>
+
+				<font color = "gray" size="3px">
+					<font color = "white" size = "6" face = "Eraser">U share  </font> <br>Technological University of the Philippines<br>Official Website for Confessions
+				</font>
+				<br><br>
+
+				<font color = "white" size = "3">
+					Finding friends with the same disorder  <b> Priceless </b>
+				</font>
+
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			</center>
+
+
+		</div>
 	</div>
 	
-	<div class="w3-half">
+
+	<div class="w3-twothird w3-border">
+	
+
 		<div id="container">
-			<h1><font face = "Eraser" >U share </font></h1>
+			<h1><font color = "black" face = "Century Gothic" >Log in </font></h1>
 
 			<div id="body">
 				<form method = "POST" action ="Login">
 					<font face = "Calibri" size = "3">
-						Username: <input type = "text" name = "username" placeholder = "Username"> <?php echo form_error('username'); ?> 
-						Password: <input type = "password" name = "password" placeholder = "Password"> <?php echo form_error('password'); ?> 
+						
+						<div class="input-group margin-bottom-sm" style = "margin-bottom: 5px;" >
+						  <span class="input-group-addon"><i class="fa fa-user-o fa-fw"></i></span>
+						  <input class="form-control" type="text" name = "username" placeholder="Username">
+						</div>
+						
+						<div class="input-group">
+						  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+						  <input class="form-control" type="password" name = "password" placeholder="Password">
+						</div>
+						
 						<input type = "Submit" value = "Login"/> <br>
 					</font>
 					<a href = "register"> Register</a> 
@@ -125,6 +149,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			
 		</div>
+		
+
 		
 	</div>
 </div>

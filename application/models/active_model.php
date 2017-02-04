@@ -5,7 +5,8 @@ class active_model extends CI_Model{
 		
 		parent::__construct();
 	}
-
+	
+	
 	
 	function getPosts(){
 		$this->db->select('*');
