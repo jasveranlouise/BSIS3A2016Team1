@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?php echo base_url();?>img/w3.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/ushare.css">
-	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
@@ -97,35 +97,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-<div  class="w3-row w3-border">
+<div  class="w3-row">
 
-	<div class="w3-third w3-border">
-		<div style = "padding: 15px;" class = "theme" >
-			<br><br><br><br><br><br><br><br><br>
+	<div class="w3-third">
+		<div style = "padding: 15px; background-size: cover; margin-bottom: -10px;" class = "theme" >
+			<br><br><br><br><br><br>
 			<center>
 
-				<font color = "gray" size="3px">
+				<img src = "<?php echo base_url();?>img/commenting-o.png" height = "100px">  <br><br><br>
+				<font color = "darkgray" size="3px">
 					<font color = "white" size = "6" face = "Eraser">U share  </font> <br>Technological University of the Philippines<br>Official Website for Confessions
 				</font>
 				<br><br>
 
-				<font color = "white" size = "3">
-					Finding friends with the same disorder  <b> Priceless </b>
+				<font color = "darkgray" size = "3">
+					Wanna know some of the student's hidden secrets? <br>Sign Up Now!
 				</font>
 
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			</center>
+			<br><br><br><br><br><br>
+				
+
+				<br><br><br><br>
+			
 
 
 		</div>
 	</div>
 	
 
-	<div class="w3-twothird w3-border">
+	<div class="w3-twothird">
 	
 
 		<div id="container">
-			<h1><font color = "black" face = "Century Gothic" >Log in </font></h1>
+			
+			 <h1>
+			 	<font color = "black" face = "Century Gothic"> Login  &nbsp; </font>
+			 </h1>
 
 			<div id="body">
 				<form method = "POST" action ="Login">
@@ -141,11 +149,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						  <input class="form-control" type="password" name = "password" placeholder="Password">
 						</div>
 						
-						<input type = "Submit" value = "Login"/> <br>
+						<input type = "Submit" value = "Sign in"/> <br>
 					</font>
 					<a href = "register"> Register</a> 
 				</form>
-				
+
 			</div>
 			
 		</div>
