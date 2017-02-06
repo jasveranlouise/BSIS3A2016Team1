@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?php echo base_url();?>img/w3.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>ushare.css">
-	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
 
@@ -131,7 +131,7 @@ hr{
   class="w3-closenav w3-large " style = "padding: 3%"  > <font color = "white">  Close &times; </font></a>
   
   
-	<a style = "padding: 4%;" href="tryit_426.htm#">
+	<a style = "padding: 4%;" href="feed">
 		<font color = "white" size = "3" style = "margin-left: 25%;">
 			<img style = "margin-right: 6%;" src="<?php echo base_url();?>img/home_2.png" alt="Smiley face" height="20" width="20">Feed
 		</font>
@@ -149,7 +149,7 @@ hr{
 		</font>
 	</a>
 	
-	<a style = "padding: 4%" href="tryit_426.htm#">
+	<a style = "padding: 4%" href="logout">
 		<font color = "white" size = "3" style = "margin-left: 25%;" >
 			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/logout_4.png" alt="Smiley face" height="20" width="20">Logout
 		</font>
@@ -157,48 +157,65 @@ hr{
 </nav>
 
 
+<?php foreach($details as $detail){?>
 <div id="header">
-	<header style = "padding: 1%; height: 12%.0" class="w3-border-bottom w3-border-black theme w3-container fix width">
-		
-		<?php foreach($details as $detail){?>
-		
-		<span class="w3-opennav w3-xlarge" onclick="w3_open()" id="openNav">&#9776;</span> 
-
-			<font face = "Eraser" size = "5" color = "white"> 
-				&nbsp; 	U share 
-			</font>
-			<font color = "white" size = "6"> 
-				| 
-			</font>	 
-			<font face = "Century Gothic" size = "5" color = "white">
-				Confessions 
-			</font>
-
-		<div id = "user" style = "float: right; margin-right: 20px; margin-top: 5px;">
-			<table>
+	<header>
+	<ul class="w3-navbar theme w3-padding-16" >
+  <li>	
+  		<table style = "margin-bottom: -10px" >	
 				<tr>
+					<td style = "padding-left: 10px; padding-right: 10px">
+						<span class="w3-opennav w3-xlarge" onclick="w3_open()" id="openNav">&#9776;</span>
+					</td>
 					<td>
-						<font face = "Century Gothic" size = "5" color = "white">  <?php echo $detail->display_name;?> </font>
+						<font face = "Eraser" size = "5" color = "white"> Ushare |</font>
+
 					</td>
 					<td style = "padding-left: 10px" >
-						<a onclick="document.getElementById('id02').style.display='block'">
-							<img class = "pointer" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="40" width="40"> 
+						<font face = "Century Gothic" size = "5" color = "white"> Home</font>
+					</td>
+				</tr>	
+				
+		</table>
+  </li>
+  <li id = "user" class = "w3-right">
+  			<table style="margin-top: -10px; margin-bottom: -10px">
+				<tr style="padding: -3px;">
+					<td>
+						<a class = "pointer w3-hover-none" onclick="document.getElementById('id02').style.display='block'">
+							<font face = "Century Gothic" size = "5" color = "white">  <?php echo $detail->display_name;?> </font>
+						</a>
+					</td>
+					<td>
+						<a style="margin-left: -30px;" class = "pointer w3-hover-none" onclick="document.getElementById('id02').style.display='block'">
+								<span class="fa-stack fa-lg">
+								  <i class="fa fa-circle fa-stack-2x"></i>
+								  <i class="fa fa-user-o fa-stack-1x fa-inverse"></i>
+								</span>
 						</a>
 					</td>
 				</tr>	
 				
 			</table>
-		</div>
+  </li>
+  <li class = "w3-right"></li>
+</ul>
+<?php }?> 
+
+</header>
+	
 		
-		<?php }?> 
+	
 		
-	</header>
+		
+		
+	
 </div>
 
 
 
 <div id="main">
-<br><br><br><br><br>
+<br><br>
 
 	<div class="w3-row">
 	  <div class="w3-green w3-container w3-col" style="width:25%">
@@ -253,13 +270,11 @@ function w3_open() {
    
   document.getElementById("main").style.marginLeft = "25%";
   document.getElementById("header").style.marginLeft = "20%";
-  document.getElementById("user").style.marginRight = "20%";
   document.getElementById("mySidenav").style.width = "20%";
   document.getElementById("mySidenav").style.display = "block";
   document.getElementById("openNav").style.display = 'none';
 }
 function w3_close() {
-  document.getElementById("user").style.marginRight = "1.5%";
   document.getElementById("main").style.marginLeft = "0%";
   document.getElementById("header").style.marginLeft = "0%";
   document.getElementById("mySidenav").style.display = "none";
@@ -287,16 +302,16 @@ function w3_close() {
 
 
 				<h4>Confession Title</h4>
-					<input class = "textBox w3-border-red" type = "text" name = "confession_title" placeholder = "Confession title">
+					<input class = "w3-round textBox w3-border-red" type = "text" name = "confession_title" placeholder = "Confession title">
 				<h4>Confession Text</h4> 
-					<textarea rows = "5" class = "textArea  w3-border-red" name = "confession_text" > </textarea>					
+					<textarea rows = "5" class = "w3-round textArea  w3-border-red" name = "confession_text" > </textarea>					
 				<h4>Hidden Name</h4>
-					<input class = "textBox w3-border-red" type = "text" name = "hidden_name" placeholder = "Hidden Name">
+					<input class = "w3-round textBox w3-border-red" type = "text" name = "hidden_name" placeholder = "Hidden Name">
 				<h4>College</h4>
-					<input class = "textBox w3-border-red" type = "text" name = "college" placeholder = "College">
+					<input class = "w3-round textBox w3-border-red" type = "text" name = "college" placeholder = "College">
 					<br>
 				<font style = "Century Gothic" size = "2" color = "red"> <br> *You will be notified once confession request is approved. </font>
-				<input style = "margin: -4px 0px 10px 0px;" class = "padding right w3-btn w3-white w3-border w3-border-red" type = "submit" value = "Confess" >
+				<input style = "margin: -4px 0px 10px 0px;" class = "w3-round padding right w3-btn w3-white w3-border w3-border-red" type = "submit" value = "Confess" >
 			</form>
 			<br>
 			
@@ -668,31 +683,7 @@ function w3_close() {
 			
 			<?php }?>  
 		</form>
-		<hr>
-		
-		<p> <b>Confessions</b> </p>
-		<table>
-			<tr >
-				<td width = "28%">
-					<p class = "infoMargin" > Confession Approved:</p>
-				</td>
-				
-				<td>
-					<p class = "infoMargin" > <font color = "gray"> 2 </font></p>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<p class = "infoMargin" > Confession Requests:</p>
-				</td>
-				
-				<td>
-					<p class = "infoMargin" > <font color = "gray"> 10 </font></p>
-				</td>
-			</tr>
-		</table>
-					
+		<hr>			
 		
 		<br>
 		<br>

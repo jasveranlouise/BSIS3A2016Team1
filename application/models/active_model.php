@@ -47,6 +47,11 @@ class active_model extends CI_Model{
 		$this->db->where('id_student_info', '1');
 		$this->db->update('student_info', $data); 
 	}
+
+	function logout($data){
+		$this->db->where('log','1');
+		$this->db->update('users',$data);
+	}
 }
 
 ?>

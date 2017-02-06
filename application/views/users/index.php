@@ -111,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<br><br>
 
 				<font color = "darkgray" size = "3">
-					Wanna know some of the student's hidden secrets? <br>Sign Up Now!
+					Wanna know some of the student's hidden secrets? <br><a href = "register">Sign Up Now!</a> 
 				</font>
 
 			</center>
@@ -149,9 +149,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						  <input class="form-control" type="password" name = "password" placeholder="Password">
 						</div>
 						
-						<input type = "Submit" value = "Sign in"/> <br>
+						<input style = "margin-bottom: 15px;" type = "Submit" value = "Sign in"/>
 					</font>
-					<a href = "register"> Register</a> 
 				</form>
 
 			</div>
