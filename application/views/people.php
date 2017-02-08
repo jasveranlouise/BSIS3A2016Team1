@@ -188,8 +188,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>
 function w3_open() {
    
-  document.getElementById("main").style.marginLeft = "10%";
-  document.getElementById("main").style.width = "100%";
+  document.getElementById("main").style.marginLeft = "15%";
   document.getElementById("header").style.marginLeft = "15%";
   document.getElementById("mySidenav").style.width = "15%";
   document.getElementById("mySidenav").style.display = "block";
