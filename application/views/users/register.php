@@ -5,6 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?php echo base_url();?>img/w3.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>css/ushare.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
 
@@ -12,13 +15,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 	body {
-        background-image: url(<?=base_url()?>img/1.jpg);
+        
 		margin: 0px;
 		font: 13px/20px normal Helvetica, Arial, sans-serif;
 		color: #4F5155;
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		
 	}
 
 	a {
@@ -52,37 +52,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	#container {
 		margin: auto;
-		margin-top: 20%;
-		margin-bottom: 20%;
+		margin-top: 22.5%;
+		margin-bottom: 22.5%;
 		border: 1px solid #D0D0D0;
 		box-shadow: 0 0 8px #D0D0D0;
-		width: 70%;
+		width: 300px;
 		color: white;
 	}
 	
-	input[type=text]{
-		width: 98%;
-		margin: 4px;
-		margin-left: 2px;
-		padding: 3px;
-	}
-		input[type=password]{
-		width: 98%;
-		margin: 4px;
-		margin-left: 2px;
-		padding: 3px;
-	}
-	
+
 	input[type=submit] {
     width: 99%;
-    background-color: #3d3d3d;
+    background-color: #5c1526;
     color: white;
     padding: 10px 20px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	}
 
 	input[type=submit]:hover {
@@ -102,38 +90,99 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	font-size: 14px;
 	}
 
-
 	
 	</style>
 </head>
 <body>
-<div  class="w3-row-padding">
-	<div class="w3-half">
-		.
+
+
+
+<div  class="w3-row">
+
+	<div class="w3-third">
+		<div style = "padding: 15px; background-size: cover; margin-bottom: -10px;" class = "theme" >
+			<br><br><br><br><br><br>
+			<center>
+
+				<img src = "<?php echo base_url();?>img/commenting-o.png" height = "100px">  <br><br><br>
+				<font color = "darkgray" size="3px">
+					<font color = "white" size = "6" face = "Eraser">U share  </font> <br>Technological University of the Philippines<br>Official Website for Confessions
+				</font>
+				<br><br>
+
+				<font color = "darkgray" size = "3">
+					Wanna know some of the student's hidden secrets? <br><a href = "index">Sign In Now!</a> 
+				</font>
+
+			</center>
+			<br><br><br><br><br><br>
+				
+
+				<br><br><br><br><br><br><br>
+			
+
+
+		</div>
 	</div>
 	
-	<div class="w3-half">
-		<div id="container">
-			<h1><font face = "Eraser"> U share </font></h1>
+
+	<div class="w3-twothird">
+	
+
+		<div id="container"  style="margin-bottom: 0px">
+			
+			 <h1>
+			 	<font color = "black" face = "Century Gothic"> Register  &nbsp; </font>
+			 </h1>
 
 			<div id="body">
 				<form method = "POST" action ="Register2">
 					<font face = "Calibri" size = "3">
-						<input type = "hidden" name = "id_users" placeholder = "Username"> 
-						Username: <input type = "text" name = "username" placeholder = "Username"><br>  <?php echo form_error('username'); ?> 
-						Password: <input type = "password" name = "password" placeholder = "Password"><br>  <?php echo form_error('password'); ?> 
-						Confirm Password: <input type = "password" name = "cpassword" placeholder = "Password"><br>  <?php echo form_error('cpassword'); ?>
-						First Name: <input type = "text" name = "firstname" placeholder = "First Name"><br> <?php echo form_error('fname'); ?>
-						Last Name: <input type = "text" name = "lastname" placeholder = "Last Name"><br> <?php echo form_error('lname'); ?>
-						<input type = "Submit" value = "Sign Up"/>  <br>
-						<a href = "index" >Login</a>
-					</font>
-					 
-				</form>
+						
+						<div class="input-group margin-bottom-sm" style = "margin-bottom: 5px;" >
+						  <span class="input-group-addon"><i class="fa fa-user-o fa-fw"></i></span>
+						  <input class="form-control" type="text" name = "username" placeholder="Username">
+						</div>
+						  <?php echo form_error('username'); ?> 
+						
+						
+						<div class="input-group margin-bottom-sm" style = "margin-bottom: 5px;">
+						  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+						  <input class="form-control" type="password" name = "password" placeholder="Password">
+						</div>
+						  <?php echo form_error('password'); ?> 
+						
+
+						<div class="input-group" style = "margin-bottom: 5px;">
+						  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+						  <input class="form-control" type="password" name = "cpassword" placeholder="Retype Password"> 
+						</div>
+						  <?php echo form_error('cpassword'); ?>
+						
+
+						<div class="input-group" style = "margin-bottom: 5px;">
+						  <span class="input-group-addon"><i class="fa fa-address-book-o fa-fw"></i></span>
+						  <input class="form-control" type="text" name = "firstname" placeholder="First Name">
+						</div>
+						  <?php echo form_error('fname'); ?>
 				
+
+						<div class="input-group" style = "margin-bottom: 5px;">
+						  <span class="input-group-addon"><i class="fa fa-address-book-o fa-fw"></i></span>
+						  <input class="form-control" type="text" name = "lastname" placeholder="Last Name">
+						</div>
+						  <?php echo form_error('lname'); ?>
+					
+						
+						<input style = "margin-bottom: 15px;" type = "Submit" value = "Sign in"/>
+					</font>
+				</form>
+
 			</div>
 			
 		</div>
+		
+
 		
 	</div>
 </div>

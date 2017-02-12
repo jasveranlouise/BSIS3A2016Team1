@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<header>
 	<ul class="w3-navbar theme w3-padding-16" >
   <li>	
-  		<table style = "margin-bottom: -10px" >	
+  		<table style = "margin-bottom: -10px; width: 240px;" >	
 				<tr>
 					<td style = "padding-left: 10px; padding-right: 10px">
 						<span class="w3-opennav w3-xlarge" onclick="w3_open()" id="openNav">&#9776;</span>
@@ -99,7 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</table>
   </li>
   <li id = "user" class = "w3-right">
-  			<table style="margin-top: -10px; margin-bottom: -10px">
+  			<table style="margin-top: -10px; margin-bottom: -10px; width: 280px;">
 				<tr style="padding: -3px;">
 					<td>
 						<a class = "pointer w3-hover-none" onclick="document.getElementById('id02').style.display='block'">
@@ -190,8 +190,8 @@ function w3_open() {
    
   document.getElementById("main").style.marginLeft = "10%";
   document.getElementById("main").style.width = "100%";
-  document.getElementById("header").style.marginLeft = "15%";
-  document.getElementById("mySidenav").style.width = "15%";
+  document.getElementById("header").style.marginLeft = "205px";
+  document.getElementById("mySidenav").style.width = "205px";
   document.getElementById("mySidenav").style.display = "block";
   document.getElementById("openNav").style.display = 'none';
 }
@@ -462,7 +462,8 @@ function w3_close() {
 		
 		<p> <b>Info</b> </p>
 		<table>
-			
+
+			<input type = "hidden" name="id_users" value="<?php echo $detail->id_users;?>">
 			<tr >
 				<td width = "28%">
 					<p class = "infoMargin" > First Name:</p>
@@ -551,6 +552,8 @@ function w3_close() {
 		<form method = "POST" action ="update_info2">
 			<?php foreach($details2 as $detail2){?>
 			<table>
+				<input type = "hidden" name="id_users" value="<?php echo $detail2->id_users;?>">
+
 				<tr >
 					<td width = "28%">
 						<p class = "infoMargin" > Student No:</p>

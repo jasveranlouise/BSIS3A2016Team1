@@ -68,7 +68,6 @@ class Users extends CI_Controller {
 	public function register()
 	{
 		$this->load->helper(array('form', 'url'));
-		
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		$this->load->view('users/register');

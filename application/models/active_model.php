@@ -39,12 +39,14 @@ class active_model extends CI_Model{
 	}
 	
 	function update($data){		
-		$this->db->where('id_personal_info', '1');
+		$this->db->where('id_personal_info', $data['id_users']);
+		unset($data['id_users']);
 		$this->db->update('personal_info', $data); 
 	}
 	
-	function update2($data){		
-		$this->db->where('id_student_info', '1');
+	function update2($data){
+		$this->db->where('id_student_info', $data['id_users']);
+		unset($data['id_users']);			
 		$this->db->update('student_info', $data); 
 	}
 

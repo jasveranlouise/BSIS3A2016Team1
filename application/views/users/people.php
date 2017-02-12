@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
@@ -6,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?php echo base_url();?>img/w3.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/home.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>css/people.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
@@ -29,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<a style = "padding: 4%;" href="feed">
 		<font color = "white" size = "3" style = "margin-left: 25%;">
-			<img style = "margin-right: 6%;" src="<?php echo base_url();?>img/home_2.png" alt="Smiley face" height="20" width="20">Feed
+			<img style = "margin-right: 6%;" src="<?php echo base_url();?>img/home_2.png" alt="Smiley face" height="20px" width="20px">Feed
 		</font>
 	</a>
 	
@@ -54,7 +56,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 	<div style = "padding-left: 5%; padding-right: 5%;">
-
+	<br><br><br><br><br>	<br><br><br><br><br><br><br>
+	<hr class = "sideNavHr"> 
 		<center>
 			<font color = "darkgray" size = "2">
 				USHARE Confession Site
@@ -128,115 +131,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
+
 <div id="main">
 <br><br>
 
 	<div class="w3-row">
-	  	<div class="w3-green w3-container w3-col" style="width:25%">
+	  	<div class="w3-green w3-container w3-col" style="width:20%">
 		 
 	 	 </div>
 	  	
 
-	  	<div class="w3-container w3-col" style="width:50%">	
-
-	  	<table>
-	  		<tr>
-	  			<td >
-	  				<div class="w3-container" >
-				  		<div class="w3-card-4" style="width:100%">
-				  	  		<img src="<?php echo base_url();?>img/hakeem.jpg" alt="Person" style="width:100%">
+	  	<div class="w3-container w3-col w3-borderx" style="width:60%">
+	  		<div class="w3-row">
+  	<div class="w3-container w3-third">
+    				<div class="w3-container" >
+				  		<div class="w3-card-4" style = "display: block; max-width: 100%; height: auto;">
+				  	  		<img src="<?php echo base_url();?>img/hakeem.jpg" alt="Person" style="display: block; max-width: 100%; height: auto;">
 				  	 		<div class="w3-container">
-				   	   			<h6><b>Hakeem Polistico</b></h6>
+				   	   			<h6 style = "font-size: 13px " ><b>Hakeem Andaya Polistico</b></h6>
 				   	  			<p style = "margin-top: -10px; font-size: 13px; color: gray;">College of Science</p>
 				   			</div>
 				 		</div>	
 					</div>
-					<br>
-	  			</td>
-
-	  			<td>
-	  				<div class="w3-container" >
-				  		<div class="w3-card-4" style="width:100%">
-				  	  		<img src="<?php echo base_url();?>img/hakeem.jpg" alt="Person" style="width:100%">
+					 
+  </div>
+  <div class="w3-container w3-third">
+   						<div class="w3-container" >
+				  		<div class="w3-card-4" style = "display: block; max-width: 100%; height: auto;">
+				  	  		<img src="<?php echo base_url();?>img/hakeem.jpg" alt="Person" style="display: block; max-width: 100%; height: auto;">
 				  	 		<div class="w3-container">
-				   	   			<h6><b>Hakeem Polistico</b></h6>
+				   	   			<h6 style = "font-size: 13px " ><b>Jasver Anlouise Salva</b></h6>
 				   	  			<p style = "margin-top: -10px; font-size: 13px; color: gray;">College of Science</p>
 				   			</div>
 				 		</div>	
 					</div>
-					<br>
-	  			</td>
-
-	  			<td>
-	  				<div class="w3-container" >
-				  		<div class="w3-card-4" style="width:100%">
-				  	  		<img src="<?php echo base_url();?>img/hakeem.jpg" alt="Person" style="width:100%">
+					
+  </div>
+  <div class="w3-container w3-third">
+    				<div class="w3-container" >
+				  		<div class="w3-card-4" style = "display: block; max-width: 100%; height: auto;">
+				  	  		<img src="<?php echo base_url();?>img/hakeem.jpg" alt="Person" style="display: block; max-width: 100%; height: auto;">
 				  	 		<div class="w3-container">
-				   	   			<h6><b>Hakeem Polistico</b></h6>
+				   	   			<h6 style = "font-size: 13px " ><b>Shiela Morales</b></h6>
 				   	  			<p style = "margin-top: -10px; font-size: 13px; color: gray;">College of Science</p>
 				   			</div>
 				 		</div>	
 					</div>
-					<br>
-	  			</td>
-
-	  		</tr>
-
-	  		<tr >
-	  			<td>
-	  				<div class="w3-container" >
-				  		<div class="w3-card-4" style="width:100%">
-				  	  		<img src="<?php echo base_url();?>img/hakeem.jpg" alt="Person" style="width:100%">
-				  	 		<div class="w3-container">
-				   	   			<h6><b>Hakeem Polistico</b></h6>
-				   	  			<p style = "margin-top: -10px; font-size: 13px; color: gray;">College of Science</p>
-				   			</div>
-				 		</div>	
-					</div>
-	  			</td>
-
-	  			<td>
-	  				<div class="w3-container" >
-				  		<div class="w3-card-4" style="width:100%">
-				  	  		<img src="<?php echo base_url();?>img/hakeem.jpg" alt="Person" style="width:100%">
-				  	 		<div class="w3-container">
-				   	   			<h6><b>Hakeem Polistico</b></h6>
-				   	  			<p style = "margin-top: -10px; font-size: 13px; color: gray;">College of Science</p>
-				   			</div>
-				 		</div>	
-					</div>
-	  			</td>
-
-	  			<td>
-	  				<div class="w3-container" >
-				  		<div class="w3-card-4" style="width:100%">
-				  	  		<img src="<?php echo base_url();?>img/hakeem.jpg" alt="Person" style="width:100%">
-				  	 		<div class="w3-container">
-				   	   			<h6><b>Hakeem Polistico</b></h6>
-				   	  			<p style = "margin-top: -10px; font-size: 13px; color: gray;">College of Science</p>
-				   			</div>
-				 		</div>	
-					</div>
-	  			</td>
-
-	  		</tr>
-
-
-	  		
-
-	  	</table>
-	  		
-
-			<br>
-
-			
-
-
-	
+					
+  </div>
+</div>	
+	  			
 	 	</div>
+
+	 	  	
+
+
 	  
-	  
-	  <div class="w3-container" style="width:25%">
+	  <div class="w3-container" style="width:20%">
 		 
 	  </div>
 	</div>
@@ -248,8 +199,8 @@ function w3_open() {
    
   document.getElementById("main").style.marginLeft = "10%";
   document.getElementById("main").style.width = "100%";
-  document.getElementById("header").style.marginLeft = "15%";
-  document.getElementById("mySidenav").style.width = "15%";
+  document.getElementById("header").style.marginLeft = "205px";
+  document.getElementById("mySidenav").style.width = "205px";
   document.getElementById("mySidenav").style.display = "block";
   document.getElementById("openNav").style.display = 'none';
 }
