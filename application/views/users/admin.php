@@ -94,10 +94,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					</td>
 					<td style = "padding-left: 10px" >
-						<font face = "Century Gothic" size = "5" color = "white"> Feed</font>
+						<font face = "Century Gothic" size = "5" color = "white"> Admin</font>
 					</td>
 				</tr>	
-				
 		</table>
   </li>
   </div>
@@ -136,47 +135,57 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <br><br><br><br><br>
 
 	<div class="w3-row">
-	  <div class="w3-green w3-container w3-col" style="width:25%">
+	  <div class="w3-green w3-container w3-col" style="width:15%">
 		 
 	  </div>
 	  
-	  <div class="w3-container w3-col" style="width:50%">	
+	  <div class="w3-container w3-col" style="width:70%">	
+		
+		<input type = "hidden" name = "hidden_name" value="">
+			
 
-		<?php foreach($posts as $post){?>
-		
-		<img style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">
-		<font face = "Calibri" size = "4" color = "black"> &nbsp; <?php echo $post->hidden_name;?> | </font> <font face = "Calibri" size = "4" color = "darkgray"> <?php echo $post->college;?>	 </font>
-		<div style = "margin-top: -1.5%" class="w3-container w3-section w3-pale-red w3-round w3-border">
-			<p>
-				<font face = "Calibri" size = "4" color = "darkred"> 
-					<b><?php echo $post->confession_title;?></b>
-				</font>
-			</p>		
+			<table class="w3-table-all w3-small">
+			    <tr  class = "w3-red">
+			      <th>ID</th>
+			      <th>Account Name</th>
+			      <th>Title</th>
+			      <th>Text</th>
+			      <th>Hidden Name</th>
+			      <th>College</th>
+			      <th>Date</th>
+			      <th>Time</th>
+			      <th>Action</th>
+			    </tr>
+			<?php foreach($posts as $post){?>
+			    <tr>
+			    <td><?php echo $post->id_confession;?></td>
+			    <td><?php echo $post->account_name;?></td>
+			    <td><?php echo $post->confession_title;?></td>
+			    <td><?php echo $post->confession_text;?></td>
+			    <td><?php echo $post->hidden_name;?></td>
+			    <td><?php echo $post->college;?></td>
+			    <td><?php echo $post->date;?></td>
+			    <td><?php echo $post->time;?></td>
+			    <td><font color = "darkred"><span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x"></i>
+					  <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+					</span>	
+					<span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x"></i>
+					  <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+					</span>	
+					</font>
+			    </td>
+			      
+			    </tr>
+			<?php }?>
+			</table>
 			
-		<p class = "marginTop" ><pre><font face = "Calibri" size = "4" ><?php echo $post->confession_text;?></font></pre><hr class = "hr">
-			</p> 
-			
-			
-			
-			<div> 
-				<a href = "#"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-up fa-lg left" aria-hidden="true"></i> </a>
-				<a href = "#"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-down fa-lg left" aria-hidden="true"></i>  </a>
-				<a href = "#" onclick="document.getElementById('id04').style.display='block'"> <i style = "margin-top: -2px; margin-right: 15px;" class="fa fa-comments-o fa-lg left" aria-hidden="true"></i>  </a>
-				
-				<font class = "postMargin right" size = "2" ><?php echo $post->time;?> / <?php echo $post->date;?> </font>
-			</div>
-		</div>
-		
-		<br>
-    
-         
-         
-     <?php }?>  
-		
 	  </div>
+		
+	  	
 	  
-	  
-	  <div class="w3-container w3-col" style="width:25%">
+	  <div class="w3-container w3-col" style="width:15%">
 		 
 	  </div>
 	</div>

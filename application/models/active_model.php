@@ -50,6 +50,12 @@ class active_model extends CI_Model{
 		$this->db->update('student_info', $data); 
 	}
 
+	function update3($data){
+		$this->db->where('id_confession_info', $data['id_users']);
+		unset($data['id_users']);			
+		$this->db->update('confession_info', $data); 
+	}
+
 	function logout($data){
 		$this->db->where('log','1');
 		$this->db->update('users',$data);

@@ -105,7 +105,7 @@ class Users extends CI_Controller {
 	
 	public function reqcon(){
 		$this->load->model('reqconfess_model');
-			
+
 			if($this->input->post()) {
 				$data = $this->input->post();
 				$result = $this->reqconfess_model->req($data);
@@ -113,9 +113,6 @@ class Users extends CI_Controller {
 		}
 	}
 	
-	public function profile(){
-		$this->load->view('profile');	
-	}
 	
 	public function update_info(){
 			$this->load->model('active_model');
@@ -137,6 +134,16 @@ class Users extends CI_Controller {
 			}
 	}
 
+	public function update_info3(){
+			$this->load->model('active_model');
+			
+			if($this->input->post()) {
+				$data = $this->input->post();
+				$result = $this->active_model->update3($data);
+				redirect('users/home');
+			}
+	}
+
 	public function logout(){
 		$this->load->model('active_model');
 
@@ -151,7 +158,7 @@ class Users extends CI_Controller {
 
 	public function feed(){
 		
-		redirect('users/home');
+		redirect('users/home');	
 		
 	}
 
@@ -163,13 +170,20 @@ class Users extends CI_Controller {
 		$this->data['details'] = $this->active_model->getPosts();
 		$this->data['details2'] = $this->active_model->getPosts2();
 		$this->data['details3'] = $this->active_model->getPosts3();
-
-		
-		$this->load->view('users/people', $this->data);
-
-
-		
+	
+		$this->load->view('users/people', $this->data);	
 	}
 	
+	public function admin(){
+		$this->load->database(); // load database
+		$this->load->model('reqconfess_model'); // load model
+		$this->load->model('active_model'); // load model
+		$this->data['posts'] = $this->reqconfess_model->getPosts2(); 
+		$this->data['details'] = $this->active_model->getPosts();
+		$this->data['details2'] = $this->active_model->getPosts2();
+		$this->data['details3'] = $this->active_model->getPosts3();
+	
+		$this->load->view('users/admin', $this->data);	
+	}
 	
 }
