@@ -1,0 +1,132 @@
+.fix{
+	position: fixed;
+}
+.none{
+	display: none;
+}
+.snpad{
+	padding: 3%;
+}
+.white{
+	color: white;
+}
+.snpad2{
+	padding: 4%;
+}
+.tAlignR{
+	text-align: right;
+}
+.relative{
+	position: static;
+	
+}
+.width{
+	width: 100%;
+}
+.container3 {	
+			width: 100%;
+			background-color: #6c182c;
+}
+.hr{
+	margin-bottom: 0px;
+	color: black;
+}
+
+.post{
+	padding: 5px; 
+	margin-top: 1.5%;
+}
+
+.postButton{
+	position: fixed;
+    bottom: 0;
+    right: 0;
+	margin: 0% 2% 1.5% 0%;
+}
+
+.w3-modal-content{
+	width: 50%;
+}
+
+.theme{
+	background-color: #5c1526;
+}
+.theme2{
+	background-color: #6c182c;
+}
+.margin{
+	margin: 5px;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.postMargin{
+	margin-bottom: 10px;
+	margin-top: -5px;
+	margin-right: 10px;
+}
+.postModal{
+	background-color: darkred;
+	color: white;
+}
+.textArea{
+	width: 100%;
+}
+.padding{
+	padding: 6px 10px 6px 10px;
+}
+.textBox{
+	border-width: 1px;
+	width: 100%;
+	padding: 3px;
+}
+.infoMargin{
+	margin: 0px 5px 5px 20px
+}
+.imageCircle{
+	border: solid;
+	border-width: 1.9px;
+	border-color: black;
+}
+.pointer{
+	cursor: pointer;
+}
+.inputWidth{
+	width: 90%;
+	padding-left: 5px;
+}
+.paddingtb{
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.marginTop{
+	margin-top: -5px;
+}
+.commentBox{
+	width: 90%;
+	padding: 3px;
+}
+.borderMargin{
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+.userName{
+	background-color: #8b0000; 
+	color: white; border-style: solid; 
+	border-width: 1px; 
+	border-color: gray; 
+	text-align: center;
+	width: 70%
+}
+.sideNavHr{
+	width: 90%;
+	text-align: center;
+	margin-left: 5%;
+	border-color: grey;
+}
+.h6{
+	font-size: 14px;
+}
