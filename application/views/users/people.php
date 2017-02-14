@@ -284,6 +284,7 @@ function myFunction() {
 		  <?php foreach($details as $detail){?>
 		  
 			<center>
+			
 			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" alt="Smiley face" height="150" width="150"> 
 			</center>
 			
