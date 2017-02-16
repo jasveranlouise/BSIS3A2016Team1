@@ -160,7 +160,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</tr>
 			
 
-				<tr class="w3-border"">
+				<tr class="w3-border">
 					<td style = "padding-left: 10px;"  width = "130px">
 						<img class = "w3-border" src = "<?php echo base_url();?>img/7.jpg" height = "130px" width = "130px">
 					</td>
@@ -175,7 +175,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</td>
 				</tr> 
 				
-				<tr >
+				<tr class="w3-border" >
 					<td style = "padding-left: 10px;">
 						<img class = "w3-border" src = "<?php echo base_url();?>img/4.jpg" height = "130px" width = "130px">
 					</td>
@@ -185,10 +185,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								   BS in Information System <br>  
 								   College of Science <br> 
 								   Confessions approved: 6 <br> 
-								   Confessions: 9</h6>
+								   Confessions: 10</h6>
 							   </font>
 					</td>
 				</tr>  
+
+				<tr class="w3-border" >
+					<td style = "padding-left: 10px;">
+						<img class = "w3-border" src = "<?php echo base_url();?>img/6.jpg" height = "130px" width = "130px">
+					</td>
+					<td style = "vertical-align: top; padding-left: 10px;" >
+						<h5 style = "font-family: Calibri"><b>Janferr Catibog</b> <br>  
+							   <font face = "Calibri" color = "gray">
+								   BS in Information System <br>  
+								   College of Science <br> 
+								   Confessions approved: 6 <br> 
+								   Confessions: 11</h6>
+							   </font>
+					</td>
+				</tr>  
+
+				<tr class="w3-border" >
+					<td style = "padding-left: 10px;">
+						<img class = "w3-border" src = "<?php echo base_url();?>img/5.jpg" height = "130px" width = "130px">
+					</td>
+					<td style = "vertical-align: top; padding-left: 10px;" >
+						<h5 style = "font-family: Calibri"><b>Sherry Calzado</b> <br>  
+							   <font face = "Calibri" color = "gray">
+								   BS in Information System <br>  
+								   College of Science <br> 
+								   Confessions approved: 22 <br> 
+								   Confessions: 11</h6>
+							   </font>
+					</td>
+				</tr>  
+
 			</table>
 			</center>
 			<br>
@@ -490,7 +521,7 @@ function myFunction() {
 		  
 		<center>
 			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" alt="Smiley face" height="150" width="150"> 
-			<?php echo form_open_multipart('users/do_upload');?>
+			    <?php echo form_open_multipart('users/do_upload');?>
 				<input type = "hidden" name = "fn" value = "<?php echo $detail->id_users;?>" >
 				<input type="file" name="userfile" size="20" />
 				<input type="submit" value="upload" />

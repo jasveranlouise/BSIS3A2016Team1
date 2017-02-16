@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?php echo base_url();?>img/w3.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/home.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>css/admin.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
@@ -167,19 +168,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    <td><?php echo $post->date;?></td>
 			    <td><?php echo $post->time;?></td>
 			    <td><font color = "darkred">
-				    	<a href = "#">
-					    	<span class="fa-stack fa-lg">
-							  <i class="fa fa-circle fa-stack-2x"></i>
-							  <i class="fa fa-check fa-stack-1x fa-inverse"></i>
-							</span>	
-						</a>
+			    		<form method = "POST" action ="approveRequest">
+			    			<input type = "hidden" name = "id_confession" value = "">
+			    			<input type = "hidden" name = "id_request" value = "<?php echo $post->id_request;?>">
+			    			<input type = "hidden" name = "id_users" value = "<?php echo $post->id_users;?>">
+			    			<input type = "hidden" name = "confession_title" value = "<?php echo $post->request_title;?>">
+			    			<input type = "hidden" name = "confession_text" value = "<?php echo $post->request_text;?>">
+			    			<input type = "hidden" name = "hidden_name" value = "<?php echo $post->hidden_name;?>">
+			    			<input type = "hidden" name = "college" value = "<?php echo $post->college;?>">
+			    			<input type = "hidden" name = "date" value = "<?php echo date("Y-m-d");?>">
+			    			<input type = "hidden" name = "time" value = "<?php echo date("h:ia");?>">
+			    			<input class="approve " type = "submit" value = "approve">
+			    		</form>
 
-						<a href = "#">
-							<span class="fa-stack fa-lg">
-							  <i class="fa fa-circle fa-stack-2x"></i>
-							  <i class="fa fa-times fa-stack-1x fa-inverse"></i>
-							</span>
-						</a>
+			    		<form method = "POST" action ="declineRequest">
+			    			<input type = "hidden" name = "id_request" value = "<?php echo $post->id_request;?>">
+			    			<input class="approve " type = "submit" value = "decline">
+			    		</form>
+							
+
+						
 					</font>
 			    </td>
 			      

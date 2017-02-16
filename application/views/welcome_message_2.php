@@ -54,7 +54,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 	<div style = "padding-left: 5%; padding-right: 5%;">
-	<br><br><br><br><br>	<br><br><br><br><br><br><br>
+	<br>
+		<font color = "darkgray" size = "1">
+			Your request entitled "First Kiss" has been approved
+		</font>
+	<br><br><br><br>	<br><br><br><br><br><br><br>
 	<hr class = "sideNavHr"> 
 		<center>
 			<font color = "darkgray" size = "2">

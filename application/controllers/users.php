@@ -217,4 +217,25 @@ class Users extends CI_Controller {
 		$this->load->view('users/admin', $this->data);	
 	}
 	
+	public function approveRequest(){
+		
+		$this->load->model('admin_model');
+			
+			if($this->input->post()) {
+				$data = $this->input->post();
+				$result = $this->admin_model->approve($data);
+				redirect('users/admin');
+			}
+	}
+
+	public function declineRequest(){
+		
+
+		$this->load->model('admin_model');
+			if($this->input->post()) {
+				$data = $this->input->post();
+				$result = $this->admin_model->decline($data);
+				redirect('users/admin');
+			}
+	}
 }

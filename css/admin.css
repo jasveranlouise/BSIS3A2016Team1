@@ -1,0 +1,12 @@
+.approve{
+	background-color: white;
+	width: 70px;
+	padding: 5px;
+	border-color: darkred;
+	border-width: 1px;
+	margin-bottom: 2px;
+}
+.approve:hover{
+	background-color: darkred;
+	color: white;
+}

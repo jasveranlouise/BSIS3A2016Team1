@@ -13,7 +13,7 @@ class reqconfess_model extends CI_Model{
 	}
 		
 	function getPosts(){
-		$this->db->select("id_confession, account_name, confession_title, confession_text, hidden_name, college, date, time");
+		$this->db->select("*");
 		$this->db->from('confession');
 		$this->db->order_by('date', 'DESC');
 		$this->db->order_by('time', 'DESC');
