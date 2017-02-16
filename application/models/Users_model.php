@@ -72,6 +72,16 @@ class Users_model extends CI_Model{
 		
 		
 		}
+
+	public function getUsers(){
+			$this->db->select('*');
+            $this->db->from('personal_info'); 
+            $this->db->join('student_info', 'student_info.id_student_info=personal_info.id_personal_info', 'left');
+            $this->db->join('confession_info', 'confession_info.id_confession_info=personal_info.id_personal_info', 'left');
+            $query = $this->db->get();
+            return $query->result();
+	}
+
 		
 }
 

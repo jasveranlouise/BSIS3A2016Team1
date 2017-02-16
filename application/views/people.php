@@ -204,41 +204,7 @@ function w3_close() {
  
 <a  onclick="document.getElementById('id01').style.display='block'" class="w3-btn-floating-large w3-pale-red postButton"><font color = "red">+</font></a> 
 
-<div id="id01" class="w3-modal">
-  <div style = "width: 40%; margin-top: -3%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
-    <header class="w3-container postModal">
-      <span onclick="document.getElementById('id01').style.display='none'"
-      class="w3-closebtn">&times;</span>
-      <h4><img style = "margin: -15% -.9% -2% -1%" src="<?php echo base_url();?>img/confession.png" height="35" width="35"> onfess</h4>
-    </header>
-    <div class="w3-container ">
-	
-		<p>
-			<form method = "POST" action ="reqcon">
-				<input type = "hidden" name = "id_confession"  > 
-				<input type = "hidden" name = "date" value = "<?php echo date("Y-m-d");?>"> 
-				<input type = "hidden" name = "time" value = "<?php echo date("h:ia");?>"> 
-				<input type = "hidden" name = "account_name"> 
 
-
-				<h4>Confession Title</h4>
-					<input class = "w3-round textBox w3-border-red" type = "text" name = "confession_title" placeholder = "Confession title">
-				<h4>Confession Text</h4> 
-					<textarea rows = "5" class = "w3-round textArea  w3-border-red" name = "confession_text" > </textarea>					
-				<h4>Hidden Name</h4>
-					<input class = "w3-round textBox w3-border-red" type = "text" name = "hidden_name" placeholder = "Hidden Name">
-				<h4>College</h4>
-					<input class = "w3-round textBox w3-border-red" type = "text" name = "college" placeholder = "College">
-					<br>
-				<font style = "Century Gothic" size = "2" color = "red"> <br> *You will be notified once confession request is approved. </font>
-				<input style = "margin: -4px 0px 10px 0px;" class = "w3-round padding right w3-btn w3-white w3-border w3-border-red" type = "submit" value = "Confess" >
-			</form>
-			<br>
-			
-		</p>
-    </div>
-  </div>
-</div>
 
 <div id="id02" class="w3-modal">
  

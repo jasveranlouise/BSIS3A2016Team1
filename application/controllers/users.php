@@ -196,14 +196,17 @@ class Users extends CI_Controller {
 	public function people(){
 		$this->load->database(); // load database
 		$this->load->model('reqconfess_model'); // load model
+		$this->load->model('Users_model'); // load model
 		$this->load->model('active_model'); // load model
 		$this->data['posts'] = $this->reqconfess_model->getPosts(); 
 		$this->data['details'] = $this->active_model->getPosts();
 		$this->data['details2'] = $this->active_model->getPosts2();
 		$this->data['details3'] = $this->active_model->getPosts3();
+		$this->data['users'] = $this->Users_model->getUsers();
 	
 		$this->load->view('users/people', $this->data);	
 	}
+
 	
 	public function admin(){
 		$this->load->database(); // load database

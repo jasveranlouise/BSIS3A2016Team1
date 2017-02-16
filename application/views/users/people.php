@@ -154,71 +154,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<tr class="w3-border">
 					<th colspan="2">
 						<h4 style = "font-family: Calibri;">
-								<input style = "width: 90%" type = "search" placeholder="search">
+							<form method = "POST" action ="#">
+								<input style = "width: 90%" name = "search" type = "search" placeholder="search">
+								<input type="submit" style="position: absolute; left: -9999px"/>
+							</form>
 						</h4>
 					</th>	
 				</tr>
-			
-
+				
+		
+		<?php foreach($users as $user){?>
 				<tr class="w3-border">
 					<td style = "padding-left: 10px;"  width = "130px">
-						<img class = "w3-border" src = "<?php echo base_url();?>img/7.jpg" height = "130px" width = "130px">
+						<img class = "w3-border" src = "<?php echo base_url();?>uploads/<?php echo $user->id_personal_info;?>.jpg" height = "130px" width = "130px">
 					</td>
 					<td style = "vertical-align: top; padding-left: 10px;" >
-						<h5 style = "font-family: Calibri"><b>Adrielle Kristine Nicolette Escaro</b> <br>  
+						<h5 style = "font-family: Calibri"><b><?php echo $user->display_name;?></b> <br>  
 							   <font face = "Calibri" color = "gray">
-								   BS in Information System <br>  
-								   College of Science <br> 
-								   Confessions approved: 6 <br> 
-								   Confessions: 9</h6>
+								   <?php echo $user->course;?> <br>  
+								   <?php echo $user->college;?> <br> 
+								   Confessions approved: <?php echo $user->confession_approved;?> <br> 
+								   Confessions: <?php echo $user->confession_requests;?></h6>
 							   </font>
+
 					</td>
 				</tr> 
-				
-				<tr class="w3-border" >
-					<td style = "padding-left: 10px;">
-						<img class = "w3-border" src = "<?php echo base_url();?>img/4.jpg" height = "130px" width = "130px">
-					</td>
-					<td style = "vertical-align: top; padding-left: 10px;" >
-						<h5 style = "font-family: Calibri"><b>Hannah Patricia Liao</b> <br>  
-							   <font face = "Calibri" color = "gray">
-								   BS in Information System <br>  
-								   College of Science <br> 
-								   Confessions approved: 6 <br> 
-								   Confessions: 10</h6>
-							   </font>
-					</td>
-				</tr>  
-
-				<tr class="w3-border" >
-					<td style = "padding-left: 10px;">
-						<img class = "w3-border" src = "<?php echo base_url();?>img/6.jpg" height = "130px" width = "130px">
-					</td>
-					<td style = "vertical-align: top; padding-left: 10px;" >
-						<h5 style = "font-family: Calibri"><b>Janferr Catibog</b> <br>  
-							   <font face = "Calibri" color = "gray">
-								   BS in Information System <br>  
-								   College of Science <br> 
-								   Confessions approved: 6 <br> 
-								   Confessions: 11</h6>
-							   </font>
-					</td>
-				</tr>  
-
-				<tr class="w3-border" >
-					<td style = "padding-left: 10px;">
-						<img class = "w3-border" src = "<?php echo base_url();?>img/5.jpg" height = "130px" width = "130px">
-					</td>
-					<td style = "vertical-align: top; padding-left: 10px;" >
-						<h5 style = "font-family: Calibri"><b>Sherry Calzado</b> <br>  
-							   <font face = "Calibri" color = "gray">
-								   BS in Information System <br>  
-								   College of Science <br> 
-								   Confessions approved: 22 <br> 
-								   Confessions: 11</h6>
-							   </font>
-					</td>
-				</tr>  
+		<?php }?>
 
 			</table>
 			</center>
