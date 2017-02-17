@@ -29,6 +29,16 @@ class reqconfess_model extends CI_Model{
 		return $query->result();
 	}
 
+	function getPosts3(){
+		$this->db->select("*");
+		$this->db->from('request');
+		$this->db->where('approved', '0');
+		$this->db->where('declined', '0');
+		$this->db->order_by('id_request', 'ASC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 }
 
 ?>

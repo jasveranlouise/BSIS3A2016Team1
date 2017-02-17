@@ -157,7 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			      <th>Time</th>
 			      <th>Action</th>
 			    </tr>
-			<?php foreach($posts as $post){?>
+			<?php foreach($posts2 as $post){?>
 			    <tr>
 			    <td><?php echo $post->id_request;?></td>
 			    <td><?php echo $post->id_users;?></td>
