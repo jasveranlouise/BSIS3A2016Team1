@@ -11,8 +11,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Welcome to CodeIgniter</title>
 
 
-
-	
 <body style = "background-color: #fbf3f2;">
 
 <nav class="w3-sidenav theme2 w3-card-2 none" id="mySidenav">
@@ -159,14 +157,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 		<p class = "marginTop" ><pre><font face = "Calibri" size = "4" ><?php echo $post->confession_text;?></font></pre><hr class = "hr">
 			</p> 
+						
 			
-			
-			
-			<div> 
-				<a href = "#"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-up fa-lg left" aria-hidden="true"></i> </a>
-				<a href = "#"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-down fa-lg left" aria-hidden="true"></i>  </a>
-				<a href = "#" onclick="document.getElementById('id04').style.display='block'"> <i style = "margin-top: -2px; margin-right: 15px;" class="fa fa-comments-o fa-lg left" aria-hidden="true"></i>  </a>
-				
+			<div>
+				<div class = "<?php $a = $post->agree; if($a==1){echo "fontBlue";}?>">
+					<a href = "agree<?php $a = $post->agree; if($a==1){echo "2";}?>?idc=<?php echo $post->id_confession;?>&idu=<?php echo $post->id_users;?>"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-up left" aria-hidden="true">
+						<font class = "postFont"> 
+							Agree 
+						</font> </i>
+					</a> 
+				</div>
+
+				<div class = "">
+					<a href = "#"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-down left" aria-hidden="true"> 
+						<font class = "postFont"> 
+							Disagree 
+						</font></i>  
+					</a>
+				</div>
+
+				<div class = "">
+					<a href = "#" onclick="document.getElementById('id04').style.display='block'"> <i style = "margin-top: -2px; margin-right: 15px;" class="fa fa-comments-o left" aria-hidden="true">
+						<font class = "postFont"> 
+							Comments
+						</font></i>  
+					</a>
+				</div>
+
 				<font class = "postMargin right" size = "2" ><?php echo $post->time;?> / <?php echo $post->date;?> </font>
 			</div>
 		</div>
@@ -355,7 +372,7 @@ function w3_close() {
 				</td>
 			</tr>
 		</table>
-		<hr class = "hr">
+		<hr>
 		<?php }?>
 		
 		<?php foreach($details2 as $detail2){?>
@@ -407,7 +424,7 @@ function w3_close() {
 			
 			
 		</table>
-		<hr class = "hr">
+		<hr>
 		<?php }?>
 		
 		<?php foreach($details3 as $detail3){?>
@@ -572,7 +589,7 @@ function w3_close() {
 		
 		<?php }?>  
 		
-		<hr class = "hr">
+		<hr>
 		
 		<p> <b>Student Info</b> </p>
 			
@@ -634,7 +651,7 @@ function w3_close() {
 			
 			<?php }?>  
 		</form>
-		<hr class = "hr">			
+		<hr>			
 		
 		<p> <b>Confession Info</b> </p>
 			

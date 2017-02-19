@@ -26,6 +26,8 @@ class Users extends CI_Controller {
 		if ( ! $this->upload->do_upload())
 		{
 			$error = array('error' => $this->upload->display_errors());
+			print_r($error);
+			exit;
 		}
 		else
 		{
@@ -35,7 +37,19 @@ class Users extends CI_Controller {
 	}
 
 	public function index()
-	{
+	{	
+
+		$li = $this->session->userdata('logged_in');
+		if($li == TRUE){
+			redirect ('/users/home');
+		}
+		else{
+			$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+		$this->load->view('users/index');
+		}
+
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
@@ -71,6 +85,10 @@ class Users extends CI_Controller {
 				}
 				
 				else {
+					$newdata = array(
+			        'logged_in' => TRUE
+					);
+					$this->session->set_userdata($newdata);
 					redirect ('/users/home');
 				}
 				
@@ -84,16 +102,25 @@ class Users extends CI_Controller {
 
 	public function home()
 	{	
-		$this->load->database(); // load database
-		$this->load->model('reqconfess_model'); // load model
-		$this->load->model('active_model'); // load model
-		$this->data['posts'] = $this->reqconfess_model->getPosts(); 
-		$this->data['details'] = $this->active_model->getPosts();
-		$this->data['details2'] = $this->active_model->getPosts2();
-		$this->data['details3'] = $this->active_model->getPosts3();
+		$li = $this->session->userdata('logged_in');
+		if($li == TRUE){
+			$this->load->database(); // load database
+			$this->load->model('reqconfess_model'); // load model
+			$this->load->model('active_model'); // load model
+			$this->data['posts'] = $this->reqconfess_model->getPosts(); 
+			$this->data['details'] = $this->active_model->getPosts();
+			$this->data['details2'] = $this->active_model->getPosts2();
+			$this->data['details3'] = $this->active_model->getPosts3();
+
+			
+			
+			$this->load->view('welcome_message_2', $this->data);
+		}
+		else{
+			redirect ('/users/');
+		}
 
 		
-		$this->load->view('welcome_message_2', $this->data);
 	}
 	
 	public function register()
@@ -176,6 +203,8 @@ class Users extends CI_Controller {
 	}
 
 	public function logout(){
+		$this->session->unset_userdata('logged_in');
+
 		$this->load->model('active_model');
 
 		$data = array(
@@ -194,32 +223,72 @@ class Users extends CI_Controller {
 	}
 
 	public function people(){
-		$this->load->database(); // load database
-		$this->load->model('reqconfess_model'); // load model
-		$this->load->model('Users_model'); // load model
-		$this->load->model('active_model'); // load model
-		$this->data['posts'] = $this->reqconfess_model->getPosts(); 
-		$this->data['details'] = $this->active_model->getPosts();
-		$this->data['details2'] = $this->active_model->getPosts2();
-		$this->data['details3'] = $this->active_model->getPosts3();
-		$this->data['users'] = $this->Users_model->getUsers();
-	
-		$this->load->view('users/people', $this->data);	
+		$li = $this->session->userdata('logged_in');
+		if($li == TRUE){
+			$this->load->database(); // load database
+			$this->load->model('reqconfess_model'); // load model
+			$this->load->model('Users_model'); // load model
+			$this->load->model('active_model'); // load model
+			$this->data['posts'] = $this->reqconfess_model->getPosts(); 
+			$this->data['details'] = $this->active_model->getPosts();
+			$this->data['details2'] = $this->active_model->getPosts2();
+			$this->data['details3'] = $this->active_model->getPosts3();
+			$this->data['users'] = $this->Users_model->getUsers();
+		
+			$this->load->view('users/people', $this->data);	
+		}
+		else{
+			redirect('users/');
+		}
+	}
+
+	public function peopleSearch(){
+		$li = $this->session->userdata('logged_in');
+		if($li == TRUE){
+		
+		$this->load->model('Users_model');
+		$this->load->model('admin_model');
+			
+			if($this->input->post()) {
+				$fn = $this->input->post('search');
+				$result = $this->Users_model->getUsers2($fn);
+
+				$this->load->model('reqconfess_model'); // load model
+				$this->load->model('active_model'); // load model
+				$this->data['posts'] = $this->reqconfess_model->getPosts(); 
+				$this->data['details'] = $this->active_model->getPosts();
+				$this->data['details2'] = $this->active_model->getPosts2();
+				$this->data['details3'] = $this->active_model->getPosts3();
+				$this->data['users'] = $result;
+			
+				$this->load->view('users/people', $this->data);	
+			}
+
+		}
+		else{
+			redirect('users/');
+		}
 	}
 
 	
 	public function admin(){
-		$this->load->database(); // load database
-		$this->load->model('reqconfess_model'); // load model
-		$this->load->model('active_model'); // load model
-		$this->data['posts'] = $this->reqconfess_model->getPosts2(); 
-		$this->data['posts2'] = $this->reqconfess_model->getPosts3(); 
-		$this->data['details'] = $this->active_model->getPosts();
-		$this->data['details2'] = $this->active_model->getPosts2();
-		$this->data['details3'] = $this->active_model->getPosts3();
-	
-		$this->load->view('users/admin', $this->data);	
+		$li = $this->session->userdata('logged_in');
+		if($li == TRUE){
+			$this->load->model('reqconfess_model'); // load model
+			$this->load->model('active_model'); // load model
+			$this->data['posts'] = $this->reqconfess_model->getPosts2(); 
+			$this->data['posts2'] = $this->reqconfess_model->getPosts3(); 
+			$this->data['details'] = $this->active_model->getPosts();
+			$this->data['details2'] = $this->active_model->getPosts2();
+			$this->data['details3'] = $this->active_model->getPosts3();
+		
+			$this->load->view('users/admin', $this->data);	
+		}
+		else{
+			redirect('users/');
+		}
 	}
+	
 	
 	public function approveRequest(){
 		
@@ -241,5 +310,27 @@ class Users extends CI_Controller {
 				$result = $this->admin_model->decline($data);
 				redirect('users/admin');
 			}
+	}
+
+	public function agree(){
+		$this->load->model('confession_model');
+		if($this->input->get()){
+			$idc = $this->input->get('idc');
+			$idu = $this->input->get('idu');
+			$result = $this->confession_model->agree($idc,$idu);
+			redirect('users/home');
+		}
+
+	}
+
+	public function agree2(){
+		$this->load->model('confession_model');
+		if($this->input->get()){
+			$idc = $this->input->get('idc');
+			$idu = $this->input->get('idu');
+			$result = $this->confession_model->agree2($idc,$idu);
+			redirect('users/home');
+		}
+
 	}
 }

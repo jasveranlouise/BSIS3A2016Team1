@@ -15,6 +15,7 @@ class reqconfess_model extends CI_Model{
 	function getPosts(){
 		$this->db->select("*");
 		$this->db->from('confession');
+		$this->db->join('agree', 'confession.id_confession=agree.id_confess_agr', 'left');
 		$this->db->order_by('date', 'DESC');
 		$this->db->order_by('time', 'DESC');
 		$query = $this->db->get();

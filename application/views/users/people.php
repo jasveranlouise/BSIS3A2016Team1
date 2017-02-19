@@ -94,7 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					</td>
 					<td style = "padding-left: 10px" >
-						<font face = "Century Gothic" size = "5" color = "white"> Feed</font>
+						<font face = "Century Gothic" size = "5" color = "white"> People</font>
 					</td>
 				</tr>	
 				
@@ -154,7 +154,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<tr class="w3-border">
 					<th colspan="2">
 						<h4 style = "font-family: Calibri;">
-							<form method = "POST" action ="#">
+							<form method = "POST" action ="peopleSearch">
 								<input style = "width: 90%" name = "search" type = "search" placeholder="search">
 								<input type="submit" style="position: absolute; left: -9999px"/>
 							</form>

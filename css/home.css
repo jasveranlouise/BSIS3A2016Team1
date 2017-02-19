@@ -28,8 +28,8 @@
 			background-color: #6c182c;
 }
 .hr{
-	margin-bottom: 0px;
-	color: black;
+	margin-bottom: -3px;
+	border-color: #f1f1f1;
 }
 
 .post{
@@ -129,4 +129,12 @@
 }
 .h6{
 	font-size: 14px;
+}
+
+.postFont{
+	font-size: 16px;
+	font-family: calibri;
+}
+.fontBlue{
+	color: darkblue;
 }
