@@ -138,3 +138,17 @@
 .fontBlue{
 	color: darkblue;
 }
+.marginComment{
+	margin-top: -17px;
+	margin-bottom: 10px;
+}
+.hrComment{
+	margin-bottom: 10px;
+}
+.liComment{
+	margin-left: -15px;
+}
+.timeComment{
+	color:grey;
+	font-size: 13px;
+}

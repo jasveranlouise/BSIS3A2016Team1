@@ -145,7 +145,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  <div class="w3-container w3-col" style="width:50%">	
 
 		<?php foreach($posts as $post){?>
-		
+		<div id = "agree<?php echo $post->id_confession;?>">
+		<div id = "agree<?php echo $post->id_confession;?> comments<?php echo $post->id_confession;?>">
 		<img style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">
 		<font face = "Calibri" size = "4" color = "black"> &nbsp; <?php echo $post->hidden_name;?> | </font> <font face = "Calibri" size = "4" color = "darkgray"> <?php echo $post->college;?>	 </font>
 		<div style = "margin-top: -1.5%" class="w3-container w3-section w3-pale-red w3-round w3-border">
@@ -159,25 +160,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</p> 
 						
 			
-			<div>
+			<div ">
 				<div class = "<?php $a = $post->agree; if($a==1){echo "fontBlue";}?>">
-					<a href = "agree<?php $a = $post->agree; if($a==1){echo "2";}?>?idc=<?php echo $post->id_confession;?>&idu=<?php echo $post->id_users;?>"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-up left" aria-hidden="true">
+					<a href = "agree?idc=<?php echo $post->id_confession;?>&idu=<?php echo $post->id_users;?>&agr=<?php echo $post->agree;?>&disagr=<?php echo $post->disagree;?>"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-up left" aria-hidden="true">
 						<font class = "postFont"> 
 							Agree 
 						</font> </i>
 					</a> 
 				</div>
 
-				<div class = "">
-					<a href = "#"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-down left" aria-hidden="true"> 
+				<div class = "<?php $a = $post->disagree; if($a==1){echo "fontBlue";}?>">
+					<a href = "disagree?idc=<?php echo $post->id_confession;?>&idu=<?php echo $post->id_users;?>&agr=<?php echo $post->agree;?>&disagr=<?php echo $post->disagree;?>"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-down left" aria-hidden="true"> 
 						<font class = "postFont"> 
 							Disagree 
 						</font></i>  
 					</a>
 				</div>
 
-				<div class = "">
-					<a href = "#" onclick="document.getElementById('id04').style.display='block'"> <i style = "margin-top: -2px; margin-right: 15px;" class="fa fa-comments-o left" aria-hidden="true">
+				<div id = "" class = "">
+					<a href = "#comments<?php echo $post->id_confession;?>" onclick="myFunction('Demo<?php echo $post->id_confession;?>')"> <i style = "margin-top: -2px; margin-right: 15px;" class="fa fa-comments-o left" aria-hidden="true">
 						<font class = "postFont"> 
 							Comments
 						</font></i>  
@@ -185,13 +186,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 
 				<font class = "postMargin right" size = "2" ><?php echo $post->time;?> / <?php echo $post->date;?> </font>
+			</div> <br>
+
+			<div id="Demo<?php echo $post->id_confession;?>" class="w3-hide marginComment">
+			 	<ul class="w3-ul w3-pale-red postFont">
+			 		<hr class = "hrComment">
+			    	<li class = "liComment"> <font color = "gray">Hakeem A. Polistico: </font>  Sounds nice to me. <font class = "timeComment">  date / time </font></li>
+			    	<li class = "liComment"> <font color = "gray">Adrielle M. Escaro: </font>  Nah I'm bitter. <font class = "timeComment">  date / time </font></li>
+			  	</ul>  
 			</div>
-		</div>
+		</div>	
 		
 		<br>
-    
-         
-         
+    </div>
+   
      <?php }?>  
 		
 	  </div>
@@ -201,7 +209,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		 
 	  </div>
 	</div>
-
+</div>
 </div>
       
 <script>
@@ -219,6 +227,15 @@ function w3_close() {
   document.getElementById("header2").style.marginLeft = "0%";
   document.getElementById("mySidenav").style.display = "none";
   document.getElementById("openNav").style.display = "inline-block";
+}
+
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
 }
 </script>
  
@@ -684,117 +701,12 @@ function w3_close() {
 
 </div>
 
-<div id="id04" class="w3-modal">
-  <div style = "width: 40%; margin-top: -3%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
-    <header class="w3-container postModal">
-      <span onclick="document.getElementById('id04').style.display='none'"
-      class="w3-closebtn">&times;</span>
-      <h4><img style = "margin: -15% -.9% -2% -1%" src="<?php echo base_url();?>img/confession.png" height="35" width="35"> omments</h4>
-    </header>
-    <div class="w3-container ">
-	
-	<br>
-	
-		<img style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">
-		<font faceimg style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">		
-		<font face = "Calibri" size = "4" color = "black"> &nbsp; Hidden Name| </font> <font face = "Calibri" size = "4" color = "darkgray"> College </font>
-		<div style = "margin-top: -1.5%" class="w3-container w3-section w3-pale-red w3-round w3-border">
-			<p>
-				<font face = "Calibri" size = "4" color = "darkred"> 
-					<b>Confession Title</b>
-				</font>
-			</p>		
-			
-			<p class = "marginTop" ><font face = "Calibri" size = "4" >
-			Confession - Text, 
-			Confession - Text,
-			Confession - Text, 
-			Confession - Text, 
-			Confession - Text, </font><hr class = "hr">
-			</p> 
-			
-			<div> 
-				<font class = "postMargin left" size = "2" >10 agrees / 2 disagrees </font>
-				<font class = "postMargin right" size = "2" >time / date </font>
-			</div>
-		</div>
-		
-		
-		<div class = "w3-border-bottom borderMargin" style = "margin-left: -16px; margin-right: -16px;" ></div>
-		
-		
-		<p>
-			
-			<form>
-				<img style = "margin: 0% 0% 0% 0%" src="<?php echo base_url();?>img/hakeem_2.jpg" class = "left w3-circle imageCircle" alt="Smiley face" height="35" width="35">
-				<input type = "text" style = "width: 90%;" class = "w3-input left" name = "comment" placeholder = "type your comment here">
-			</form>
-		</p>
-		<br><br>
-			<p>
-			<img style = "margin: 0% 0% -2.3% 0%" src="<?php echo base_url();?>img/hakeem_2.jpg" class = "w3-circle imageCircle" height="35" width="35">
-			
-				<font face = "Century Gothic" size = "3" color = "darkred"> 
-					
-					<b>Linkin Park</b>
-				</font>
-					
-				<font face = "Century Gothic" size = "3" color = "black">
-					I've become so numb, I can't feel you there. Become so tight so much more aware.
-				</font>
-				
-				<font face = "Century Gothic" size = "2" color = "darkgray">
-					time/date
-				</font>		
-		
-			</p>
-		<p>
-			<p>
-				<font face = "Century Gothic" size = "3" color = "darkred"> 
-					<img style = "margin: 0% 0% -2.3% 0%" src="<?php echo base_url();?>img/hakeem_2.jpg" class = "w3-circle imageCircle" height="35" width="35">
-					<b>Linkin Park</b>
-				</font>
-					
-				<font face = "Century Gothic" size = "3" color = "black">
-					In the end it doesn't really matter.
-				</font>
-				
-				<font face = "Century Gothic" size = "2" color = "darkgray">
-					time/date
-				</font>
-			</p>		
-		
-		</p>
-		
-		<p>
-			
-			<p>
-				<font face = "Century Gothic" size = "3" color = "darkred"> 
-					<img style = "margin: 0% 0% -2.3% 0%" src="<?php echo base_url();?>img/hakeem_2.jpg" class = "w3-circle imageCircle" height="35" width="35">
-					<b>Linkin Park</b>
-				</font>
-					
-				<font face = "Century Gothic" size = "3" color = "black">
-					We can't wait to burn it to the ground.
-				</font>
-				
-				<font face = "Century Gothic" size = "2" color = "darkgray">
-					time/date
-				</font>
-			</p>		
-		
-		</p>
-		
-		<br>
-  </div>
-</div>
 
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
 var modal2 = document.getElementById('id02');
 var modal3 = document.getElementById('id03');
-var modal4 = document.getElementById('id04');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -807,9 +719,7 @@ window.onclick = function(event) {
 	if (event.target == modal3) {
         modal3.style.display = "none";
     }
-	if (event.target == modal4) {
-        modal4.style.display = "none";
-    }
+
 	
 }
 </script>
