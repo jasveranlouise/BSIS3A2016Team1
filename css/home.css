@@ -28,7 +28,7 @@
 			background-color: #6c182c;
 }
 .hr{
-	margin-bottom: -3px;
+	margin-bottom: -1px;
 	border-color: #f1f1f1;
 }
 
@@ -151,4 +151,30 @@
 .timeComment{
 	color:grey;
 	font-size: 13px;
+	float: right;
+}
+.commentBox{
+	border-color: darkgrey;
+	border-width: 1px;
+	box-shadow: none;
+	border-style: solid;
+	width: 100%;
+}
+.commentName{
+	color: gray;
+	margin-right: 5px;
+}
+.commentTable{
+	margin-top: -10px;
+	table-layout:auto;
+}
+.tableTD{
+	width:1px;
+	white-space:nowrap;
+}
+.confessBox{
+	border-color: darkgrey;
+	border-width: 1px;
+	box-shadow: none;
+	border-style: solid;
 }

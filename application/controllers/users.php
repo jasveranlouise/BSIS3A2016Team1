@@ -104,16 +104,14 @@ class Users extends CI_Controller {
 	{	
 		$li = $this->session->userdata('logged_in');
 		if($li == TRUE){
-			$this->load->database(); // load database
 			$this->load->model('reqconfess_model'); // load model
 			$this->load->model('active_model'); // load model
-			$this->data['posts'] = $this->reqconfess_model->getPosts(); 
+			$this->data['posts'] = $this->reqconfess_model->getPosts();
+			$this->data['comments'] = $this->reqconfess_model->getComments(); 
 			$this->data['details'] = $this->active_model->getPosts();
 			$this->data['details2'] = $this->active_model->getPosts2();
 			$this->data['details3'] = $this->active_model->getPosts3();
 
-			
-			
 			$this->load->view('welcome_message_2', $this->data);
 		}
 		else{
@@ -392,5 +390,14 @@ class Users extends CI_Controller {
 		}
 	}
 
-	
+	public function comment(){
+		$this->load->model('reqconfess_model');
+			
+			if($this->input->post()) {
+			$data = $this->input->post();	
+
+			$result = $this->reqconfess_model->addComment($data);
+			redirect('users/home');
+		}
+	}	
 }

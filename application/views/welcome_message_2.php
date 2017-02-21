@@ -159,10 +159,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p class = "marginTop" ><pre><font face = "Calibri" size = "4" ><?php echo $post->confession_text;?></font></pre><hr class = "hr">
 			</p> 
 						
-			
+			<?php foreach($details as $detail){?>
 			<div ">
 				<div class = "<?php $a = $post->agree; if($a==1){echo "fontBlue";}?>">
-					<a href = "agree?idc=<?php echo $post->id_confession;?>&idu=<?php echo $post->id_users;?>&agr=<?php echo $post->agree;?>&disagr=<?php echo $post->disagree;?>"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-up left" aria-hidden="true">
+					<a href = "agree?idc=<?php echo $post->id_confession;?>&idu=<?php echo $detail->id_users;?>&agr=<?php echo $post->agree;?>&disagr=<?php echo $post->disagree;?>"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-up left" aria-hidden="true">
 						<font class = "postFont"> 
 							Agree 
 						</font> </i>
@@ -170,7 +170,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 
 				<div class = "<?php $a = $post->disagree; if($a==1){echo "fontBlue";}?>">
-					<a href = "disagree?idc=<?php echo $post->id_confession;?>&idu=<?php echo $post->id_users;?>&agr=<?php echo $post->agree;?>&disagr=<?php echo $post->disagree;?>"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-down left" aria-hidden="true"> 
+					<a href = "disagree?idc=<?php echo $post->id_confession;?>&idu=<?php echo $detail->id_users;?>&agr=<?php echo $post->agree;?>&disagr=<?php echo $post->disagree;?>"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-down left" aria-hidden="true"> 
 						<font class = "postFont"> 
 							Disagree 
 						</font></i>  
@@ -188,11 +188,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<font class = "postMargin right" size = "2" ><?php echo $post->time;?> / <?php echo $post->date;?> </font>
 			</div> <br>
 
-			<div id="Demo<?php echo $post->id_confession;?>" class="w3-hide marginComment">
+			<div id="Demo<?php echo $post->id_confession;?>" class="w3-hide marginComment w3-animate-opacity">
 			 	<ul class="w3-ul w3-pale-red postFont">
 			 		<hr class = "hrComment">
-			    	<li class = "liComment"> <font color = "gray">Hakeem A. Polistico: </font>  Sounds nice to me. <font class = "timeComment">  date / time </font></li>
-			    	<li class = "liComment"> <font color = "gray">Adrielle M. Escaro: </font>  Nah I'm bitter. <font class = "timeComment">  date / time </font></li>
+			 		<li class = "liComment"> 
+			 			<form method = "POST" action ="comment">
+			 				<table class="w3-responsive commentTable">
+			 					<tr> 
+			 						<td class="tableTD">
+			 							<font class="commentName"><?php echo $detail->display_name;?> </font>
+			 						</td>
+			 						<td>	
+			 							<input type="hidden" name="id_comment" value="">
+			 							<input type="hidden" name="id_user_com" value="<?php echo $detail->id_users;?>">
+			 							<?php }?> 
+			 							<input type="hidden" name="id_confession_com" value="<?php echo $post->id_confession;?>">
+			 							<input type="hidden" name="comm_date" value="<?php date_default_timezone_set('Asia/Manila');echo date("Y-m-d");?>">
+			 							<input type="hidden" name="comm_time" value="<?php date_default_timezone_set('Asia/Manila');echo date("h:ia");?>">
+			 							<input type="text" name="comment_text" class = "commentBox" placeholder="type your comment..." autocomplete="off">
+			 							<input type="submit" style="position: absolute; left: -9999px">			
+			 						</td>
+			 					</tr>
+			 				</table>			
+			 			</form>
+			 		</li>
+			 		<?php foreach($comments as $comment){?>
+			    	<li class = "liComment"> 
+			    		<font color = "gray">
+			    			<?php echo $comment->display_name;?> 
+			    		</font>  <?php echo $comment->comment_text;?> 
+			    		<font class = "timeComment">  
+			    			<?php echo $comment->comm_date;?> / <?php echo $comment->comm_time;?> 
+			    		</font>
+			    	</li>
+					<?php }?>			    	
 			  	</ul>  
 			</div>
 		</div>	
@@ -259,10 +288,10 @@ function myFunction(id) {
 				<input type = "hidden" name = "id_users" value = "<?php echo $detail3->id_confession_info;?>"> 
 
 
-				<h4>Confession Title</h4>
-					<input class = "w3-round textBox w3-border-red" type = "text" name = "request_title" placeholder = "Confession title">
-				<h4>Confession Text</h4> 
-					<textarea rows = "5" class = "w3-round textArea  w3-border-red" name = "request_text" > </textarea>	
+				<label class="w3-label w3-validate"><h4>Confession Title</h4></label>
+					<input class = "w3-round textBox w3-border-red confessBox" type = "text" name = "request_title" placeholder = "Confession title" required>
+				<label class="w3-label w3-validate"><h4>Confession Text</h4></label>
+					<textarea rows = "5" class = "w3-round textArea w3-border-red confessBox" name = "request_text" required> </textarea>	
 
 						
 		
