@@ -9,7 +9,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<LINK REL="icon" HREF="<?php echo base_url();?>img/ushare4.png"/>
+	<title>U SHARE - Sign Up</title>
 
 	<style type="text/css">
 

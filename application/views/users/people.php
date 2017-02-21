@@ -8,7 +8,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" type="text/css"  href="<?php echo base_url();?>css/home.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<LINK REL="icon" HREF="<?php echo base_url();?>img/ushare4.png"/>
+	<title>People</title>
 
 
 
@@ -39,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</font>
 	</a>
 	
-	<a style = "padding: 4%" href="tryit_426.htm#">
+	<a style = "padding: 4%" href="about">
 		<font color = "white" size = "3" style = "margin-left: 25%;" >
 			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/about_2.png" alt="Smiley face" height="20" width="20">About
 		</font>
@@ -94,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					</td>
 					<td style = "padding-left: 10px" >
-						<font face = "Century Gothic" size = "5" color = "white"> Feed</font>
+						<font face = "Century Gothic" size = "5" color = "white">People</font>
 					</td>
 				</tr>	
 				

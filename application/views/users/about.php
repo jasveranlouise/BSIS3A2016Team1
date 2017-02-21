@@ -5,23 +5,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?php echo base_url();?>img/w3.css">
-	<link rel="stylesheet" href="<?php echo base_url();?>css/home.css">
+	<link rel="stylesheet" type="text/css"  href="<?php echo base_url();?>css/home.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
 	<LINK REL="icon" HREF="<?php echo base_url();?>img/ushare4.png"/>
-	<title>U SHARE</title>
-	
+	<title>About</title>
 
 
 
 	
 <body style = "background-color: #fbf3f2;">
 
-<nav class="w3-sidenav theme2 w3-card-2 none" id="mySidenav">
+<nav class="w3-sidenav theme2 w3-card-2" style="display:none;" id="mySidenav">
   	<a href="javascript:void(0)"
   	onclick="w3_close()"
-  	class="w3-closenav w3-large snpad"  > 
-  		<font class = "tAlignR white">  
+  	class="w3-closenav w3-large " style = "padding: 3%"  > 
+  		<font style = "text-align: right" color = "white">  
   			&times; 
   		</font>
  	</a>
@@ -56,11 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 	<div style = "padding-left: 5%; padding-right: 5%;">
-	<br>
-		<font color = "darkgray" size = "1">
-			Your request entitled "First Kiss" has been approved
-		</font>
-	<br><br><br><br>	<br><br><br><br><br><br><br>
+	<br><br><br><br><br>	<br><br><br><br><br><br><br>
 	<hr class = "sideNavHr"> 
 		<center>
 			<font color = "darkgray" size = "2">
@@ -100,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					</td>
 					<td style = "padding-left: 10px" >
-						<font face = "Century Gothic" size = "5" color = "white"> Feed</font>
+						<font face = "Century Gothic" size = "5" color = "white"> About</font>
 					</td>
 				</tr>	
 				
@@ -139,56 +134,97 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <div id="main">
-<br><br><br><br><br>
+<br><br><br>
 
 	<div class="w3-row">
-	  <div class="w3-green w3-container w3-col" style="width:25%">
+	
+		
+	  <div class="w3-container w3-col" style="width:10%">
 		 
 	  </div>
 	  
-	  <div class="w3-container w3-col" style="width:50%">	
-
-		<?php foreach($posts as $post){?>
+	  <div class="w3-container w3-col" style="width:80%">	
+			<center>
+		<img src="<?php echo base_url();?>img/ushare4.png" alt="Norway" style="width:55%">
 		
-		<img style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">
-		<font face = "Calibri" size = "4" color = "black"> &nbsp; <?php echo $post->hidden_name;?> | </font> <font face = "Calibri" size = "4" color = "darkgray"> <?php echo $post->college;?>	 </font>
-		<div style = "margin-top: -1.5%" class="w3-container w3-section w3-pale-red w3-round w3-border">
-			<p>
-				<font face = "Calibri" size = "4" color = "darkred"> 
-					<b><?php echo $post->confession_title;?></b>
-				</font>
-			</p>		
+		<p>UShare is a website where you can confess your deepest, darkest secrets anonymously.</p>
+		
+		<br><br>
+		
+			<h3>The TEAM</h3>
 			
-		<p class = "marginTop" ><pre><font face = "Calibri" size = "4" ><?php echo $post->confession_text;?></font></pre><hr class = "hr">
-			</p> 
-			
-			
-			
-			<div> 
-				<a href = "#"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-up fa-lg left" aria-hidden="true"></i> </a>
-				<a href = "#"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-down fa-lg left" aria-hidden="true"></i>  </a>
-				<a href = "#" onclick="document.getElementById('id04').style.display='block'"> <i style = "margin-top: -2px; margin-right: 15px;" class="fa fa-comments-o fa-lg left" aria-hidden="true"></i>  </a>
+			<table>
+			<tr>
+			<td><div class="w3-container">
+				<div class="w3-card-4" style="width:100%">
+				<img src="<?php echo base_url();?>img/team_ha.jpg" alt="Norway" style="width:100%" >
+				<div class="w3-container w3-center">
+				<p>Hakeem Polistico</p>
+				</div>
+				</div>
+				</div></td>
 				
-				<font class = "postMargin right" size = "2" ><?php echo $post->time;?> / <?php echo $post->date;?> </font>
+			<td><div class="w3-container">
+			  <div class="w3-card-4" style="width:100%">
+				<img src="<?php echo base_url();?>img/team_jas.jpg" alt="Norway" style="width:100%">
+				<div class="w3-container w3-center">
+				  <p>Jasver Salva</p>
+				</div>
+			  </div>
 			</div>
-		</div>
-		
-		<br>
-    
-         
-         
-     <?php }?>  
-		
+				</td>
+			
+			<td><div class="w3-container">
+			  <div class="w3-card-4" style="width:100%">
+				<img src="<?php echo base_url();?>img/team_shi.jpg" alt="Norway" style="width:100%">
+				<div class="w3-container w3-center">
+				  <p>Shiela Morales</p>
+				</div>
+			  </div>
+			</div></td>
+			
+				<td><div class="w3-container">
+				  <div class="w3-card-4" style="width:94%">
+					<img src="<?php echo base_url();?>img/team_je.jpg" alt="Norway" style="width:100%">
+					<div class="w3-container w3-center">
+					  <p>Jeru Valenzuela</p>
+					</div>
+				  </div>
+				</div></td>
+				
+				<td><div class="w3-container">
+				  <div class="w3-card-4" style="width:100%">
+					<img src="<?php echo base_url();?>img/team_tin.jpg" alt="Norway" style="width:100%">
+					<div class="w3-container w3-center">
+					  <p>Christine Corpuz</p>
+					</div>
+				  </div>
+				</div></td>
+				</tr>
+				</table>
 	  </div>
 	  
+
 	  
-	  <div class="w3-container w3-col" style="width:25%">
+	  <div class="w3-container w3-col" style="width:10%">
 		 
 	  </div>
+	  
 	</div>
+<br><br>
+
 
 </div>
       
+	  <footer id="footer">
+    
+    <div class="footer-copyright">
+      <div class="container center">
+      <center><span>Copyright &copy; 2017 USHARE Confession Site. All rights reserved.</span>
+      </div>
+    </div>
+</footer>
+	  
 <script>
 function w3_open() {
    
@@ -205,10 +241,17 @@ function w3_close() {
   document.getElementById("mySidenav").style.display = "none";
   document.getElementById("openNav").style.display = "inline-block";
 }
+
+function myFunction() {
+    var x = document.getElementById("demo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
 </script>
  
-<a  onclick="document.getElementById('id01').style.display='block'" class="w3-btn-floating-large w3-pale-red postButton"><font color = "red">+</font></a> 
-
 <div id="id01" class="w3-modal">
   <div style = "width: 40%; margin-top: -3%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
     <header class="w3-container postModal">
@@ -219,21 +262,20 @@ function w3_close() {
     <div class="w3-container ">
 	
 		<p>
-		<?php foreach($details3 as $detail3){?>	
 			<form method = "POST" action ="reqcon">
-				<input type = "hidden" name = "id_request"> 
+				<input type = "hidden" name = "id_confession"  > 
 				<input type = "hidden" name = "date" value = "<?php echo date("Y-m-d");?>"> 
 				<input type = "hidden" name = "time" value = "<?php echo date("h:ia");?>"> 
-				<input type = "hidden" name = "id_users" value = "<?php echo $detail3->id_confession_info;?>"> 
+				<input type = "hidden" name = "account_name"> 
 
 
 				<h4>Confession Title</h4>
-					<input class = "w3-round textBox w3-border-red" type = "text" name = "request_title" placeholder = "Confession title">
+					<input class = "w3-round textBox w3-border-red" type = "text" name = "confession_title" placeholder = "Confession title">
 				<h4>Confession Text</h4> 
-					<textarea rows = "5" class = "w3-round textArea  w3-border-red" name = "request_text" > </textarea>	
+					<textarea rows = "5" class = "w3-round textArea  w3-border-red" name = "confession_text" > </textarea>	
 
 						
-		
+		<?php foreach($details3 as $detail3){?>
 		<input type = "hidden" name = "hidden_name" value="<?php echo $detail3->hidden_name;?>">
 		<?php }?>
 
@@ -263,6 +305,7 @@ function w3_close() {
 		  <?php foreach($details as $detail){?>
 		  
 			<center>
+			
 			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" alt="Smiley face" height="150" width="150"> 
 			</center>
 			
@@ -461,27 +504,27 @@ function w3_close() {
   <div style = "width: 40%; margin-top: -1%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
   
   <?php foreach($details as $detail){?>
-  
-    <header class="w3-container postModal">
+  		  
+    	  <header class="w3-container postModal">
 		  <span onclick="document.getElementById('id03').style.display='none'"
 		  class="w3-closebtn">&times;</span>
 		  
 		<center>
 			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" alt="Smiley face" height="150" width="150"> 
-
-			<?php echo form_open_multipart('users/do_upload');?>
+			    <?php echo form_open_multipart('users/do_upload');?>
 				<input type = "hidden" name = "fn" value = "<?php echo $detail->id_users;?>" >
 				<input type="file" name="userfile" size="20" />
 				<input type="submit" value="upload" />
 				</form>
 		</center>
+
+				
 		  
 	<form method = "POST" action ="update_info">	
 		
 		<h4>
 			<center> 
 				<input class = "userName" type "text" name = "display_name" value = "<?php echo $detail->display_name;?>">
-
 			</center>
 		</h4>
     </header>
@@ -491,7 +534,7 @@ function w3_close() {
 		
 		<p> <b>Info</b> </p>
 		<table>
-
+			
 			<input type = "hidden" name="id_users" value="<?php echo $detail->id_users;?>">
 			<tr >
 				<td width = "28%">
