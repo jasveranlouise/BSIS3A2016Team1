@@ -48,7 +48,6 @@ class reqconfess_model extends CI_Model{
 		$this->db->select("*");
 		$this->db->from('confession');
 		$this->db->join('comment', 'confession.id_confession=comment.id_confession_com', 'left');
-		$this->db->join('personal_info', 'comment.id_user_com=personal_info.id_personal_info', 'left');
 		$this->db->order_by('date', 'DESC');
 		$this->db->order_by('time', 'DESC');
 		$query = $this->db->get();

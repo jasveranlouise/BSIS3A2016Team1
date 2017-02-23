@@ -5,19 +5,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?php echo base_url();?>img/w3.css">
-	<link rel="stylesheet" href="<?php echo base_url();?>css/home.css">
+	<link rel="stylesheet" type="text/css"  href="<?php echo base_url();?>css/home.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<LINK REL="icon" HREF="<?php echo base_url();?>img/ushare4.png"/>
+	<title>About</title>
 
 
+
+	
 <body style = "background-color: #fbf3f2;">
 
-<nav class="w3-sidenav theme2 w3-card-2 none" id="mySidenav">
+<nav class="w3-sidenav theme2 w3-card-2" style="display:none;" id="mySidenav">
   	<a href="javascript:void(0)"
   	onclick="w3_close()"
-  	class="w3-closenav w3-large snpad"  > 
-  		<font class = "tAlignR white">  
+  	class="w3-closenav w3-large " style = "padding: 3%"  > 
+  		<font style = "text-align: right" color = "white">  
   			&times; 
   		</font>
  	</a>
@@ -52,11 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 	<div style = "padding-left: 5%; padding-right: 5%;">
-	<br>
-		<font color = "darkgray" size = "1">
-			Your request entitled "First Kiss" has been approved
-		</font>
-	<br><br><br><br>	<br><br><br><br><br><br><br>
+	<br><br><br><br><br>	<br><br><br><br><br><br><br>
 	<hr class = "sideNavHr"> 
 		<center>
 			<font color = "darkgray" size = "2">
@@ -96,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					</td>
 					<td style = "padding-left: 10px" >
-						<font face = "Century Gothic" size = "5" color = "white"> Feed</font>
+						<font face = "Century Gothic" size = "5" color = "white"> About</font>
 					</td>
 				</tr>	
 				
@@ -135,112 +134,97 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <div id="main">
-<br><br><br><br><br>
+<br><br><br>
 
 	<div class="w3-row">
-	  <div class="w3-green w3-container w3-col" style="width:25%">
+	
+		
+	  <div class="w3-container w3-col" style="width:10%">
 		 
 	  </div>
 	  
-	  <div class="w3-container w3-col" style="width:50%">	
-
-		<?php foreach($posts as $post){?>
-		<div id = "agree<?php echo $post->id_confession;?>">
-		<div id = "agree<?php echo $post->id_confession;?> comments<?php echo $post->id_confession;?>">
-		<img style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">
-		<font face = "Calibri" size = "4" color = "black"> &nbsp; <?php echo $post->hidden_name;?> | </font> <font face = "Calibri" size = "4" color = "darkgray"> <?php echo $post->college;?>	 </font>
-		<div style = "margin-top: -1.5%" class="w3-container w3-section w3-pale-red w3-round w3-border">
-			<p>
-				<font face = "Calibri" size = "4" color = "darkred"> 
-					<b><?php echo $post->confession_title;?></b>
-				</font>
-			</p>		
+	  <div class="w3-container w3-col" style="width:80%">	
+			<center>
+		<img src="<?php echo base_url();?>img/ushare4.png" alt="Norway" style="width:55%">
+		
+		<p>UShare is a website where you can confess your deepest, darkest secrets anonymously.</p>
+		
+		<br><br>
+		
+			<h3>The TEAM</h3>
 			
-		<p class = "marginTop" ><pre><font face = "Calibri" size = "4" ><?php echo $post->confession_text;?></font></pre><hr class = "hr">
-			</p> 
-						
-			<?php foreach($details as $detail){?>
-			<div ">
-				<div class = "<?php $a = $post->agree; if($a==1){echo "fontBlue";}?>">
-					<a href = "agree?idc=<?php echo $post->id_confession;?>&idu=<?php echo $detail->id_users;?>&agr=<?php echo $post->agree;?>&disagr=<?php echo $post->disagree;?>"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-up left" aria-hidden="true">
-						<font class = "postFont"> 
-							Agree 
-						</font> </i>
-					</a> 
+			<table>
+			<tr>
+			<td><div class="w3-container">
+				<div class="w3-card-4" style="width:100%">
+				<img src="<?php echo base_url();?>img/team_ha.jpg" alt="Norway" style="width:100%" >
+				<div class="w3-container w3-center">
+				<p>Hakeem Polistico</p>
 				</div>
-
-				<div class = "<?php $a = $post->disagree; if($a==1){echo "fontBlue";}?>">
-					<a href = "disagree?idc=<?php echo $post->id_confession;?>&idu=<?php echo $detail->id_users;?>&agr=<?php echo $post->agree;?>&disagr=<?php echo $post->disagree;?>"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-down left" aria-hidden="true"> 
-						<font class = "postFont"> 
-							Disagree 
-						</font></i>  
-					</a>
 				</div>
-
-				<div id = "" class = "">
-					<a href = "#comments<?php echo $post->id_confession;?>" onclick="myFunction('Demo<?php echo $post->id_confession;?>')"> <i style = "margin-top: -2px; margin-right: 15px;" class="fa fa-comments-o left" aria-hidden="true">
-						<font class = "postFont"> 
-							Comments
-						</font></i>  
-					</a>
+				</div></td>
+				
+			<td><div class="w3-container">
+			  <div class="w3-card-4" style="width:100%">
+				<img src="<?php echo base_url();?>img/team_jas.jpg" alt="Norway" style="width:100%">
+				<div class="w3-container w3-center">
+				  <p>Jasver Salva</p>
 				</div>
-
-				<font class = "postMargin right" size = "2" ><?php echo $post->time;?> / <?php echo $post->date;?> </font>
-			</div> <br>
-
-			<div id="Demo<?php echo $post->id_confession;?>" class="w3-hide marginComment w3-animate-opacity">
-			 	<ul class="w3-ul w3-pale-red postFont">
-			 		<hr class = "hrComment">
-			 		<li class = "liComment"> 
-			 			<form method = "POST" action ="comment">
-			 				<table class="w3-responsive commentTable">
-			 					<tr> 
-			 						<td class="tableTD">
-			 							<font class="commentName"><?php echo $detail->display_name;?> </font>
-			 						</td>
-			 						<td>	
-			 							<input type="hidden" name="id_comment" value="">
-			 							<input type="hidden" name="id_user_com" value="<?php echo $detail->id_users;?>">
-			 							<?php }?> 
-			 							<input type="hidden" name="id_confession_com" value="<?php echo $post->id_confession;?>">
-			 							<input type="hidden" name="comm_date" value="<?php date_default_timezone_set('Asia/Manila');echo date("Y-m-d");?>">
-			 							<input type="hidden" name="comm_time" value="<?php date_default_timezone_set('Asia/Manila');echo date("h:ia");?>">
-			 							<input type="text" name="comment_text" class = "commentBox" placeholder="type your comment..." autocomplete="off">
-			 							<input type="submit" style="position: absolute; left: -9999px">			
-			 						</td>
-			 					</tr>
-			 				</table>			
-			 			</form>
-			 		</li>
-			 		<?php foreach($comments as $comment){?>
-			    	<li class = "liComment"> 
-			    		<font color = "gray">
-			    			Unknown: 
-			    		</font>  <?php echo $comment->comment_text;?> 
-			    		<font class = "timeComment">  
-			    			<?php echo $comment->comm_date;?> / <?php echo $comment->comm_time;?> 
-			    		</font>
-			    	</li>
-					<?php }?>			    	
-			  	</ul>  
+			  </div>
 			</div>
-		</div>	
-		
-		<br>
-    </div>
-   
-     <?php }?>  
-		
+				</td>
+			
+			<td><div class="w3-container">
+			  <div class="w3-card-4" style="width:100%">
+				<img src="<?php echo base_url();?>img/team_shi.jpg" alt="Norway" style="width:100%">
+				<div class="w3-container w3-center">
+				  <p>Shiela Morales</p>
+				</div>
+			  </div>
+			</div></td>
+			
+				<td><div class="w3-container">
+				  <div class="w3-card-4" style="width:94%">
+					<img src="<?php echo base_url();?>img/team_je.jpg" alt="Norway" style="width:100%">
+					<div class="w3-container w3-center">
+					  <p>Jeru Valenzuela</p>
+					</div>
+				  </div>
+				</div></td>
+				
+				<td><div class="w3-container">
+				  <div class="w3-card-4" style="width:100%">
+					<img src="<?php echo base_url();?>img/team_tin.jpg" alt="Norway" style="width:100%">
+					<div class="w3-container w3-center">
+					  <p>Christine Corpuz</p>
+					</div>
+				  </div>
+				</div></td>
+				</tr>
+				</table>
 	  </div>
 	  
+
 	  
-	  <div class="w3-container w3-col" style="width:25%">
+	  <div class="w3-container w3-col" style="width:10%">
 		 
 	  </div>
+	  
 	</div>
-</div>
+<br><br>
+
+
 </div>
       
+	  <footer id="footer">
+    
+    <div class="footer-copyright">
+      <div class="container center">
+      <center><span>Copyright &copy; 2017 USHARE Confession Site. All rights reserved.</span>
+      </div>
+    </div>
+</footer>
+	  
 <script>
 function w3_open() {
    
@@ -257,9 +241,8 @@ function w3_close() {
   document.getElementById("mySidenav").style.display = "none";
   document.getElementById("openNav").style.display = "inline-block";
 }
-
-function myFunction(id) {
-    var x = document.getElementById(id);
+function myFunction() {
+    var x = document.getElementById("demo");
     if (x.className.indexOf("w3-show") == -1) {
         x.className += " w3-show";
     } else { 
@@ -268,8 +251,6 @@ function myFunction(id) {
 }
 </script>
  
-<a  onclick="document.getElementById('id01').style.display='block'" class="w3-btn-floating-large w3-pale-red postButton"><font color = "red">+</font></a> 
-
 <div id="id01" class="w3-modal">
   <div style = "width: 40%; margin-top: -3%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
     <header class="w3-container postModal">
@@ -280,21 +261,20 @@ function myFunction(id) {
     <div class="w3-container ">
 	
 		<p>
-		<?php foreach($details3 as $detail3){?>	
 			<form method = "POST" action ="reqcon">
-				<input type = "hidden" name = "id_request"> 
+				<input type = "hidden" name = "id_confession"  > 
 				<input type = "hidden" name = "date" value = "<?php echo date("Y-m-d");?>"> 
 				<input type = "hidden" name = "time" value = "<?php echo date("h:ia");?>"> 
-				<input type = "hidden" name = "id_users" value = "<?php echo $detail3->id_confession_info;?>"> 
+				<input type = "hidden" name = "account_name"> 
 
 
-				<label class="w3-label w3-validate"><h4>Confession Title</h4></label>
-					<input class = "w3-round textBox w3-border-red confessBox" type = "text" name = "request_title" placeholder = "Confession title" required>
-				<label class="w3-label w3-validate"><h4>Confession Text</h4></label>
-					<textarea rows = "5" class = "w3-round textArea w3-border-red confessBox" name = "request_text" required> </textarea>	
+				<h4>Confession Title</h4>
+					<input class = "w3-round textBox w3-border-red" type = "text" name = "confession_title" placeholder = "Confession title">
+				<h4>Confession Text</h4> 
+					<textarea rows = "5" class = "w3-round textArea  w3-border-red" name = "confession_text" > </textarea>	
 
 						
-		
+		<?php foreach($details3 as $detail3){?>
 		<input type = "hidden" name = "hidden_name" value="<?php echo $detail3->hidden_name;?>">
 		<?php }?>
 
@@ -324,6 +304,7 @@ function myFunction(id) {
 		  <?php foreach($details as $detail){?>
 		  
 			<center>
+			
 			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" alt="Smiley face" height="150" width="150"> 
 			</center>
 			
@@ -418,7 +399,7 @@ function myFunction(id) {
 				</td>
 			</tr>
 		</table>
-		<hr>
+		<hr class = "hr">
 		<?php }?>
 		
 		<?php foreach($details2 as $detail2){?>
@@ -470,7 +451,7 @@ function myFunction(id) {
 			
 			
 		</table>
-		<hr>
+		<hr class = "hr">
 		<?php }?>
 		
 		<?php foreach($details3 as $detail3){?>
@@ -522,27 +503,27 @@ function myFunction(id) {
   <div style = "width: 40%; margin-top: -1%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
   
   <?php foreach($details as $detail){?>
-  
-    <header class="w3-container postModal">
+  		  
+    	  <header class="w3-container postModal">
 		  <span onclick="document.getElementById('id03').style.display='none'"
 		  class="w3-closebtn">&times;</span>
 		  
 		<center>
 			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" alt="Smiley face" height="150" width="150"> 
-
-			<?php echo form_open_multipart('users/do_upload');?>
+			    <?php echo form_open_multipart('users/do_upload');?>
 				<input type = "hidden" name = "fn" value = "<?php echo $detail->id_users;?>" >
 				<input type="file" name="userfile" size="20" />
 				<input type="submit" value="upload" />
 				</form>
 		</center>
+
+				
 		  
 	<form method = "POST" action ="update_info">	
 		
 		<h4>
 			<center> 
 				<input class = "userName" type "text" name = "display_name" value = "<?php echo $detail->display_name;?>">
-
 			</center>
 		</h4>
     </header>
@@ -552,7 +533,7 @@ function myFunction(id) {
 		
 		<p> <b>Info</b> </p>
 		<table>
-
+			
 			<input type = "hidden" name="id_users" value="<?php echo $detail->id_users;?>">
 			<tr >
 				<td width = "28%">
@@ -635,7 +616,7 @@ function myFunction(id) {
 		
 		<?php }?>  
 		
-		<hr>
+		<hr class = "hr">
 		
 		<p> <b>Student Info</b> </p>
 			
@@ -697,7 +678,7 @@ function myFunction(id) {
 			
 			<?php }?>  
 		</form>
-		<hr>			
+		<hr class = "hr">			
 		
 		<p> <b>Confession Info</b> </p>
 			
@@ -730,13 +711,117 @@ function myFunction(id) {
 
 </div>
 
+<div id="id04" class="w3-modal">
+  <div style = "width: 40%; margin-top: -3%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
+    <header class="w3-container postModal">
+      <span onclick="document.getElementById('id04').style.display='none'"
+      class="w3-closebtn">&times;</span>
+      <h4><img style = "margin: -15% -.9% -2% -1%" src="<?php echo base_url();?>img/confession.png" height="35" width="35"> omments</h4>
+    </header>
+    <div class="w3-container ">
+	
+	<br>
+	
+		<img style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">
+		<font faceimg style = "margin: 0% 0% -1.5% 0%" src="<?php echo base_url();?>img/user1.png" alt="Smiley face" height="30" width="30">		
+		<font face = "Calibri" size = "4" color = "black"> &nbsp; Hidden Name| </font> <font face = "Calibri" size = "4" color = "darkgray"> College </font>
+		<div style = "margin-top: -1.5%" class="w3-container w3-section w3-pale-red w3-round w3-border">
+			<p>
+				<font face = "Calibri" size = "4" color = "darkred"> 
+					<b>Confession Title</b>
+				</font>
+			</p>		
+			
+			<p class = "marginTop" ><font face = "Calibri" size = "4" >
+			Confession - Text, 
+			Confession - Text,
+			Confession - Text, 
+			Confession - Text, 
+			Confession - Text, </font><hr class = "hr">
+			</p> 
+			
+			<div> 
+				<font class = "postMargin left" size = "2" >10 agrees / 2 disagrees </font>
+				<font class = "postMargin right" size = "2" >time / date </font>
+			</div>
+		</div>
+		
+		
+		<div class = "w3-border-bottom borderMargin" style = "margin-left: -16px; margin-right: -16px;" ></div>
+		
+		
+		<p>
+			
+			<form>
+				<img style = "margin: 0% 0% 0% 0%" src="<?php echo base_url();?>img/hakeem_2.jpg" class = "left w3-circle imageCircle" alt="Smiley face" height="35" width="35">
+				<input type = "text" style = "width: 90%;" class = "w3-input left" name = "comment" placeholder = "type your comment here">
+			</form>
+		</p>
+		<br><br>
+			<p>
+			<img style = "margin: 0% 0% -2.3% 0%" src="<?php echo base_url();?>img/hakeem_2.jpg" class = "w3-circle imageCircle" height="35" width="35">
+			
+				<font face = "Century Gothic" size = "3" color = "darkred"> 
+					
+					<b>Linkin Park</b>
+				</font>
+					
+				<font face = "Century Gothic" size = "3" color = "black">
+					I've become so numb, I can't feel you there. Become so tight so much more aware.
+				</font>
+				
+				<font face = "Century Gothic" size = "2" color = "darkgray">
+					time/date
+				</font>		
+		
+			</p>
+		<p>
+			<p>
+				<font face = "Century Gothic" size = "3" color = "darkred"> 
+					<img style = "margin: 0% 0% -2.3% 0%" src="<?php echo base_url();?>img/hakeem_2.jpg" class = "w3-circle imageCircle" height="35" width="35">
+					<b>Linkin Park</b>
+				</font>
+					
+				<font face = "Century Gothic" size = "3" color = "black">
+					In the end it doesn't really matter.
+				</font>
+				
+				<font face = "Century Gothic" size = "2" color = "darkgray">
+					time/date
+				</font>
+			</p>		
+		
+		</p>
+		
+		<p>
+			
+			<p>
+				<font face = "Century Gothic" size = "3" color = "darkred"> 
+					<img style = "margin: 0% 0% -2.3% 0%" src="<?php echo base_url();?>img/hakeem_2.jpg" class = "w3-circle imageCircle" height="35" width="35">
+					<b>Linkin Park</b>
+				</font>
+					
+				<font face = "Century Gothic" size = "3" color = "black">
+					We can't wait to burn it to the ground.
+				</font>
+				
+				<font face = "Century Gothic" size = "2" color = "darkgray">
+					time/date
+				</font>
+			</p>		
+		
+		</p>
+		
+		<br>
+  </div>
+</div>
 
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
 var modal2 = document.getElementById('id02');
 var modal3 = document.getElementById('id03');
-
+var modal4 = document.getElementById('id04');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -748,7 +833,9 @@ window.onclick = function(event) {
 	if (event.target == modal3) {
         modal3.style.display = "none";
     }
-
+	if (event.target == modal4) {
+        modal4.style.display = "none";
+    }
 	
 }
 </script>

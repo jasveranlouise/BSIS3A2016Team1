@@ -400,4 +400,22 @@ class Users extends CI_Controller {
 			redirect('users/home');
 		}
 	}	
+
+	public function about(){
+		$li = $this->session->userdata('logged_in');
+		if($li == TRUE){
+			$this->load->model('reqconfess_model'); // load model
+			$this->load->model('active_model'); // load model
+			$this->data['posts'] = $this->reqconfess_model->getPosts2(); 
+			$this->data['posts2'] = $this->reqconfess_model->getPosts3(); 
+			$this->data['details'] = $this->active_model->getPosts();
+			$this->data['details2'] = $this->active_model->getPosts2();
+			$this->data['details3'] = $this->active_model->getPosts3();
+		
+			$this->load->view('users/about', $this->data);	
+		}
+		else{
+			redirect('users/');
+		}
+	}
 }
