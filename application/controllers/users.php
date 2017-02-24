@@ -111,6 +111,7 @@ class Users extends CI_Controller {
 			$this->data['details'] = $this->active_model->getPosts();
 			$this->data['details2'] = $this->active_model->getPosts2();
 			$this->data['details3'] = $this->active_model->getPosts3();
+			$this->data['html'] = $this->reqconfess_model->getHtml();
 
 			$this->load->view('welcome_message_2', $this->data);
 		}

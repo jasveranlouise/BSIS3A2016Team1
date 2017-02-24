@@ -148,14 +148,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<table class=" w3-border" style = "width: 100%; background-color: white; min-width: 410px;" >
 				<tr>
 					<th colspan="2">
-						<h4 style = "font-family: Calibri;"><b>People who fucking use Ushare.com </b></h4>
+						<h4 style = "font-family: Calibri;"><b>People who use Ushare.com </b></h4>
 					</th>
 				</tr>
 				<tr class="w3-border">
 					<th colspan="2">
 						<h4 style = "font-family: Calibri;">
 							<form method = "POST" action ="peopleSearch">
-								<input style = "width: 90%" name = "search" type = "search" placeholder="search">
+								<input style = "width: 90%" name = "search" type = "search" placeholder="search by name">
 								<input type="submit" style="position: absolute; left: -9999px"/>
 							</form>
 						</h4>

@@ -212,16 +212,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 				</table>			
 			 			</form>
 			 		</li>
-			 		<?php foreach($comments as $comment){?>
-			    	<li class = "liComment"> 
+			 				<?php foreach($comments as $comment){?>
+			 				<?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) { ?>
+						<li class = "liComment"> 
 			    		<font color = "gray">
-			    			Unknown: 
-			    		</font>  <?php echo $comment->comment_text;?> 
+			    			<?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) {echo $comment->display_name;}?>
+			    		</font>  <?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) {echo $comment->comment_text;}?> 
 			    		<font class = "timeComment">  
-			    			<?php echo $comment->comm_date;?> / <?php echo $comment->comm_time;?> 
+			    			<?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) {echo $comment->comm_date." / ";}?>  <?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) {echo $comment->comm_time;}?> 
 			    		</font>
 			    	</li>
-					<?php }?>			    	
+    <?php } ?>
+			    	
+					<?php }?>	    	
 			  	</ul>  
 			</div>
 		</div>	
@@ -291,7 +294,7 @@ function myFunction(id) {
 				<label class="w3-label w3-validate"><h4>Confession Title</h4></label>
 					<input class = "w3-round textBox w3-border-red confessBox" type = "text" name = "request_title" placeholder = "Confession title" required>
 				<label class="w3-label w3-validate"><h4>Confession Text</h4></label>
-					<textarea rows = "5" class = "w3-round textArea w3-border-red confessBox" name = "request_text" required> </textarea>	
+					<textarea rows = "5" class = "w3-round textArea w3-border-red confessBox" name = "request_text" placeholder="type your confession here..." required> </textarea>	
 
 						
 		
@@ -541,7 +544,7 @@ function myFunction(id) {
 		
 		<h4>
 			<center> 
-				<input class = "userName" type "text" name = "display_name" value = "<?php echo $detail->display_name;?>">
+				<input class = "userName confessBox" type "text" name = "display_name" value = "<?php echo $detail->display_name;?>">
 
 			</center>
 		</h4>
@@ -560,7 +563,7 @@ function myFunction(id) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" >  <input class = "inputWidth" type = "text" name = "first_name" value = "<?php echo $detail->first_name;?>"  > </p>
+					<p class = "infoMargin" >  <input class = "inputWidth confessBox" type = "text" name = "first_name" value = "<?php echo $detail->first_name;?>"  > </p>
 				</td>
 			</tr>
 			
@@ -570,7 +573,7 @@ function myFunction(id) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" >  <input class = "inputWidth" type = "text" name = "last_name" value = "<?php echo $detail->last_name;?>" > </p>
+					<p class = "infoMargin" >  <input class = "inputWidth confessBox" type = "text" name = "last_name" value = "<?php echo $detail->last_name;?>" > </p>
 				</td>
 			</tr>
 			
@@ -580,7 +583,7 @@ function myFunction(id) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" >  <input class = "inputWidth" type = "text" name = "middle_name" value = "<?php echo $detail->middle_name;?>" > </p>
+					<p class = "infoMargin" >  <input class = "inputWidth confessBox" type = "text" name = "middle_name" value = "<?php echo $detail->middle_name;?>" > </p>
 				</td>
 			</tr>
 			
@@ -590,7 +593,7 @@ function myFunction(id) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" >  <input class = "inputWidth" type = "email" name = "email" value = "<?php echo $detail->email;?>"  > </p>
+					<p class = "infoMargin" >  <input class = "inputWidth confessBox" type = "email" name = "email" value = "<?php echo $detail->email;?>"  > </p>
 				</td>
 			</tr>
 			
@@ -600,7 +603,7 @@ function myFunction(id) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" ><input class = "inputWidth" type = "number" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
+					<p class = "infoMargin" ><input class = "inputWidth confessBox" type = "number" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
 				</td>
 			</tr>
 			
@@ -610,7 +613,7 @@ function myFunction(id) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" > <input class = "inputWidth" type = "date" name = "birthdate" value = "<?php $a = $detail->birthdate; if( $a == '0000-00-00') {echo "";} else {echo "$a";} ?>"></p>
+					<p class = "infoMargin" > <input class = "inputWidth confessBox" type = "date" name = "birthdate" value = "<?php $a = $detail->birthdate; if( $a == '0000-00-00') {echo "";} else {echo "$a";} ?>"></p>
 				</td>
 			</tr>
 			
@@ -621,7 +624,7 @@ function myFunction(id) {
 				
 				<td>
 					<p class = "infoMargin" > 
-					<select class="w3-select w3-border paddingtb inputWidth" name="sex">
+					<select class="w3-select w3-border paddingtb inputWidth confessBox" name="sex">
 						<option <?php $s = $detail->sex; if($s == "") echo "selected"?> value="" disabled selected>Choose your option</option>
 						<option <?php $s = $detail->sex; if($s == "Male") echo "selected"?> value="Male">Male</option>
 						<option <?php $s = $detail->sex; if($s == "Female") echo "selected"?> value="Female">Female</option>
@@ -650,7 +653,7 @@ function myFunction(id) {
 					</td>
 					
 					<td>
-						<p class = "infoMargin" > <input class = "inputWidth" value = "<?php echo $detail2->student_no;?>" placeholder = "xx-xxx-xx" pattern = "\d{2}[\-]\d{3}[\-]\d{3}" type = "text" name = "student_no" ></p>
+						<p class = "infoMargin" > <input class = "inputWidth confessBox" value = "<?php echo $detail2->student_no;?>" placeholder = "xx-xxx-xx" pattern = "\d{2}[\-]\d{3}[\-]\d{3}" type = "text" name = "student_no" ></p>
 					</td>
 				</tr>
 					
@@ -660,7 +663,7 @@ function myFunction(id) {
 					</td>
 					
 					<td>
-						<p class = "infoMargin" > <input class = "inputWidth" type = "text" name = "course" value = "<?php echo $detail2->course;?>"></p>
+						<p class = "infoMargin" > <input class = "inputWidth confessBox" type = "text" name = "course" value = "<?php echo $detail2->course;?>"></p>
 					</td>
 				</tr>
 				
@@ -688,7 +691,7 @@ function myFunction(id) {
 					</td>
 					
 					<td>
-						<p class = "infoMargin" ><input class = "inputWidth" type = "month" name = "year_graduated" value = "<?php echo $detail2->year_graduated;?>" ></p>
+						<p class = "infoMargin" ><input class = "inputWidth confessBox" type = "month" name = "year_graduated" value = "<?php echo $detail2->year_graduated;?>" ></p>
 					</td> 
 				</tr>
 			</table>
@@ -712,7 +715,7 @@ function myFunction(id) {
 					</td>
 					
 					<td>
-						<p class = "infoMargin" > <input class = "inputWidth" value = "<?php echo $detail3->hidden_name;?>" placeholder = "hidden name" type = "text" name = "hidden_name" ></p>
+						<p class = "infoMargin" > <input class = "inputWidth confessBox" value = "<?php echo $detail3->hidden_name;?>" placeholder = "hidden name" type = "text" name = "hidden_name" ></p>
 					</td>
 				</tr>
 					
