@@ -111,7 +111,6 @@ class Users extends CI_Controller {
 			$this->data['details'] = $this->active_model->getPosts();
 			$this->data['details2'] = $this->active_model->getPosts2();
 			$this->data['details3'] = $this->active_model->getPosts3();
-			$this->data['html'] = $this->reqconfess_model->getHtml();
 
 			$this->load->view('welcome_message_2', $this->data);
 		}
@@ -254,7 +253,7 @@ class Users extends CI_Controller {
 
 				$this->load->model('reqconfess_model'); // load model
 				$this->load->model('active_model'); // load model
-				$this->data['posts'] = $this->reqconfess_model->getPosts(); 
+				$this->data['posts'] = $this->reqconfess_model->getPosts();  
 				$this->data['details'] = $this->active_model->getPosts();
 				$this->data['details2'] = $this->active_model->getPosts2();
 				$this->data['details3'] = $this->active_model->getPosts3();
@@ -275,7 +274,9 @@ class Users extends CI_Controller {
 		if($li == TRUE){
 			$this->load->model('reqconfess_model'); // load model
 			$this->load->model('active_model'); // load model
-			$this->data['posts'] = $this->reqconfess_model->getPosts2(); 
+			$this->data['posts'] = $this->reqconfess_model->getPosts2();
+			$this->data['approved'] = $this->reqconfess_model->getApproved();
+			$this->data['declined'] = $this->reqconfess_model->getDeclined();   
 			$this->data['posts2'] = $this->reqconfess_model->getPosts3(); 
 			$this->data['details'] = $this->active_model->getPosts();
 			$this->data['details2'] = $this->active_model->getPosts2();

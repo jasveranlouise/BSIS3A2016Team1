@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url();?>css/home.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>Welcome to Ushare</title>
 
 
 <body style = "background-color: #fbf3f2;">
@@ -30,6 +30,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<img style = "margin-right: 6%;" src="<?php echo base_url();?>img/home_2.png" alt="Smiley face" height="20" width="20">Feed
 		</font>
 	</a>
+
+	<?php foreach($details as $detail){?>
+		<?php $a = $detail->admin; if($a==1) { ?>
+	<a style = "padding: 4%" href="admin">
+		<font color = "white" size = "3" style = "margin-left: 25%;" >
+			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/admin_2.png" alt="Smiley face" height="20" width="20">Admin
+		</font>
+	</a>
+		<?php } ?>
+	<?php } ?>
 	
 	<a style = "padding: 4%" href="people">
 		<font color = "white" size = "3" style = "margin-left: 25%;" >
@@ -212,17 +222,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 				</table>			
 			 			</form>
 			 		</li>
-			 				<?php foreach($comments as $comment){?>
-			 				<?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) { ?>
-						<li class = "liComment"> 
-			    		<font color = "gray">
-			    			<?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) {echo $comment->display_name;}?>
-			    		</font>  <?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) {echo $comment->comment_text;}?> 
-			    		<font class = "timeComment">  
-			    			<?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) {echo $comment->comm_date." / ";}?>  <?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) {echo $comment->comm_time;}?> 
-			    		</font>
-			    	</li>
-    <?php } ?>
+
+			 		<?php foreach($comments as $comment){?>
+				 		<?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) { ?>
+							<li class = "liComment"> 
+				    		<font color = "gray">
+				    			<?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) {echo $comment->display_name;}?>
+				    		</font>  <?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) {echo $comment->comment_text;}?> 
+				    		<font class = "timeComment">  
+				    			<?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) {echo $comment->comm_date." / ";}?>  <?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) {echo $comment->comm_time;}?> 
+				    		</font>
+				    		</li>
+						<?php } ?>
 			    	
 					<?php }?>	    	
 			  	</ul>  

@@ -40,6 +40,26 @@ class reqconfess_model extends CI_Model{
 		return $query->result();
 	}
 
+	function getApproved(){
+		$this->db->select("*");
+		$this->db->from('request');
+		$this->db->where('approved', '1');
+		$this->db->where('declined', '0');
+		$this->db->order_by('id_request', 'ASC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	function getDeclined(){
+		$this->db->select("*");
+		$this->db->from('request');
+		$this->db->where('approved', '0');
+		$this->db->where('declined', '1');
+		$this->db->order_by('id_request', 'ASC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	function addComment($data){
 	$this->db->insert('comment', $data);	
 	}
@@ -48,18 +68,12 @@ class reqconfess_model extends CI_Model{
 		$this->db->select("*");
 		$this->db->from('comment');
 		$this->db->join('personal_info', 'comment.id_user_com=personal_info.id_personal_info', 'left');
-		$this->db->order_by('comm_date', 'DESC');
-		$this->db->order_by('comm_time', 'DESC');
+		$this->db->order_by('comm_date', 'ASC');
+		$this->db->order_by('comm_time', 'ASC');
 		$query = $this->db->get();
 		return $query->result();
 	}
 
-	function getHtml(){
-		$this->db->select("*");
-		$this->db->from('html');
-		$query = $this->db->get();
-		return $query->result();
-	}
 
 
 }

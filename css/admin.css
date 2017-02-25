@@ -10,3 +10,26 @@
 	background-color: darkred;
 	color: white;
 }
+.adminTable{
+	table-layout:auto;
+	margin-top: 15px;
+	width: 100%;	
+}
+.adminTD{
+	width:166px;
+	white-space:nowrap;
+}
+.approveButton{
+	float: left;
+	margin-right: 3px;
+	border-style: solid;
+}
+.con{
+	width: 100%;
+}
+.subtitle{
+	color: gray;
+}
+.pre{
+	font-family: Century Gothic;
+}

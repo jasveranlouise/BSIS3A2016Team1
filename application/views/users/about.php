@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
 	<LINK REL="icon" HREF="<?php echo base_url();?>img/ushare4.png"/>
-	<title>About</title>
+	<title>Welcome to Ushare</title>
 
 
 
@@ -33,6 +33,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<img style = "margin-right: 6%;" src="<?php echo base_url();?>img/home_2.png" alt="Smiley face" height="20" width="20">Feed
 		</font>
 	</a>
+
+	<?php foreach($details as $detail){?>
+		<?php $a = $detail->admin; if($a==1) { ?>
+	<a style = "padding: 4%" href="admin">
+		<font color = "white" size = "3" style = "margin-left: 25%;" >
+			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/admin_2.png" alt="Smiley face" height="20" width="20">Admin
+		</font>
+	</a>
+		<?php } ?>
+	<?php } ?>
 	
 	<a style = "padding: 4%" href="people">
 		<font color = "white" size = "3" style = "margin-left: 25%;" >

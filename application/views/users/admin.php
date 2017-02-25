@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url();?>css/admin.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>Welcome to Ushare</title>
 
 
 
@@ -34,18 +34,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</font>
 	</a>
 	
+	<?php foreach($details as $detail){?>
+		<?php $a = $detail->admin; if($a==1) { ?>
+	<a style = "padding: 4%" href="admin">
+		<font color = "white" size = "3" style = "margin-left: 25%;" >
+			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/admin_2.png" alt="Smiley face" height="20" width="20">Admin
+		</font>
+	</a>
+		<?php } ?>
+	<?php } ?>
+
+	
 	<a style = "padding: 4%" href="people">
 		<font color = "white" size = "3" style = "margin-left: 25%;" >
 			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/people_2.png" alt="Smiley face" height="20" width="20">People
 		</font>
 	</a>
 	
-	<a style = "padding: 4%" href="tryit_426.htm#">
+	<a style = "padding: 4%" href="about">
 		<font color = "white" size = "3" style = "margin-left: 25%;" >
 			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/about_2.png" alt="Smiley face" height="20" width="20">About
 		</font>
 	</a>
-	
+		
 	<a style = "padding: 4%" href="logout">
 		<font color = "white" size = "3" style = "margin-left: 25%;" >
 			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/logout_4.png" alt="Smiley face" height="20" width="20">Logout
@@ -136,18 +147,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <br><br><br><br><br>
 
 	<div class="w3-row">
-	  <div class="w3-green w3-container w3-col" style="width:15%">
+	  <div class="w3-green w3-container w3-col" style="width:12.5%">
 		 
 	  </div>
 	  
-	  <div class="w3-container w3-col" style="width:70%">	
+	  <div class="w3-container w3-col" style="width:75%">	
 		
-		<input type = "hidden" name = "hidden_name" value="">
-			
+			<div class="w3-container con">
+			  <div class="w3-row">
+			    <a href="javascript:void(0)" onclick="openCity(event, 'Requests');">
+			      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding w3-border-red">Requests</div>
+			    </a>
+			    <a href="javascript:void(0)" onclick="openCity(event, 'Approved');">
+			      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Approved</div>
+			    </a>
+			    <a href="javascript:void(0)" onclick="openCity(event, 'Declined');">
+			      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Declined</div>
+			    </a>
+			  </div>
 
-			<table class="w3-table-all w3-small">
+			  <div id="Requests" class="w3-container city" style="display:block">
+			  	<h3 class="subtitle">Requested Confessions</h3>
+			    <p>List of requested confessions to be approved or declined.</p> 
+
+			    <table class="w3-table-all w3-small adminTable">
 			    <tr style="background-color: darkred; color: white;">
-			      <th>ID</th>
+			      <th class="th">ID</th>
 			      <th>Account No</th>
 			      <th>Title</th>
 			      <th>Text</th>
@@ -155,7 +180,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			      <th>College</th>
 			      <th>Date</th>
 			      <th>Time</th>
-			      <th>Action</th>
+			      <th class="adminTD">Action</th>
 			    </tr>
 			<?php foreach($posts2 as $post){?>
 			    <tr>
@@ -167,7 +192,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    <td><?php echo $post->college;?></td>
 			    <td><?php echo $post->date;?></td>
 			    <td><?php echo $post->time;?></td>
-			    <td><font color = "darkred">
+			    <td class="adminTD"><font color = "darkred">
 			    		<form method = "POST" action ="approveRequest">
 			    			<input type = "hidden" name = "id_confession" value = "">
 			    			<input type = "hidden" name = "id_request" value = "<?php echo $post->id_request;?>">
@@ -178,12 +203,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    			<input type = "hidden" name = "college" value = "<?php echo $post->college;?>">
 			    			<input type = "hidden" name = "date" value = "<?php echo date("Y-m-d");?>">
 			    			<input type = "hidden" name = "time" value = "<?php echo date("h:ia");?>">
-			    			<input class="approve " type = "submit" value = "approve">
+			    			<input class="approve approveButton" type = "submit" value = "approve">
 			    		</form>
 
 			    		<form method = "POST" action ="declineRequest">
 			    			<input type = "hidden" name = "id_request" value = "<?php echo $post->id_request;?>">
-			    			<input class="approve " type = "submit" value = "decline">
+			    			<input class="approve approveButton" type = "submit" value = "decline">
 			    		</form>
 							
 
@@ -195,10 +220,77 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<?php }?>
 			</table>
 			
+			  </div>
+
+			  <div id="Approved" class="w3-container city" style="display:none">
+				<h3 class="subtitle">Approved Confessions</h3>
+			    <p>List of approved confessions</p> 
+
+			    <table class="w3-table-all w3-small adminTable">
+			    <tr style="background-color: darkred; color: white;">
+			      <th class="th">ID</th>
+			      <th>Account No</th>
+			      <th>Title</th>
+			      <th>Text</th>
+			      <th>Hidden Name</th>
+			      <th>College</th>
+			      <th>Date</th>
+			      <th>Time</th>
+			    </tr>
+			<?php foreach($approved as $post){?>
+			    <tr>
+				    <td><?php echo $post->id_request;?></td>
+				    <td><?php echo $post->id_users;?></td>
+				    <td><?php echo $post->request_title;?></td>
+				    <td><?php echo $post->request_text;?></td>
+				    <td><?php echo $post->hidden_name;?></td>
+				    <td><?php echo $post->college;?></td>
+				    <td><?php echo $post->date;?></td>
+				    <td><?php echo $post->time;?></td>      
+			    </tr>
+			<?php }?>
+			</table>
+			
+			  </div>
+
+			  <div id="Declined" class="w3-container city" style="display:none">
+			    <h3 class="subtitle">Declined Confessions</h3>
+			    <p>List of declined confessions.</p> 
+
+			    <table class="w3-table-all w3-small adminTable">
+			    <tr style="background-color: darkred; color: white;">
+			      <th class="th">ID</th>
+			      <th>Account No</th>
+			      <th>Title</th>
+			      <th>Text</th>
+			      <th>Hidden Name</th>
+			      <th>College</th>
+			      <th>Date</th>
+			      <th>Time</th>
+			    </tr>
+			<?php foreach($declined as $post){?>
+			    <tr>
+				    <td><?php echo $post->id_request;?></td>
+				    <td><?php echo $post->id_users;?></td>
+				    <td><?php echo $post->request_title;?></td>
+				    <td><?php echo $post->request_text;?></td>
+				    <td><?php echo $post->hidden_name;?></td>
+				    <td><?php echo $post->college;?></td>
+				    <td><?php echo $post->date;?></td>
+				    <td><?php echo $post->time;?></td>      
+			    </tr>
+			<?php }?>
+			</table>
+			
+			  </div>
+			</div>
+			
+
+			
 	  </div>
 	
 	  
-	  <div class="w3-container w3-col" style="width:15%">
+	  <div class="w3-container w3-col" style="width:12.5%">
 		 
 	  </div>
 	</div>
@@ -220,6 +312,20 @@ function w3_close() {
   document.getElementById("header2").style.marginLeft = "0%";
   document.getElementById("mySidenav").style.display = "none";
   document.getElementById("openNav").style.display = "inline-block";
+}
+
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-border-red";
 }
 </script>
  
