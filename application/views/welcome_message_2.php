@@ -124,7 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<td>
 						<a style="margin-left: -30px;" class = "pointer w3-hover-none" onclick="document.getElementById('id02').style.display='block'">
 								<span class="fa-stack fa-lg">
-								  <i class="fa fa-circle fa-stack-2x"></i>
+								  <i class="fa fa-circle fa-stack-2x" style="color: grey"></i>
 								  <i class="fa fa-user-o fa-stack-1x fa-inverse"></i>
 								</span>
 						</a>
