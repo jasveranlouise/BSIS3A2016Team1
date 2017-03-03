@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
 	<LINK REL="icon" HREF="<?php echo base_url();?>img/ushare4.png"/>
-	<title>Ushare Contact</title>
+	<title>Contact Us</title>
 
 
 
@@ -100,7 +100,15 @@ body {
 
 
 	<div style = "padding-left: 5%; padding-right: 5%;">
-	<br><br><br><br><br>	<br><br><br><br><br><br><br>
+	<br><br><br><br><br>	<br><br><br><br><br><br>
+	
+	<hr class = "sideNavHr"> 
+			<font color = "darkgray" size = "2">
+			<center>
+			<a href = "contact_us"><img style = "margin-right: 6%" src="<?php echo base_url();?>img/phone.png" height="15" width="15">Contact Us</a> 
+			<center>
+			</font>
+	
 	<hr class = "sideNavHr"> 
 		<center>
 			<font color = "darkgray" size = "2">
@@ -183,7 +191,7 @@ body {
 <center>
 <h1>We'd love to help!</h1>
 <h4>Feel free to say hello!</h4>
-<br><br> 
+<br><br><br>
 <div class="w3-row">
  <div class="w3-container w3-col w3" style = "width: 15%" >
 	</div>
@@ -191,20 +199,18 @@ body {
 	<div class="w3-container w3-col w3" style = "width: 30%" >
 		<p>
 		
-			<form method = "POST" action ="reqcon">
+			<form method = "POST" action ="suggestion">
 				
 
-
+				<input type = "hidden" name = "id_users" value = ""> 
+				<input type = "hidden" name = "id_suggestion" value = ""> 
 				<label class="w3-label w3-validate"><h4></h4></label>
-					<input class = "w3-round textBox w3-border-red confessBox" type = "text" name = "request_title" placeholder = "Your Name" required>
+					<input class = "w3-round textBox w3-border-red confessBox" type = "text" name = "name" value = "<?php echo $detail->display_name;?>" required>
 				<label class="w3-label w3-validate"><h4></h4></label>
 					<input class = "w3-round textBox w3-border-red confessBox" type = "text" name = "request_title" placeholder = "Email Address" required>
 				<label class="w3-label w3-validate"><h4></h4></label>
-					<textarea rows = "5" class = "w3-round textArea w3-border-red confessBox" id = "form_comments" name = "request_title" placeholder = "Message" required="required"></textarea>
+					<textarea rows = "5" class = "w3-round textArea w3-border-red confessBox" name = "request_text" placeholder = " Your Message Here" required> </textarea>	
 
-						
-		
-		
 										
 					<br>
 				<br>

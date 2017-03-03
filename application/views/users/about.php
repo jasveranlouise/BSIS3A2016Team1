@@ -9,56 +9,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
 	<LINK REL="icon" HREF="<?php echo base_url();?>img/ushare4.png"/>
-	<title>Ushare About</title>
+	<title>About</title>
 
 
-
-<style>
-
-html {
-  height: 100%;
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-body {
-  position: relative;
-  margin: 0;
-  padding-bottom: 6rem;
-  min-height: 100%;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
-.demo {
-  margin: 0 auto;
-  padding-top: 64px;
-  max-width: 640px;
-  width: 94%;
-}
-
-.demo h1 {
-  margin-top: 0;
-}
-
-/**
- * Footer Styles
- */
-
-.footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #808080;
-  text-align: center;	
-}
-</style>	
+	
 <body style = "background-color: #fbf3f2;">
 
 <nav class="w3-sidenav theme2 w3-card-2" style="display:none;" id="mySidenav">
@@ -100,7 +54,15 @@ body {
 
 
 	<div style = "padding-left: 5%; padding-right: 5%;">
-	<br><br><br><br><br>	<br><br><br><br><br><br><br>
+	<br><br><br><br><br>	<br><br><br><br><br><br>
+	
+	<hr class = "sideNavHr"> 
+			<font color = "darkgray" size = "2">
+			<center>
+			<a href = "contact_us"><img style = "margin-right: 6%" src="<?php echo base_url();?>img/phone.png" height="15" width="15">Contact Us</a> 
+			<center>
+			</font>
+	
 	<hr class = "sideNavHr"> 
 		<center>
 			<font color = "darkgray" size = "2">
@@ -267,11 +229,7 @@ body {
       
 	  
 
-<div class="demo">
-</div>
-<div class="footer"> <a href = "contact_us"><font color = "white" ><strong>Contact Us:</strong><h6></a> usharewebsite@gmail.com | 0912 345 6789</h6></font>
 
-</div>
 	  
 <script>
 function w3_open() {

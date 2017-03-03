@@ -253,7 +253,7 @@ class Users extends CI_Controller {
 
 				$this->load->model('reqconfess_model'); // load model
 				$this->load->model('active_model'); // load model
-				$this->data['posts'] = $this->reqconfess_model->getPosts();  
+				$this->data['posts'] = $this->reqconfess_model->getPosts(); 
 				$this->data['details'] = $this->active_model->getPosts();
 				$this->data['details2'] = $this->active_model->getPosts2();
 				$this->data['details3'] = $this->active_model->getPosts3();
@@ -274,9 +274,7 @@ class Users extends CI_Controller {
 		if($li == TRUE){
 			$this->load->model('reqconfess_model'); // load model
 			$this->load->model('active_model'); // load model
-			$this->data['posts'] = $this->reqconfess_model->getPosts2();
-			$this->data['approved'] = $this->reqconfess_model->getApproved();
-			$this->data['declined'] = $this->reqconfess_model->getDeclined();   
+			$this->data['posts'] = $this->reqconfess_model->getPosts2(); 
 			$this->data['posts2'] = $this->reqconfess_model->getPosts3(); 
 			$this->data['details'] = $this->active_model->getPosts();
 			$this->data['details2'] = $this->active_model->getPosts2();
@@ -439,4 +437,13 @@ class Users extends CI_Controller {
 		}
 	}
 	
+	public function suggestion(){
+		$this->load->model('suggestion_model');
+
+			if($this->input->post()) {
+				$data = $this->input->post();
+				$result = $this->suggestion_model->suggestion($data);
+				redirect('users/contact_us');
+		}
+	}
 }
