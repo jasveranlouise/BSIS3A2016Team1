@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2017 at 02:56 PM
--- Server version: 5.7.11
--- PHP Version: 7.0.4
+-- Generation Time: Mar 03, 2017 at 07:53 AM
+-- Server version: 5.7.14
+-- PHP Version: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `ushare`
 --
-CREATE DATABASE IF NOT EXISTS `ushare` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `ushare`;
 
 -- --------------------------------------------------------
 
@@ -46,7 +44,8 @@ INSERT INTO `agree` (`id_agree`, `agree`, `disagree`, `id_confess_agr`, `id_user
 (83, b'1', b'0', 27, 1),
 (88, b'0', b'1', 18, 0),
 (89, b'0', b'1', 28, 1),
-(90, b'1', b'0', 30, 1);
+(93, b'0', b'1', 29, 8),
+(95, b'0', b'1', 30, 1);
 
 -- --------------------------------------------------------
 
@@ -70,7 +69,8 @@ CREATE TABLE `comment` (
 INSERT INTO `comment` (`id_comment`, `comment_text`, `id_user_com`, `id_confession_com`, `comm_date`, `comm_time`) VALUES
 (1, 'Pacool kid ka po boss', 1, 30, '2017-02-22', '12:53am'),
 (2, 'Napakahaba ng confession mo ah? Kala mo naman talaga napakaganda mo? eh sino ka ba? kapal ng mukuha mo no?', 1, 30, '2017-02-22', '12:55am'),
-(3, 'Ohh Kapal ng mukha mo ', 7, 30, '2017-02-22', '12:55am');
+(3, 'Ohh Kapal ng mukha mo ', 7, 30, '2017-02-22', '12:55am'),
+(4, 'edi shing', 8, 29, '2017-02-27', '10:01pm');
 
 -- --------------------------------------------------------
 
@@ -126,7 +126,8 @@ INSERT INTO `confession_info` (`id_confession_info`, `confession_approved`, `con
 (1, 0, 0, 'A Rocket to the Moon'),
 (2, 0, 0, ''),
 (6, 0, 0, 'hello'),
-(7, 0, 0, 'Janneh');
+(7, 0, 0, 'Janneh'),
+(8, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -154,7 +155,8 @@ INSERT INTO `personal_info` (`id_personal_info`, `display_name`, `first_name`, `
 (1, 'Hakeem Joshua Polistico', 'Hakeem', 'Polistico', 'Andaya', 'hjpolistico@gmail.com', 9123123, '1994-07-22', 'Male'),
 (2, 'Aljohn Pangilinan', 'Aljohn', 'Pangilinan', 'A', 'aljohn_pangilinan@gmail.com', 2147483647, '1993-12-24', 'Male'),
 (6, 'Adrielle Kristine Escaro', 'Adrielle Kristine', 'Escaro', 'Mestiola', 'adrielle_escaro@gmail.com', 0, '1998-06-24', 'Female'),
-(7, 'Janferr Catibog', 'Janferr', 'Catibog', '', 'janferr_catibog@gmail.com', 0, '0000-00-00', 'Female');
+(7, 'Janferr Catibog', 'Janferr', 'Catibog', '', 'janferr_catibog@gmail.com', 0, '0000-00-00', 'Female'),
+(8, 'Jasver Salva', 'Jasver', 'Salva', '', '', 0, '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -208,7 +210,22 @@ INSERT INTO `student_info` (`id_student_info`, `student_no`, `course`, `college`
 (1, '14-038-014', 'Bachelor of Science in Information System', 'College of Science', '2018-03'),
 (2, '14-038-069', 'Bachelor of Science in Information System', 'College of Science', ''),
 (6, '14-038-027', 'Bachelor of Science in Information System', 'College of Science', ''),
-(7, '14-038-000', 'Bachelor of Science in Information System', 'College of Science', '');
+(7, '14-038-000', 'Bachelor of Science in Information System', 'College of Science', ''),
+(8, '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suggestion`
+--
+
+CREATE TABLE `suggestion` (
+  `id_suggestion` int(11) NOT NULL,
+  `id_users` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `suggestion_text` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -232,10 +249,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_users`, `username`, `password`, `cpassword`, `firstname`, `lastname`, `log`, `admin`) VALUES
-(1, 'luna_freya', 'adrii', 'adrii', 'Hakeem', 'Polistico', b'1', b'0'),
+(1, 'luna_freya', 'adrii', 'adrii', 'Hakeem', 'Polistico', b'0', b'0'),
 (2, 'noctis_lucis', 'adrii', 'adrii', 'hakeem', 'polistico', b'0', b'1'),
 (6, 'adrii', 'adrii', 'adrii', 'Adrielle', 'Escaro', b'0', b'0'),
-(7, 'janferr', 'janferr', 'janferr', 'Janferr', 'Catibog', b'0', b'0');
+(7, 'janferr', 'janferr', 'janferr', 'Janferr', 'Catibog', b'0', b'0'),
+(8, 'jassy', 'jassy', 'jassy', 'Jasver', 'Salva', b'1', b'0');
 
 --
 -- Indexes for dumped tables
@@ -289,6 +307,12 @@ ALTER TABLE `student_info`
   ADD PRIMARY KEY (`id_student_info`);
 
 --
+-- Indexes for table `suggestion`
+--
+ALTER TABLE `suggestion`
+  ADD PRIMARY KEY (`id_suggestion`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -302,12 +326,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `agree`
 --
 ALTER TABLE `agree`
-  MODIFY `id_agree` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id_agree` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `confession`
 --
@@ -317,12 +341,12 @@ ALTER TABLE `confession`
 -- AUTO_INCREMENT for table `confession_info`
 --
 ALTER TABLE `confession_info`
-  MODIFY `id_confession_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_confession_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `personal_info`
 --
 ALTER TABLE `personal_info`
-  MODIFY `id_personal_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_personal_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `request`
 --
@@ -332,12 +356,12 @@ ALTER TABLE `request`
 -- AUTO_INCREMENT for table `student_info`
 --
 ALTER TABLE `student_info`
-  MODIFY `id_student_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_student_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Constraints for dumped tables
 --
