@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body style = "background-color: #fbf3f2;">
 
-<nav class="w3-sidenav theme2 w3-card-2 none" id="mySidenav">
+<nav class="w3-sidenav theme2 w3-card-2 none" style="display:none;z-index:4" id="mySidenav">
   	<a href="javascript:void(0)"
   	onclick="w3_close()"
   	class="w3-closenav w3-large snpad"  > 
@@ -88,6 +88,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 </nav>
+
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
 
 <?php foreach($details as $detail){?>
@@ -201,14 +203,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div id="Demo<?php echo $post->id_confession;?>" class="w3-hide marginComment w3-animate-opacity">
 			 	<ul class="w3-ul w3-pale-red postFont">
 			 		<hr class = "hrComment">
-			 		<li class = "liComment"> 
-			 			<form method = "POST" action ="comment">
-			 				<table class="w3-responsive commentTable">
-			 					<tr> 
-			 						<td class="tableTD">
-			 							<font class="commentName"><?php echo $detail->display_name;?> </font>
-			 						</td>
-			 						<td>	
+			 		
+			 		<li class = "liComment">
+			 			<form method = "POST" action ="comment">	
 			 							<input type="hidden" name="id_comment" value="">
 			 							<input type="hidden" name="id_user_com" value="<?php echo $detail->id_users;?>">
 			 							<?php }?> 
@@ -217,9 +214,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 							<input type="hidden" name="comm_time" value="<?php date_default_timezone_set('Asia/Manila');echo date("h:ia");?>">
 			 							<input type="text" name="comment_text" class = "commentBox" placeholder="type your comment..." autocomplete="off">
 			 							<input type="submit" style="position: absolute; left: -9999px">			
-			 						</td>
-			 					</tr>
-			 				</table>			
 			 			</form>
 			 		</li>
 
@@ -264,12 +258,14 @@ function w3_open() {
   document.getElementById("mySidenav").style.width = "205px";
   document.getElementById("mySidenav").style.display = "block";
   document.getElementById("openNav").style.display = 'none';
+  document.getElementById("myOverlay").style.display = "block";
 }
 function w3_close() {
   document.getElementById("main").style.marginLeft = "0%";
   document.getElementById("header2").style.marginLeft = "0%";
   document.getElementById("mySidenav").style.display = "none";
   document.getElementById("openNav").style.display = "inline-block";
+   document.getElementById("myOverlay").style.display = "none";
 }
 
 function myFunction(id) {
