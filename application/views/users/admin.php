@@ -388,7 +388,7 @@ function openCity(evt, cityName) {
 		  <?php foreach($details as $detail){?>
 		  
 			<center>
-			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>img/hakeem_2.jpg" alt="Smiley face" height="150" width="150"> 
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>img/hakeem_2.jpg" alt="Smiley face" onerror="this.src='<?php echo base_url();?>img/try.jpg'" height="150" width="150"> 
 			</center>
 			
 			<h4>

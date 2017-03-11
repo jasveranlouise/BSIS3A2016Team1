@@ -334,7 +334,7 @@ function myFunction(id) {
 		  <?php foreach($details as $detail){?>
 		  
 			<center>
-			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" alt="Smiley face" height="150" width="150"> 
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
 			</center>
 			
 			<h4>
@@ -538,7 +538,7 @@ function myFunction(id) {
 		  class="w3-closebtn">&times;</span>
 		  
 		<center>
-			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" alt="Smiley face" height="150" width="150"> 
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
 
 			<?php echo form_open_multipart('users/do_upload');?>
 				<input type = "hidden" name = "fn" value = "<?php echo $detail->id_users;?>" >

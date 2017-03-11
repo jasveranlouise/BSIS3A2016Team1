@@ -182,7 +182,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<?php foreach($users as $user){?>
 				<tr class="w3-border">
 					<td style = "padding-left: 10px;"  width = "130px">
-						<img class = "w3-border" src = "<?php echo base_url();?>uploads/<?php echo $user->id_personal_info;?>.jpg" height = "130px" width = "130px">
+						<img class = "w3-border" onerror="this.src='<?php echo base_url();?>img/try.jpg'" src = "<?php echo base_url();?>uploads/<?php echo $user->id_personal_info;?>.jpg" height = "130px" width = "130px">
 					</td>
 					<td style = "vertical-align: top; padding-left: 10px;" >
 						<h5 style = "font-family: Calibri"><b><?php echo $user->display_name;?></b> <br>  
@@ -295,7 +295,7 @@ function myFunction() {
 		  
 			<center>
 			
-			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" alt="Smiley face" height="150" width="150"> 
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
 			</center>
 			
 			<h4>
@@ -499,7 +499,7 @@ function myFunction() {
 		  class="w3-closebtn">&times;</span>
 		  
 		<center>
-			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" alt="Smiley face" height="150" width="150"> 
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
 			    <?php echo form_open_multipart('users/do_upload');?>
 				<input type = "hidden" name = "fn" value = "<?php echo $detail->id_users;?>" >
 				<input type="file" name="userfile" size="20" />
