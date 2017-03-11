@@ -17,7 +17,7 @@ class confession_model extends CI_Model{
 			'id_user_agr' => $idu
 		);
 
-		$this->db->insert('agree', $agreeInfo);
+		 $this->db->insert('agree', $agreeInfo);
 	}
 
 	function agree2($idc, $idu){

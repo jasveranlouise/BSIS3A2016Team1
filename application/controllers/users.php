@@ -44,18 +44,30 @@ class Users extends CI_Controller {
 			redirect ('/users/home');
 		}
 		else{
-			$this->load->helper(array('form', 'url'));
-		$this->load->library('form_validation');
-		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-		$this->load->view('users/index');
-		}
-
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		$this->load->view('users/index');
+		}
 		
 	}
+
+	public function index2()
+	{	
+
+		$li = $this->session->userdata('logged_in');
+		if($li == TRUE){
+			redirect ('/users/home');
+		}
+		else{
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+		$this->load->view('users/index_2');
+		}
+		
+	}
+
 	public function Login()
 	{
 			$this->load->helper(array('form', 'url'));
@@ -63,7 +75,7 @@ class Users extends CI_Controller {
 			$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 			$this->form_validation->set_rules('username', 'Username', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
-		
+			
 		if ($this->form_validation->run() == FALSE)
 			{
 				$this->load->view('users/index');
@@ -81,12 +93,13 @@ class Users extends CI_Controller {
 				$result=$this->Users_model->login($data['username'], $data ['password']);
 				
 				if(!$result) {
-					redirect('/users/');
+					redirect('/users/index2');
 				}
 				
 				else {
 					$newdata = array(
-			        'logged_in' => TRUE
+			        'logged_in' => TRUE,
+			        'id_no' => $result['0']['id_users']
 					);
 					$this->session->set_userdata($newdata);
 					redirect ('/users/home');
@@ -141,6 +154,15 @@ class Users extends CI_Controller {
 		$this->form_validation->set_rules('cpassword', 'Confirm Password', 'trim|required|min_length[3]|max_length[20]');
 		$this->form_validation->set_rules('firstname', 'First Name', 'trim|required|min_length[3]|max_length[40]');
 		$this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|min_length[3]|max_length[20]');
+		$this->form_validation->set_rules('hidden_name', 'Hidden Name', 'trim|required|min_length[3]|max_length[100]');
+		$this->form_validation->set_rules('student_no', 'Student No', 'trim|required|min_length[3]|max_length[20]|is_unique[student_info.student_no]');
+		$this->form_validation->set_rules('course', 'Course', 'trim|required|min_length[3]|max_length[100]');
+		$this->form_validation->set_rules('college', 'College', 'trim|required|min_length[3]|max_length[100]');
+		$this->form_validation->set_rules('middlename', 'Middle Name', 'trim|required|min_length[3]|max_length[30]');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[3]|max_length[50]');
+		$this->form_validation->set_rules('contact_no', 'Contact No', 'trim|required|min_length[3]|max_length[20]');
+		$this->form_validation->set_rules('birthdate', 'Birthdate', 'trim|required|min_length[3]|max_length[20]');
+		$this->form_validation->set_rules('sex', 'Sex', 'trim|required|min_length[3]|max_length[20]');
 				
 		if ($this->form_validation->run() == FALSE)
 		{

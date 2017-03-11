@@ -16,11 +16,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 <body style = "background-color: #fbf3f2;">
 
-<nav class="w3-sidenav  theme2 w3-card-2" style="display:none;" id="mySidenav">
+<nav class="w3-sidenav theme2 w3-card-2 none" style="display:none;z-index:4" id="mySidenav">
   	<a href="javascript:void(0)"
   	onclick="w3_close()"
-  	class="w3-closenav w3-large " style = "padding: 3%"  > 
-  		<font style = "text-align: right" color = "white">  
+  	class="w3-closenav w3-large snpad"  > 
+  		<font class = "tAlignR white">  
   			&times; 
   		</font>
  	</a>
@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<img style = "margin-right: 6%;" src="<?php echo base_url();?>img/home_2.png" alt="Smiley face" height="20" width="20">Feed
 		</font>
 	</a>
-	
+
 	<?php foreach($details as $detail){?>
 		<?php $a = $detail->admin; if($a==1) { ?>
 	<a style = "padding: 4%" href="admin">
@@ -43,7 +43,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</a>
 		<?php } ?>
 	<?php } ?>
-
 	
 	<a style = "padding: 4%" href="people">
 		<font color = "white" size = "3" style = "margin-left: 25%;" >
@@ -56,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/about_2.png" alt="Smiley face" height="20" width="20">About
 		</font>
 	</a>
-		
+	
 	<a style = "padding: 4%" href="logout">
 		<font color = "white" size = "3" style = "margin-left: 25%;" >
 			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/logout_4.png" alt="Smiley face" height="20" width="20">Logout
@@ -66,7 +65,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 	<div style = "padding-left: 5%; padding-right: 5%;">
-	<br><br><br><br><br>	<br><br><br><br><br><br><br>
+	<br>
+		<font color = "darkgray" size = "1">
+			Your request entitled "First Kiss" has been approved
+		</font>
+	<br><br><br><br>	<br><br><br><br><br><br><br>
 	<hr class = "sideNavHr"> 
 		<center>
 			<font color = "darkgray" size = "2">
@@ -89,6 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </nav>
 
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
 <?php foreach($details as $detail){?>
 <div id="header">
@@ -306,12 +310,14 @@ function w3_open() {
   document.getElementById("mySidenav").style.width = "205px";
   document.getElementById("mySidenav").style.display = "block";
   document.getElementById("openNav").style.display = 'none';
+  document.getElementById("myOverlay").style.display = "block";
 }
 function w3_close() {
   document.getElementById("main").style.marginLeft = "0%";
   document.getElementById("header2").style.marginLeft = "0%";
   document.getElementById("mySidenav").style.display = "none";
   document.getElementById("openNav").style.display = "inline-block";
+  document.getElementById("myOverlay").style.display = "none";
 }
 
 function openCity(evt, cityName) {

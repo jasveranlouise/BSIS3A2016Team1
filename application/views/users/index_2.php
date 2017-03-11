@@ -147,6 +147,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						  <input class="form-control" type="password" name = "password" placeholder="Password">
 						</div>
 						<?php echo form_error('password'); ?>
+						<font color = "red"> *Incorrect Username or Password</font>
 						<input style = "margin-bottom: 15px;" type = "Submit" value = "Sign in"/>
 					</font>
 				</form>

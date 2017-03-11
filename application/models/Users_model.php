@@ -35,8 +35,17 @@ class Users_model extends CI_Model{
 	}
 	
 	public function add($data) {
-				
-		$this->db->insert('users', $data);
+		$usersInfo = array(
+			'id_users' => '' ,
+			'username' =>$data['username'],
+			'password' => $data['password'] ,
+			'cpassword' => $data['cpassword'] ,
+			'firstname' => $data['firstname'] ,
+			'lastname' => $data['lastname'] ,
+			'log' => '' ,
+			'admin' => ''		
+		);		
+		$this->db->insert('users', $usersInfo);
 		
 		$id = $data['id_users'];
 		$dn = $data['firstname'];
@@ -46,19 +55,19 @@ class Users_model extends CI_Model{
 			'display_name' => $dn." ".$ln,
 			'first_name' => $dn ,
 			'last_name' => $ln ,
-			'middle_name' => '' ,
-			'email' => '' ,
-			'contact_no' => '' ,
-			'birthdate' => '',
-			'sex' => '' 			
+			'middle_name' => $data['middlename'] ,
+			'email' => $data['email'] ,
+			'contact_no' => $data['contact_no'] ,
+			'birthdate' => $data['birthdate'],
+			'sex' => $data['sex'] 			
 		);
 		$this->db->insert('personal_info', $personalInfo); 
 		
 		$studentInfo = array(
 			'id_student_info' => '' ,
-			'student_no' => '',
-			'course' => '' ,
-			'college' => '' ,
+			'student_no' => $data['student_no'],
+			'course' => $data['course'] ,
+			'college' => $data['college'] ,
 			'year_graduated' => '' 			
 		);
 		$this->db->insert('student_info', $studentInfo); 
@@ -66,7 +75,8 @@ class Users_model extends CI_Model{
 		$confessionInfo = array(
 			'id_confession_info' => '' ,
 			'confession_approved' => '',
-			'confession_requests' => '' 			
+			'confession_requests' => '' ,
+			'hidden_name' => $data['hidden_name']			
 		);
 		$this->db->insert('confession_info', $confessionInfo);
 		

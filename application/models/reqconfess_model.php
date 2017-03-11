@@ -22,6 +22,7 @@ class reqconfess_model extends CI_Model{
 		return $query->result();
 	}
 
+
 	function getPosts2(){
 		$this->db->select("*");
 		$this->db->from('request');
