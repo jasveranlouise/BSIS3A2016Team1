@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body style = "background-color: #fbf3f2;">
 
-<nav class="w3-sidenav theme2 w3-card-2 none" id="mySidenav">
+<nav class="w3-sidenav theme2 w3-card-2 none" style="display:none;z-index:4" id="mySidenav">
   	<a href="javascript:void(0)"
   	onclick="w3_close()"
   	class="w3-closenav w3-large snpad"  > 
@@ -66,14 +66,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<font color = "darkgray" size = "1">
 			Your request entitled "First Kiss" has been approved
 		</font>
-	<br><br><br><br>	<br><br><br><br><br><br>
-	<hr class = "sideNavHr"> 
-			<font color = "darkgray" size = "2">
+	<br><br><br><br>	<br><br><br><br><br><br><br>
+	
+	<hr class = "sideNavHr" style="margin-bottom:0%">
+	<font color = "darkgray" size = "2">
 			<center>
-			<a href = "contact_us"><img style = "margin-right: 6%" src="<?php echo base_url();?>img/phone.png" height="15" width="15">Contact Us</a> 
-			<center>
+			<a href = "contact_us"><img style = "margin-right: 7%" src="<?php echo base_url();?>img/phone.png" height="17" width="15s">Contact Us</a> 
+			</center>
 			</font>
-	<hr class = "sideNavHr"> 
+	 <hr class = "sideNavHr" style="margin-top:0%"> 
+	 
 		<center>
 			<font color = "darkgray" size = "2">
 				USHARE Confession Site
@@ -83,9 +85,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<center>
 			<font color = "darkgray" size = "2" >
 				©Copyright 2017
-		</font>
+			</font>
 		</center>
-	
 		
 
 		<font color = "gray" size = "2" >
@@ -94,8 +95,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 
 
-
 </nav>
+
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
 
 <?php foreach($details as $detail){?>
@@ -136,6 +138,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								  <i class="fa fa-user-o fa-stack-1x fa-inverse"></i>
 								</span>
 						</a>
+					</td>
+					<td>
+					<a class = "pointer w3-hover-none" style="margin-left: -30px" onclick="document.getElementById('id04').style.display='block'"><span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x" style="color: gray"></i>
+						<i class="fa fa-bell-o fa-stack-1x fa-inverse"></i>
+						<i class="fa fa-exclamation-circle fa-stack-1x" style="color: red; padding-left:28px; padding-top:10px;"></i>
+					</span></a>
 					</td>
 				</tr>	
 				
@@ -186,6 +195,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</font> </i>
 					</a> 
 				</div>
+
 				<div class = "<?php $a = $post->disagree; if($a==1){echo "fontBlue";}?>">
 					<a href = "disagree?idc=<?php echo $post->id_confession;?>&idu=<?php echo $detail->id_users;?>&agr=<?php echo $post->agree;?>&disagr=<?php echo $post->disagree;?>"> <i style = "margin-top: -2px; margin-right: 10px;" class="fa fa-thumbs-o-down left" aria-hidden="true"> 
 						<font class = "postFont"> 
@@ -193,6 +203,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</font></i>  
 					</a>
 				</div>
+
 				<div id = "" class = "">
 					<a href = "#comments<?php echo $post->id_confession;?>" onclick="myFunction('Demo<?php echo $post->id_confession;?>')"> <i style = "margin-top: -2px; margin-right: 15px;" class="fa fa-comments-o left" aria-hidden="true">
 						<font class = "postFont"> 
@@ -200,19 +211,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</font></i>  
 					</a>
 				</div>
+
 				<font class = "postMargin right" size = "2" ><?php echo $post->time;?> / <?php echo $post->date;?> </font>
 			</div> <br>
+
 			<div id="Demo<?php echo $post->id_confession;?>" class="w3-hide marginComment w3-animate-opacity">
 			 	<ul class="w3-ul w3-pale-red postFont">
 			 		<hr class = "hrComment">
-			 		<li class = "liComment"> 
-			 			<form method = "POST" action ="comment">
-			 				<table class="w3-responsive commentTable">
-			 					<tr> 
-			 						<td class="tableTD">
-			 							<font class="commentName"><?php echo $detail->display_name;?> </font>
-			 						</td>
-			 						<td>	
+			 		
+			 		<li class = "liComment">
+			 			<form method = "POST" action ="comment">	
 			 							<input type="hidden" name="id_comment" value="">
 			 							<input type="hidden" name="id_user_com" value="<?php echo $detail->id_users;?>">
 			 							<?php }?> 
@@ -221,11 +229,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 							<input type="hidden" name="comm_time" value="<?php date_default_timezone_set('Asia/Manila');echo date("h:ia");?>">
 			 							<input type="text" name="comment_text" class = "commentBox" placeholder="type your comment..." autocomplete="off">
 			 							<input type="submit" style="position: absolute; left: -9999px">			
-			 						</td>
-			 					</tr>
-			 				</table>			
 			 			</form>
 			 		</li>
+
 			 		<?php foreach($comments as $comment){?>
 				 		<?php $a = $post->id_confession; $b = $comment->id_confession_com; if($a==$b) { ?>
 							<li class = "liComment"> 
@@ -267,13 +273,16 @@ function w3_open() {
   document.getElementById("mySidenav").style.width = "205px";
   document.getElementById("mySidenav").style.display = "block";
   document.getElementById("openNav").style.display = 'none';
+  document.getElementById("myOverlay").style.display = "block";
 }
 function w3_close() {
   document.getElementById("main").style.marginLeft = "0%";
   document.getElementById("header2").style.marginLeft = "0%";
   document.getElementById("mySidenav").style.display = "none";
   document.getElementById("openNav").style.display = "inline-block";
+   document.getElementById("myOverlay").style.display = "none";
 }
+
 function myFunction(id) {
     var x = document.getElementById(id);
     if (x.className.indexOf("w3-show") == -1) {
@@ -285,6 +294,7 @@ function myFunction(id) {
 </script>
  
 <a  onclick="document.getElementById('id01').style.display='block'" class="w3-btn-floating-large w3-pale-red postButton"><font color = "red">+</font></a> 
+
 <div id="id01" class="w3-modal">
   <div style = "width: 40%; margin-top: -3%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
     <header class="w3-container postModal">
@@ -301,14 +311,19 @@ function myFunction(id) {
 				<input type = "hidden" name = "date" value = "<?php echo date("Y-m-d");?>"> 
 				<input type = "hidden" name = "time" value = "<?php echo date("h:ia");?>"> 
 				<input type = "hidden" name = "id_users" value = "<?php echo $detail3->id_confession_info;?>"> 
+
+
 				<label class="w3-label w3-validate"><h4>Confession Title</h4></label>
 					<input class = "w3-round textBox w3-border-red confessBox" type = "text" name = "request_title" placeholder = "Confession title" required>
 				<label class="w3-label w3-validate"><h4>Confession Text</h4></label>
 					<textarea rows = "5" class = "w3-round textArea w3-border-red confessBox" name = "request_text" placeholder="type your confession here..." required> </textarea>	
+
 						
 		
 		<input type = "hidden" name = "hidden_name" value="<?php echo $detail3->hidden_name;?>">
 		<?php }?>
+
+
 		<?php foreach($details2 as $detail2){?>
 		<input type = "hidden" name = "college" value = "<?php echo $detail2->college;?>">
 		<?php }?>
@@ -323,6 +338,7 @@ function myFunction(id) {
     </div>
   </div>
 </div>
+
 <div id="id02" class="w3-modal">
  
   <div style = "width: 40%; margin-top: -1%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
@@ -333,7 +349,7 @@ function myFunction(id) {
 		  <?php foreach($details as $detail){?>
 		  
 			<center>
-			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" alt="Smiley face" height="150" width="150"> 
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
 			</center>
 			
 			<h4>
@@ -494,6 +510,7 @@ function myFunction(id) {
 					<p class = "infoMargin" > <font color = "gray"> <?php echo $detail3->hidden_name;?> </font></p>
 				</td>
 			</tr>
+
 			<tr >
 				<td width = "28%">
 					<p class = "infoMargin" > Confession Approved:</p>
@@ -522,7 +539,9 @@ function myFunction(id) {
 	</font>
     </div>
   </div>
+
 </div>
+
 <div id="id03" class="w3-modal">
  
   <div style = "width: 40%; margin-top: -1%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
@@ -534,7 +553,8 @@ function myFunction(id) {
 		  class="w3-closebtn">&times;</span>
 		  
 		<center>
-			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" alt="Smiley face" height="150" width="150"> 
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
+
 			<?php echo form_open_multipart('users/do_upload');?>
 				<input type = "hidden" name = "fn" value = "<?php echo $detail->id_users;?>" >
 				<input type="file" name="userfile" size="20" />
@@ -547,6 +567,7 @@ function myFunction(id) {
 		<h4>
 			<center> 
 				<input class = "userName confessBox" type "text" name = "display_name" value = "<?php echo $detail->display_name;?>">
+
 			</center>
 		</h4>
     </header>
@@ -556,6 +577,7 @@ function myFunction(id) {
 		
 		<p> <b>Info</b> </p>
 		<table>
+
 			<input type = "hidden" name="id_users" value="<?php echo $detail->id_users;?>">
 			<tr >
 				<td width = "28%">
@@ -646,6 +668,7 @@ function myFunction(id) {
 			<?php foreach($details2 as $detail2){?>
 			<table>
 				<input type = "hidden" name="id_users" value="<?php echo $detail2->id_users;?>">
+
 				<tr >
 					<td width = "28%">
 						<p class = "infoMargin" > Student No:</p>
@@ -707,6 +730,7 @@ function myFunction(id) {
 			<?php foreach($details3 as $detail3){?>
 			<table>
 				<input type = "hidden" name="id_users" value="<?php echo $detail3->id_users;?>">
+
 				<tr >
 					<td width = "28%">
 						<p class = "infoMargin" > Hidden Name:</p>
@@ -723,16 +747,115 @@ function myFunction(id) {
 			
 			<?php }?>  
 		</form>
+
 		<br>
 	</font>
     </div>
   </div>
+
 </div>
+
+<div id="id04" class="w3-modal">
+
+<div style = "width: 25%; margin-right: 1%" class="w3-modal-content w3-animate-top">
+    <header class="w3-container postModal">
+		  <span onclick="document.getElementById('id04').style.display='none'"></span>
+		  
+		  <?php foreach($details as $detail){?>
+		  
+			
+			<h4>
+				<center>
+					Notifications
+				</center>
+			</h4>
+			
+    </header>
+	<div style="overflow-y:scroll;">	
+    <div class="w3-container" >
+	
+	<font face = "Century Gothic" size = "3" >
+		
+		<table>
+			<tr>
+				<td width = "35%">
+					<p class = "infoMargin" align="center"> <font color = "gray">T.T</p>
+				</td>
+				
+			</tr>
+			
+			<td>
+					<p class = "infoMargin" align="center"> <font color = "gray">what!</p>
+				</td>
+
+			</tr>
+			
+			<tr >
+				<td>
+					<p class = "infoMargin" align="center"> <font color = "gray">di ko na alam</p>
+				</td>
+				
+			</tr>
+			<tr >
+				<td>
+					<p class = "infoMargin" align="center"> <font color = "gray">di ko na alam</p>
+				</td>
+				
+			</tr>
+			<tr >
+				<td>
+					<p class = "infoMargin" align="center"> <font color = "gray">di ko na alam</p>
+				</td>
+				
+			</tr>
+			<tr >
+				<td>
+					<p class = "infoMargin" align="center"> <font color = "gray">di ko na alam</p>
+				</td>
+				
+			</tr>
+			<tr >
+				<td>
+					<p class = "infoMargin" align="center"> <font color = "gray">di ko na alam</p>
+				</td>
+				
+			</tr>
+			
+			<tr>
+				
+				<td>
+					<p class = "infoMargin" align="center"> <font color = "gray"> ewan ko na </font></p>
+				</td>
+			</tr>
+			
+			<tr>
+				
+				<td>
+					<p class = "infoMargin" align="center"> <font color = "gray"> badtrip na ako..... </font></p>
+				</td>
+			</tr>
+			
+		</table>
+		<hr class = "hr">
+		<?php }?>
+		  
+		
+		<br>
+	</font>
+	</div>
+    </div>
+	</div>
+  </div>
+  </div>
+
+
+
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
 var modal2 = document.getElementById('id02');
 var modal3 = document.getElementById('id03');
+var modal4 = document.getElementById('id04');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -744,8 +867,13 @@ window.onclick = function(event) {
 	if (event.target == modal3) {
         modal3.style.display = "none";
     }
+	if (event.target == modal4) {
+        modal4.style.display = "none";
+    }
+
 	
 }
 </script>
+
 </body>
 </html>

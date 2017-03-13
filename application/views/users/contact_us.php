@@ -207,9 +207,9 @@ body {
 				<label class="w3-label w3-validate"><h4></h4></label>
 					<input class = "w3-round textBox w3-border-red confessBox" type = "text" name = "name" value = "<?php echo $detail->display_name;?>" required>
 				<label class="w3-label w3-validate"><h4></h4></label>
-					<input class = "w3-round textBox w3-border-red confessBox" type = "text" name = "request_title" placeholder = "Email Address" required>
+					<input class = "w3-round textBox w3-border-red confessBox" type = "text" name = "email" placeholder = "Email Address" required>
 				<label class="w3-label w3-validate"><h4></h4></label>
-					<textarea rows = "5" class = "w3-round textArea w3-border-red confessBox" name = "request_text" placeholder = " Your Message Here" required> </textarea>	
+					<textarea rows = "5" class = "w3-round textArea w3-border-red confessBox" name = "suggestion_text" placeholder = " Your Message Here" required> </textarea>	
 
 										
 					<br>

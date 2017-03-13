@@ -9,10 +9,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
 	<LINK REL="icon" HREF="<?php echo base_url();?>img/ushare4.png"/>
-	<title>About</title>
+	<title>Ushare About</title>
 
 
-	
+
+<style>
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.demo {
+  margin: 0 auto;
+  padding-top: 64px;
+  max-width: 640px;
+  width: 94%;
+}
+
+.demo h1 {
+  margin-top: 0;
+}
+
+/**
+ * Footer Styles
+ */
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #808080;
+  text-align: center;	
+}
+</style>	
 <body style = "background-color: #fbf3f2;">
 
 <nav class="w3-sidenav theme2 w3-card-2" style="display:none;" id="mySidenav">
@@ -32,6 +78,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<img style = "margin-right: 6%;" src="<?php echo base_url();?>img/home_2.png" alt="Smiley face" height="20" width="20">Feed
 		</font>
 	</a>
+	
+	<?php foreach($details as $detail){?>
+		<?php $a = $detail->admin; if($a==1) { ?>
+	<a style = "padding: 4%" href="admin">
+		<font color = "white" size = "3" style = "margin-left: 25%;" >
+			<img style = "margin-right: 6%" src="<?php echo base_url();?>img/admin_2.png" alt="Smiley face" height="20" width="20">Admin
+		</font>
+	</a>
+		<?php } ?>
+	<?php } ?>
 	
 	<a style = "padding: 4%" href="people">
 		<font color = "white" size = "3" style = "margin-left: 25%;" >
@@ -53,17 +109,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<hr class = "sideNavHr">
 
 
-	<div style = "padding-left: 5%; padding-right: 5%;">
+	<div style = "padding-left: 4%; padding-right: 4%;">
 	<br><br><br><br><br>	<br><br><br><br><br><br>
 	
-	<hr class = "sideNavHr"> 
-			<font color = "darkgray" size = "2">
+	<hr class = "sideNavHr" style="margin-bottom:0%">
+	<font color = "darkgray" size = "2">
 			<center>
-			<a href = "contact_us"><img style = "margin-right: 6%" src="<?php echo base_url();?>img/phone.png" height="15" width="15">Contact Us</a> 
-			<center>
+			<a href = "contact_us"><img style = "margin-right: 7%" src="<?php echo base_url();?>img/phone.png" height="17" width="15s">Contact Us</a> 
+			</center>
 			</font>
-	
-	<hr class = "sideNavHr"> 
+	 <hr class = "sideNavHr" style="margin-top:0%">
+	 
 		<center>
 			<font color = "darkgray" size = "2">
 				USHARE Confession Site
@@ -163,15 +219,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<table>
 			<tr>
 			<td><div class="w3-container">
+			<a class = "pointer w3-hover-none" onclick="document.getElementById('id05').style.display='block'">
 				<div class="w3-card-4" style="width:100%">
 				<img src="<?php echo base_url();?>img/team_ha.jpg" alt="Norway" style="width:100%" >
 				<div class="w3-container w3-center">
 				<p>Hakeem Polistico <strong>Developer</strong></p>
 				</div>
 				</div>
-				</div></td>
+				</div></td></a>
 				
 			<td><div class="w3-container">
+			<a class = "pointer w3-hover-none" onclick="document.getElementById('id06').style.display='block'">
 			  <div class="w3-card-4" style="width:100%">
 				<img src="<?php echo base_url();?>img/team_jas.jpg" alt="Norway" style="width:100%">
 				<div class="w3-container w3-center">
@@ -179,27 +237,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			  </div>
 			</div>
-				</td>
+				</td></a>
 			
 			<td><div class="w3-container">
+			<a class = "pointer w3-hover-none" onclick="document.getElementById('id07').style.display='block'">
 			  <div class="w3-card-4" style="width:100%">
 				<img src="<?php echo base_url();?>img/team_shi.jpg" alt="Norway" style="width:100%">
 				<div class="w3-container w3-center">
 				  <p>Shiela Morales <strong>Website Design</strong> </p>
 				</div>
 			  </div>
-			</div></td>
+			</div></td></a>
 			
 				<td><div class="w3-container">
+				<a class = "pointer w3-hover-none" onclick="document.getElementById('id08').style.display='block'">
 				  <div class="w3-card-4" style="width:100%">
 					<img src="<?php echo base_url();?>img/team_je.jpg" alt="Norway" style="width:100%">
 					<div class="w3-container w3-center">
 					  <p>Jeru Valenzuela <strong>Documentation</strong></p>
 					</div>
 				  </div>
-				</div></td>
+				</div></td></a>
 				
 				<td><div class="w3-container">
+					<a class = "pointer w3-hover-none" onclick="document.getElementById('id09').style.display='block'">
 				  <div class="w3-card-4" style="width:100%">
 					<img src="<?php echo base_url();?>img/team_tin.jpg" alt="Norway" style="width:100%">
 					<div class="w3-container w3-center">
@@ -207,7 +268,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				  </div>
 				</div></td>
-				</tr>
+				</tr></a>
 				</table>
 				
 				<br><br><br>
@@ -229,7 +290,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       
 	  
 
+<div class="demo">
+</div>
+<div class="footer"> <a href = "contact_us"><font color = "white" ><strong>Contact Us:</strong><h6></a> usharewebsite@gmail.com | 0912 345 6789</h6></font>
 
+</div>
 	  
 <script>
 function w3_open() {
@@ -504,6 +569,483 @@ function myFunction() {
 
 </div>
 
+<div id="id05" class="w3-modal">
+ 
+  <div style = "width: 30%; margin-top: 7%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
+    <header class="w3-container postModal">
+		  <span onclick="document.getElementById('id05').style.display='none'"
+		  class="w3-closebtn">&times;</span>
+		  
+		  <?php foreach($details as $detail){?>
+		  
+			<center>
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>img/team_ha.jpg" alt="Smiley face" height="150" width="150"> 
+			</center>
+			
+			<h4>
+				<center>
+					Hakeem Polistico 
+				</center>
+			</h4>
+			
+    </header>
+    <div class="w3-container ">
+	
+	<font face = "Century Gothic" size = "3" >
+		
+		<p> 
+			<b style = "left">Contacts</b> 
+			
+		</p>
+
+		<table>
+			<tr>
+				<td width = "35%">
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+						<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin"><a href="https://www.facebook.com/hakeem.polistico" class=""><font color = "gray"> hakeem.polistico </font></a></p>
+							
+				</td>
+			</tr>
+			
+			<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+						<i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+			
+			<td>
+					<p class = "infoMargin"><a href="https://www.instagram.com/" class=""><font color = "gray"> @hakeempolistico </font></a></p>
+							
+				</td>
+			</tr>
+			
+			<tr >
+				<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+						<i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <font color = "gray"> hjpolistico@gmail.com   </font></p>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+						<i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+					</span</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <font color = "gray"> +63 997 586 4782    </font></p>
+				</td>
+			</tr>
+			
+		</table>
+		<hr class = "hr">
+		<?php }?>
+		  
+		
+		<br>
+	</font>
+    </div>
+  </div>
+
+</div>
+
+<div id="id06" class="w3-modal">
+ 
+  <div style = "width: 30%; margin-top: 7%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
+    <header class="w3-container postModal">
+		  <span onclick="document.getElementById('id06').style.display='none'"
+		  class="w3-closebtn">&times;</span>
+		  
+		  <?php foreach($details as $detail){?>
+		  
+			<center>
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>img/team_jas.jpg" alt="Smiley face" height="150" width="150"> 
+			</center>
+			
+			<h4>
+				<center>
+					Jasver Salva 
+				</center>
+			</h4>
+			
+    </header>
+    <div class="w3-container ">
+	
+	<font face = "Century Gothic" size = "3" >
+		
+		<p> 
+			<b style = "left">Contacts</b> 
+			
+		</p>
+
+		<table>
+			<tr>
+				<td width = "35%">
+				
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x" style = "color: maroon;"></i>
+					  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin"><a href="https://www.facebook.com/jasveranlouise" class=""><font color = "gray"> jasveranlouise </font></a></p>
+							
+				</td>
+			</tr>
+			
+			<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+						<i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+			
+			<td>
+					<p class = "infoMargin"><a href="https://www.instagram.com/jasveranlouise/" class=""><font color = "gray"> @jasveranlouise </font></a></p>
+							
+				</td>
+			</tr>
+			
+			<tr >
+				<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x" style="color: maroon;"></i>
+						<i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <font color = "gray"> jassysalva@gmail.com   </font></p>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x" style="color: maroon;"></i>
+						<i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+					</span</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <font color = "gray"> +63 916 265 8478    </font></p>
+				</td>
+			</tr>
+			
+		</table>
+		<hr class = "hr">
+		<?php }?>
+		  
+		
+		<br>
+	</font>
+    </div>
+  </div>
+
+</div>
+
+<div id="id07" class="w3-modal">
+ 
+  <div style = "width: 30%; margin-top: 7%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
+    <header class="w3-container postModal">
+		  <span onclick="document.getElementById('id07').style.display='none'"
+		  class="w3-closebtn">&times;</span>
+		  
+		  <?php foreach($details as $detail){?>
+		  
+			<center>
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>img/team_shi.jpg" alt="Smiley face" height="150" width="150"> 
+			</center>
+			
+			<h4>
+				<center>
+					Shiela Morales
+				</center>
+			</h4>
+			
+    </header>
+    <div class="w3-container ">
+	
+	<font face = "Century Gothic" size = "3" >
+		
+		<p> 
+			<b style = "left">Contacts</b> 
+			
+		</p>
+
+		<table>
+		
+			<tr>
+				<td width = "35%">
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+						<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin"><a href="https://www.facebook.com/shiela.m.morales.3" class=""><font color = "gray"> shiela.m.morales.3 </font></a></p>
+							
+				</td>
+			</tr>
+			
+			<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+					  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+			
+			<td>
+					<p class = "infoMargin"><a href="https://www.instagram.com/shiemorales/" class=""><font color = "gray"> @shiemorales </font></a></p>
+							
+				</td>
+			</tr>
+			
+			<tr >
+				<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+					  <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <font color = "gray"> shielamay.morales@gmail.com </font></p>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+					  <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <font color = "gray"> +63 915 315 4540 </font></p>
+				</td>
+			</tr>
+			
+		</table>
+		<hr class = "hr">
+		<?php }?>
+		  
+		
+		<br>
+	</font>
+    </div>
+  </div>
+
+</div>
+
+<div id="id08" class="w3-modal">
+ 
+  <div style = "width: 30%; margin-top: 7%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
+    <header class="w3-container postModal">
+		  <span onclick="document.getElementById('id08').style.display='none'"
+		  class="w3-closebtn">&times;</span>
+		  
+		  <?php foreach($details as $detail){?>
+		  
+			<center>
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>img/team_je.jpg" alt="Smiley face" height="150" width="150"> 
+			</center>
+			
+			<h4>
+				<center>
+					Jeru Valenzuela 
+				</center>
+			</h4>
+			
+    </header>
+    <div class="w3-container ">
+	
+	<font face = "Century Gothic" size = "3" >
+		
+		<p> 
+			<b style = "left">Contacts</b> 
+			
+		</p>
+		
+		<table>
+		<tr>
+				<td width = "35%">
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+						<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin"><a href="https://www.facebook.com/jeru.valenzuela" class=""><font color = "gray"> jeru.valenzuela </font></a></p>
+							
+				</td>
+			</tr>
+			
+			<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+					  <i class="fa fa-square fa-stack-2x" style="color: maroon"></i>
+					  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+			
+			<td>
+					<p class = "infoMargin"><a href="https://www.instagram.com/jeruwina/" class=""><font color = "gray"> @jeruwina </font></a></p>
+							
+				</td>
+			</tr>
+			
+			<tr >
+				<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+					  <i class="fa fa-square fa-stack-2x" style="color: maroon"></i>
+					  <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <font color = "gray"> jeruvalen@gmail.com  </font></p>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+					  <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <font color = "gray"> +63 926 347 9525 </font></p>
+				</td>
+			</tr>
+
+		</table>
+		<hr class = "hr">
+		<?php }?>
+		  
+		
+		<br>
+	</font>
+    </div>
+  </div>
+
+</div>
+
+<div id="id09" class="w3-modal">
+ 
+  <div style = "width: 30%; margin-top: 7%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
+    <header class="w3-container postModal">
+		  <span onclick="document.getElementById('id09').style.display='none'"
+		  class="w3-closebtn">&times;</span>
+		  
+		  <?php foreach($details as $detail){?>
+		  
+			<center>
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>img/team_tin.jpg" alt="Smiley face" height="150" width="150"> 
+			</center>
+			
+			<h4>
+				<center>
+					Christine Corpuz 
+				</center>
+			</h4>
+			
+    </header>
+    <div class="w3-container ">
+	
+	<font face = "Century Gothic" size = "3" >
+		
+		<p> 
+			<b style = "left">Contacts</b> 
+			
+		</p>
+		
+		<table>
+			<tr>
+				<td width = "35%">
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+						<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin"><a href="https://www.facebook.com/christine.corpuz24" class=""><font color = "gray"> christine.corpuz24 </font></a></p>
+							
+				</td>
+			</tr>
+			
+			<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+					  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+			
+			<td>
+					<p class = "infoMargin"><a href="https://www.instagram.com/chrstn_crpz/" class=""><font color = "gray"> @chrstn_crpz </font></a></p>
+							
+				</td>
+			</tr>
+			
+			<tr >
+				<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+					  <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <font color = "gray"> chrstnjycrpz@gmail.com   </font></p>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p class = "infoMargin" align="center"><span class="fa-stack fa-lg">
+					  <i class="fa fa-circle fa-stack-2x" style="color: maroon"></i>
+					  <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+					</span></p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <font color = "gray"> +63 936 699 1575 </font></p>
+				</td>
+			</tr>
+			
+		</table>
+		<hr class = "hr">
+		<?php }?>
+		  
+		
+		<br>
+	</font>
+    </div>
+  </div>
+
+</div>
+
 <div id="id03" class="w3-modal">
  
   <div style = "width: 40%; margin-top: -1%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
@@ -715,7 +1257,7 @@ function myFunction() {
     </div>
   </div>
 
-</div>
+
 
 <div id="id04" class="w3-modal">
   <div style = "width: 40%; margin-top: -3%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
@@ -821,6 +1363,10 @@ function myFunction() {
 		<br>
   </div>
 </div>
+</div>
+</div>
+
+
 
 <script>
 // Get the modal
@@ -828,6 +1374,11 @@ var modal = document.getElementById('id01');
 var modal2 = document.getElementById('id02');
 var modal3 = document.getElementById('id03');
 var modal4 = document.getElementById('id04');
+var modal5 = document.getElementById('id05');
+var modal6 = document.getElementById('id06');
+var modal7 = document.getElementById('id07');
+var modal8 = document.getElementById('id08');
+var modal9 = document.getElementById('id09');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -841,6 +1392,21 @@ window.onclick = function(event) {
     }
 	if (event.target == modal4) {
         modal4.style.display = "none";
+    }
+	if (event.target == modal5) {
+        modal5.style.display = "none";
+    }
+	if (event.target == modal6) {
+        modal6.style.display = "none";
+    }
+	if (event.target == modal7) {
+        modal7.style.display = "none";
+    }
+	if (event.target == modal8) {
+        modal8.style.display = "none";
+    }
+	if (event.target == modal9) {
+        modal9.style.display = "none";
     }
 	
 }
