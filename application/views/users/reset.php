@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<meta charset="utf-8">
 	<LINK REL="icon" HREF="<?php echo base_url();?>img/ushare4.png"/>
-	<title>Ushare - Log In</title>
+	<title>Set New Password</title>
 
 	<style type="text/css">
 
@@ -131,26 +131,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div id="container">
 			
 			 <h1>
-			 	<font color = "black" face = "Century Gothic"> Login  &nbsp; </font>
+			 	<font color = "black" face = "Century Gothic"> Change Password  &nbsp; </font>
 			 </h1>
 
 			<div id="body">
 				<form method = "POST" action ="Login">
 					<font face = "Calibri" size = "3">
 						
-						<div class="input-group margin-bottom-sm" style = "margin-bottom: 5px;" >
-						  <span class="input-group-addon"><i class="fa fa-user-o fa-fw"></i></span>
-						  <input class="form-control" type="text" name = "username" placeholder="Username">
-						</div>
-						<?php echo form_error('username'); ?>
-						<div class="input-group">
+						<div class="input-group margin-bottom-sm" style = "margin-bottom: 5px;">
 						  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-						  <input class="form-control" type="password" name = "password" placeholder="Password">
+						  <input type="password" name="password" class="form-control" placeholder="New Password" required>
 						</div>
-						<?php echo form_error('password'); ?>
-						<font color = "red"> *Incorrect Username or Password</font>
-						<input style = "margin-bottom: 15px;" type = "Submit" value = "Sign in"/>
+						  <?php echo form_error('password'); ?> 
+						
+
+						<div class="input-group" style = "margin-bottom: 5px;">
+						  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+						  <input type="password" name="cpassword" class="form-control" placeholder="Confirm Password" required>
+						</div>
+						  <?php echo form_error('cpassword'); ?>
+						
+									
+							<input style = "margin-bottom: 15px;" type = "Submit" value = "Submit"/>
+
 					</font>
+					
 				</form>
 
 			</div>

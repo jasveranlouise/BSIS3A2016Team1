@@ -85,7 +85,7 @@ class reqconfess_model extends CI_Model{
 	function getNoti(){
 		$this->db->select("*");
 		$this->db->from('confession');
-		$this->db->where('id_users','1');
+		$this->db->where('id_users',$_SESSION['id_no']);
 		$this->db->order_by('date', 'DESC');
 		$this->db->order_by('time', 'DESC');
 		$query = $this->db->get();

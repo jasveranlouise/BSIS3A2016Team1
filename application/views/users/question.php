@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<meta charset="utf-8">
 	<LINK REL="icon" HREF="<?php echo base_url();?>img/ushare4.png"/>
-	<title>Ushare - Log In</title>
+	<title>Password Reset</title>
 
 	<style type="text/css">
 
@@ -53,11 +53,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	#container {
 		margin: auto;
-		margin-top: 22.5%;
+		margin-top: 10%;
 		margin-bottom: 22.5%;
 		border: 1px solid #D0D0D0;
 		box-shadow: 0 0 8px #D0D0D0;
-		width: 300px;
+		width: 500px;
 		color: white;
 	}
 	
@@ -90,11 +90,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     color: red;
 	font-size: 14px;
 	}
+	.capitalize {
+    text-transform: capitalize;
+}
 
 	
 	</style>
 </head>
 <body>
+
+
 
 <div  class="w3-row">
 
@@ -128,38 +133,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="w3-twothird">
 	
 
-		<div id="container">
+		<div id="container" style="margin-top:205px">
 			
 			 <h1>
-			 	<font color = "black" face = "Century Gothic"> Login  &nbsp; </font>
+			 	<font color = "black" face = "Century Gothic"> <?php echo $detail->$email; ?>  &nbsp; </font>
 			 </h1>
 
 			<div id="body">
-				<form method = "POST" action ="Login">
-					<font face = "Calibri" size = "3">
+
+			
+				
+				<form method = "POST" action ="">
+					<font face = "Calibri" color = "black" size = "3">
+										
+										<div class="input-group" style = "margin-bottom: 5px;">
+						  <span class="input-group-addon"><i class="fa fa-question fa-fw"></i></span>
+						  <input class="form-control" type="text" name = "forgot_question" placeholder="Forgot Password Question is : "	 value="<?php echo $detail->$forgot_question; ?>" required disabled>
+						</div>
 						
-						<div class="input-group margin-bottom-sm" style = "margin-bottom: 5px;" >
-						  <span class="input-group-addon"><i class="fa fa-user-o fa-fw"></i></span>
-						  <input class="form-control" type="text" name = "username" placeholder="Username">
+						
+						<div class="input-group" style = "margin-bottom: 5px;">
+						  <span class="input-group-addon"><i class="fa fa-reply fa-fw"></i></span>
+						  <input class="form-control" type="text" name = "forgot_password" placeholder="Answer" required>
 						</div>
-						<?php echo form_error('username'); ?>
-						<div class="input-group">
-						  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-						  <input class="form-control" type="password" name = "password" placeholder="Password">
-						</div>
-						<?php echo form_error('password'); ?>
-						<font color = "red"> *Incorrect Username or Password</font>
-						<input style = "margin-bottom: 15px;" type = "Submit" value = "Sign in"/>
+						<?php echo form_error('forgot_password'); ?>
+
+			<a href="reset"><input style = "margin-bottom: 15px;" type = "Submit" value = "Submit"/></a>
 					</font>
 				</form>
+				
 
+			
+			
 			</div>
 			
 		</div>
-		
 
-		
 	</div>
 </div>
-</body>
+</body> 
 </html>

@@ -38,7 +38,6 @@ class Users extends CI_Controller {
 
 	public function index()
 	{	
-		
 
 		$li = $this->session->userdata('logged_in');
 		if($li == TRUE){
@@ -68,7 +67,7 @@ class Users extends CI_Controller {
 		}
 		
 	}
- 
+
 	public function Login()
 	{
 			$this->load->helper(array('form', 'url'));
@@ -165,6 +164,8 @@ class Users extends CI_Controller {
 		$this->form_validation->set_rules('contact_no', 'Contact No', 'trim|required|min_length[3]|max_length[20]');
 		$this->form_validation->set_rules('birthdate', 'Birthdate', 'trim|required|min_length[3]|max_length[20]');
 		$this->form_validation->set_rules('sex', 'Sex', 'trim|required|min_length[3]|max_length[20]');
+		$this->form_validation->set_rules('forgot_question', 'Question', 'trim|required|min_length[3]|max_length[100]');
+		$this->form_validation->set_rules('forgot_password', 'Answer', 'trim|required|min_length[3]|max_length[100]');
 				
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -472,7 +473,7 @@ class Users extends CI_Controller {
 			redirect('users/');
 		}
 	}
-
+	
 	public function suggestion(){
 		$this->load->model('suggestions_model');
 			
@@ -483,4 +484,65 @@ class Users extends CI_Controller {
 			redirect('users/contact_us');
 		}
 	}	
+	
+	public function forgot()
+	{
+			$this->load->helper(array('form', 'url'));
+			$this->load->library('form_validation');
+			$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+			$this->form_validation->set_rules('email', 'Email', 'required');
+			
+		if ($this->form_validation->run() == FALSE)
+			{
+				$this->load->view('users/forgot');
+			}
+		
+		
+		else
+		{
+			if ($this->input->post())
+			{
+				$this->load->model('Users_model');				
+				$data = $this->input->post();
+				$this->Users_model->fpass($data['email']);
+		
+				$result=$this->Users_model->fpass($data['email']);
+				
+				if(!$result) {
+					redirect('/users/forgot2');
+				}
+				
+				else {
+					$newdata = array(
+			        'logged_in' => TRUE,
+			        'id_no' => $result['0']['id_users']
+					);
+					$this->session->set_userdata($newdata);
+					redirect ('/users/question');
+				}
+				
+				echo $result;
+				exit();
+			}
+		}
+		
+	}
+	
+	
+	public function question()
+	{
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+		$this->load->view('users/question');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+	}
+	
+	public function reset()
+	{
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+		$this->load->view('users/reset');
+	}
 }

@@ -33,25 +33,3 @@
 .pre{
 	font-family: Century Gothic;
 }
-.cont{
-	width:25%; 
-	float: left; 
-	color: white;
-}
-.marg{
-	margin-bottom: 30px;
-}
-.con1{
-	background-color: #006400; 
-}
-.dashboard{
-	margin-top: 10px;
-}
-.marg2{
-	margin-bottom: 5px;
-}
-.db:hover{
-	border-style: solid;
-	border-width: 1px;
-	border-color: black;
-}

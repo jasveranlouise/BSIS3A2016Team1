@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
 	<LINK REL="icon" HREF="<?php echo base_url();?>img/ushare4.png"/>
-	<title>Contact Us</title>
+	<title>Ushare Contact Us</title>
 
 
 
@@ -61,11 +61,11 @@ body {
 </style>	
 <body style = "background-color: #fbf3f2;">
 
-<nav class="w3-sidenav theme2 w3-card-2" style="display:none;" id="mySidenav">
+<nav class="w3-sidenav theme2 w3-card-2 none" style="display:none;z-index:4" id="mySidenav">
   	<a href="javascript:void(0)"
   	onclick="w3_close()"
-  	class="w3-closenav w3-large " style = "padding: 3%"  > 
-  		<font style = "text-align: right" color = "white">  
+  	class="w3-closenav w3-large snpad"  > 
+  		<font class = "tAlignR white">  
   			&times; 
   		</font>
  	</a>
@@ -108,8 +108,11 @@ body {
 	</a>
 	<hr class = "sideNavHr">
 
-
-	<div style = "padding-left: 4%; padding-right: 4%;">
+	<div style = "padding-left: 5%; padding-right: 5%;">
+	<br>
+		<font color = "darkgray" size = "1">
+			Your request entitled "First Kiss" has been approved
+		</font>
 	<br><br><br><br><br>	<br><br><br><br><br><br>
 	
 	<hr class = "sideNavHr" style="margin-bottom:0%">
@@ -140,6 +143,8 @@ body {
 
 
 </nav>
+
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
 
 <?php foreach($details as $detail){?>
@@ -212,16 +217,15 @@ body {
 			<form method = "POST" action ="suggestion">
 				
 
-				<input type = "hidden" name = "id_users" value = ""> 
+				<input type = "hidden" name = "id_users" value = "<?php echo $detail->id_users;?>"> 
 				<input type = "hidden" name = "id_suggestion" value = ""> 
 				<label class="w3-label w3-validate"><h4></h4></label>
 					<input class = "w3-round textBox w3-border-red confessBox" type = "text" name = "name" readonly value = "<?php echo $detail->display_name;?>" required>
 				<label class="w3-label w3-validate"><h4></h4></label>
-					<input class = "w3-round textBox w3-border-red confessBox" type = "text" name = "email" placeholder = "Email Address" required>
+					<input class = "w3-round textBox w3-border-red confessBox" type = "text" name = "email" value="" placeholder = "Email" required>
 				<label class="w3-label w3-validate"><h4></h4></label>
-					<textarea rows = "5" class = "w3-round textArea w3-border-red confessBox" name = "suggestion_text" placeholder = " Your Message Here" required> </textarea>	
-
-										
+					<textarea rows = "5" class = "w3-round textArea w3-border-red confessBox" name = "suggestion_text" value="" placeholder = "Your Message Here..." required></textarea>
+				
 					<br>
 				<br>
 				<input style = "margin: -4px 0px 10px 0px;" class = "w3-round padding right w3-btn w3-white w3-border w3-border-red" type = "submit" value = "Send" >
@@ -281,49 +285,6 @@ function myFunction() {
     }
 }
 </script>
- 
-<div id="id01" class="w3-modal">
-  <div style = "width: 40%; margin-top: -3%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
-    <header class="w3-container postModal">
-      <span onclick="document.getElementById('id01').style.display='none'"
-      class="w3-closebtn">&times;</span>
-      <h4><img style = "margin: -15% -.9% -2% -1%" src="<?php echo base_url();?>img/confession.png" height="35" width="35"> onfess</h4>
-    </header>
-    <div class="w3-container ">
-	
-		<p>
-			<form method = "POST" action ="reqcon">
-				<input type = "hidden" name = "id_confession"  > 
-				<input type = "hidden" name = "date" value = "<?php echo date("Y-m-d");?>"> 
-				<input type = "hidden" name = "time" value = "<?php echo date("h:ia");?>"> 
-				<input type = "hidden" name = "account_name"> 
-
-
-				<h4>Confession Title</h4>
-					<input class = "w3-round textBox w3-border-red" type = "text" name = "confession_title" placeholder = "Confession title">
-				<h4>Confession Text</h4> 
-					<textarea rows = "5" class = "w3-round textArea  w3-border-red" name = "confession_text" > </textarea>	
-
-						
-		<?php foreach($details3 as $detail3){?>
-		<input type = "hidden" name = "hidden_name" value="<?php echo $detail3->hidden_name;?>">
-		<?php }?>
-
-
-		<?php foreach($details2 as $detail2){?>
-		<input type = "hidden" name = "college" value = "<?php echo $detail2->college;?>">
-		<?php }?>
-										
-					<br>
-				<font style = "Century Gothic" size = "2" color = "red"> <br> *You will be notified once confession request is approved. </font>
-				<input style = "margin: -4px 0px 10px 0px;" class = "w3-round padding right w3-btn w3-white w3-border w3-border-red" type = "submit" value = "Confess" >
-			</form>
-			<br>
-			
-		</p>
-    </div>
-  </div>
-</div>
 
 <div id="id02" class="w3-modal">
  
@@ -336,7 +297,7 @@ function myFunction() {
 		  
 			<center>
 			
-			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" alt="Smiley face" height="150" width="150"> 
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
 			</center>
 			
 			<h4>
@@ -849,15 +810,11 @@ function myFunction() {
 
 <script>
 // Get the modal
-var modal = document.getElementById('id01');
 var modal2 = document.getElementById('id02');
 var modal3 = document.getElementById('id03');
 var modal4 = document.getElementById('id04');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
 	if (event.target == modal2) {
         modal2.style.display = "none";
     }

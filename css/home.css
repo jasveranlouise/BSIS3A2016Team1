@@ -178,32 +178,24 @@
 	box-shadow: none;
 	border-style: solid;
 }
-.noti{
-	font-size: 15px;
-	line-height: 100%;
-	margin-top: 4px;
+.notiRow{
+	line-height: 110%;
+}
+.notiRow:hover{
+	cursor: pointer;
+	background-color: #d3d3d3;
+
 }
 .notiTime{
 	color: grey;
 	font-size: 13px;
 }
-.seeAll{
-	text-decoration: none;
-	color: grey;
+.trPad{
+	padding-top: 5px;
 }
-.seeAll:hover {
-	color: darkred;
-	cursor: pointer;
+.notiTitle{
+	color: darkblue;
 }
-.noti2{
-	text-decoration: none;
-}
-.noti2:hover{
-	text-decoration: underline;
-}
-.notiRow{
-	cursor: pointer;
-}
-.notiRow:hover{
-	background-color: #d7d7d7;
+.noti{
+	font-size: 15px;
 }

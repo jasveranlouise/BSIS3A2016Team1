@@ -34,6 +34,17 @@ class Users_model extends CI_Model{
 		}	
 	}
 	
+	public function fpass ($email){
+	$this->db->where('email',$email);
+		$result = $this->db->get('personal_info');
+		
+		$result = $result->result_array();
+		
+		
+		return $result;
+		
+		}
+	
 	public function add($data) {
 		$usersInfo = array(
 			'id_users' => '' ,
@@ -59,7 +70,9 @@ class Users_model extends CI_Model{
 			'email' => $data['email'] ,
 			'contact_no' => $data['contact_no'] ,
 			'birthdate' => $data['birthdate'],
-			'sex' => $data['sex'] 			
+			'sex' => $data['sex'],
+			'forgot_question' => $data['forgot_question'],
+			'forgot_password' => $data['forgot_password'] 
 		);
 		$this->db->insert('personal_info', $personalInfo); 
 		

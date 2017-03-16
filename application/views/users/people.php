@@ -8,7 +8,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" type="text/css"  href="<?php echo base_url();?>css/home.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
-	<title>Welcome to Ushare</title>
+	<LINK REL="icon" HREF="<?php echo base_url();?>img/ushare4.png"/>
+	<title>Ushare People</title>
 
 
 
@@ -248,49 +249,6 @@ function myFunction() {
     }
 }
 </script>
- 
-<div id="id01" class="w3-modal">
-  <div style = "width: 40%; margin-top: -3%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
-    <header class="w3-container postModal">
-      <span onclick="document.getElementById('id01').style.display='none'"
-      class="w3-closebtn">&times;</span>
-      <h4><img style = "margin: -15% -.9% -2% -1%" src="<?php echo base_url();?>img/confession.png" height="35" width="35"> onfess</h4>
-    </header>
-    <div class="w3-container ">
-	
-		<p>
-			<form method = "POST" action ="reqcon">
-				<input type = "hidden" name = "id_confession"  > 
-				<input type = "hidden" name = "date" value = "<?php echo date("Y-m-d");?>"> 
-				<input type = "hidden" name = "time" value = "<?php echo date("h:ia");?>"> 
-				<input type = "hidden" name = "account_name"> 
-
-
-				<h4>Confession Title</h4>
-					<input class = "w3-round textBox w3-border-red" type = "text" name = "confession_title" placeholder = "Confession title">
-				<h4>Confession Text</h4> 
-					<textarea rows = "5" class = "w3-round textArea  w3-border-red" name = "confession_text" > </textarea>	
-
-						
-		<?php foreach($details3 as $detail3){?>
-		<input type = "hidden" name = "hidden_name" value="<?php echo $detail3->hidden_name;?>">
-		<?php }?>
-
-
-		<?php foreach($details2 as $detail2){?>
-		<input type = "hidden" name = "college" value = "<?php echo $detail2->college;?>">
-		<?php }?>
-										
-					<br>
-				<font style = "Century Gothic" size = "2" color = "red"> <br> *You will be notified once confession request is approved. </font>
-				<input style = "margin: -4px 0px 10px 0px;" class = "w3-round padding right w3-btn w3-white w3-border w3-border-red" type = "submit" value = "Confess" >
-			</form>
-			<br>
-			
-		</p>
-    </div>
-  </div>
-</div>
 
 <div id="id02" class="w3-modal">
  
@@ -302,7 +260,6 @@ function myFunction() {
 		  <?php foreach($details as $detail){?>
 		  
 			<center>
-			
 			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
 			</center>
 			
@@ -397,7 +354,7 @@ function myFunction() {
 				</td>
 			</tr>
 		</table>
-		<hr class = "hr">
+		<hr>
 		<?php }?>
 		
 		<?php foreach($details2 as $detail2){?>
@@ -449,7 +406,7 @@ function myFunction() {
 			
 			
 		</table>
-		<hr class = "hr">
+		<hr>
 		<?php }?>
 		
 		<?php foreach($details3 as $detail3){?>
@@ -501,27 +458,27 @@ function myFunction() {
   <div style = "width: 40%; margin-top: -1%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
   
   <?php foreach($details as $detail){?>
-  		  
-    	  <header class="w3-container postModal">
+  
+    <header class="w3-container postModal">
 		  <span onclick="document.getElementById('id03').style.display='none'"
 		  class="w3-closebtn">&times;</span>
 		  
 		<center>
 			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
-			    <?php echo form_open_multipart('users/do_upload');?>
+
+			<?php echo form_open_multipart('users/do_upload');?>
 				<input type = "hidden" name = "fn" value = "<?php echo $detail->id_users;?>" >
 				<input type="file" name="userfile" size="20" />
 				<input type="submit" value="upload" />
 				</form>
 		</center>
-
-				
 		  
 	<form method = "POST" action ="update_info">	
 		
 		<h4>
 			<center> 
-				<input class = "userName" type "text" name = "display_name" value = "<?php echo $detail->display_name;?>">
+				<input class = "userName confessBox" type "text" name = "display_name" value = "<?php echo $detail->display_name;?>">
+
 			</center>
 		</h4>
     </header>
@@ -531,7 +488,7 @@ function myFunction() {
 		
 		<p> <b>Info</b> </p>
 		<table>
-			
+
 			<input type = "hidden" name="id_users" value="<?php echo $detail->id_users;?>">
 			<tr >
 				<td width = "28%">
@@ -608,17 +565,14 @@ function myFunction() {
 				</td>
 			</tr>
 		</table>
-		
-		<input style = "margin-left: 82%;" type = "submit" value = "save">
-		</form>	
+			
 		
 		<?php }?>  
 		
-		<hr class = "hr">
+		<hr>
 		
 		<p> <b>Student Info</b> </p>
 			
-		<form method = "POST" action ="update_info2">
 			<?php foreach($details2 as $detail2){?>
 			<table>
 				<input type = "hidden" name="id_users" value="<?php echo $detail2->id_users;?>">
@@ -649,7 +603,7 @@ function myFunction() {
 					</td>
 					
 					<td>
-						<p class = "infoMargin" > <select class="w3-select w3-border paddingtb inputWidth confessBox" name="college">
+						<p class = "infoMargin" > <select class="w3-select w3-border paddingtb inputWidth" name="college">
 							<option <?php $c = $detail2->college; if($c == "") echo "selected"?> value="" disabled selected>Choose your option</option>
 							<option <?php $c = $detail2->college; if($c == "College of Science") echo "selected"?> value="College of Science">College of Science</option>
 							<option <?php $c = $detail2->college; if($c == "College of Engineering") echo "selected"?> value="College of Engineering">College of Engineering</option>
@@ -672,15 +626,13 @@ function myFunction() {
 				</tr>
 			</table>
 			
-			<input style = "margin-left: 82%;" type = "submit" value = "save">
-			
 			<?php }?>  
-		</form>
-		<hr class = "hr">			
+		
+		<hr>			
 		
 		<p> <b>Confession Info</b> </p>
 			
-		<form method = "POST" action ="update_info3">
+		
 			<?php foreach($details3 as $detail3){?>
 			<table>
 				<input type = "hidden" name="id_users" value="<?php echo $detail3->id_users;?>">
@@ -697,7 +649,7 @@ function myFunction() {
 					
 			</table>
 			
-			<input style = "margin-left: 82%;" type = "submit" value = "save">
+			<input style = "margin-left: 82%;" type = "submit" value = "save"> <br>
 			
 			<?php }?>  
 		</form>
@@ -816,16 +768,12 @@ function myFunction() {
 
 <script>
 // Get the modal
-var modal = document.getElementById('id01');
 var modal2 = document.getElementById('id02');
 var modal3 = document.getElementById('id03');
 var modal4 = document.getElementById('id04');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
 	if (event.target == modal2) {
         modal2.style.display = "none";
     }

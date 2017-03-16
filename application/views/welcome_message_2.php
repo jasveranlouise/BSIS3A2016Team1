@@ -654,9 +654,7 @@ function myFunction(id) {
 				</td>
 			</tr>
 		</table>
-		
-		<input style = "margin-left: 82%;" type = "submit" value = "save">
-		</form>	
+			
 		
 		<?php }?>  
 		
@@ -664,7 +662,6 @@ function myFunction(id) {
 		
 		<p> <b>Student Info</b> </p>
 			
-		<form method = "POST" action ="update_info2">
 			<?php foreach($details2 as $detail2){?>
 			<table>
 				<input type = "hidden" name="id_users" value="<?php echo $detail2->id_users;?>">
@@ -718,15 +715,13 @@ function myFunction(id) {
 				</tr>
 			</table>
 			
-			<input style = "margin-left: 82%;" type = "submit" value = "save">
-			
 			<?php }?>  
-		</form>
+		
 		<hr>			
 		
 		<p> <b>Confession Info</b> </p>
 			
-		<form method = "POST" action ="update_info3">
+		
 			<?php foreach($details3 as $detail3){?>
 			<table>
 				<input type = "hidden" name="id_users" value="<?php echo $detail3->id_users;?>">
@@ -743,7 +738,7 @@ function myFunction(id) {
 					
 			</table>
 			
-			<input style = "margin-left: 82%;" type = "submit" value = "save">
+			<input style = "margin-left: 82%;" type = "submit" value = "save"> <br>
 			
 			<?php }?>  
 		</form>
@@ -776,17 +771,17 @@ function myFunction(id) {
 		<table id = "mytable" class="w3-bordered">
 			<?php $i = 0; foreach($notifications as $notification){ if(++$i > 5) break;?>
 			<tr class="notiRow">			
-				<td width = "35%">
-					<p class = "infoMargin noti"><font color="darkblue">"<?php echo $notification->confession_title;?>"</font> has been approved <br> <font class="notiTime"><?php echo $notification->time;?> / <?php echo $notification->date;?></font></p>
+				<td class="trPad" width = "35%">
+					<p class = "infoMargin noti"><font class = "notiTitle" >"<?php echo $notification->confession_title;?>"</font> has been approved <br> <font class="notiTime"><?php echo $notification->time;?> / <?php echo $notification->date;?></font></p>
 				</td>
 			</tr>
-		    <?php } ?>
-			<tr>
-				<td width = "35%">
+		    
+			<tr class="notiRow">
+				<td class="trPad" width = "35%">
 					<p class = "infoMargin noti" align="center"> <a onclick="document.getElementById('id05').style.display='block'" class="seeAll"> See All Notifications</a></p>
 				</td>
 			</tr>
-			
+			<?php } ?>
 		</table>		  
 
 	</font>
@@ -816,7 +811,7 @@ function myFunction(id) {
 		<table class="w3-bordered">
 			<?php $i = 0; foreach($notifications as $notification){ ?>
 			<tr class="notiRow">			
-				<td width = "35%">
+				<td class="trPad" width = "35%">
 					<p class = "infoMargin noti"> <font ><font color="darkblue">"<?php echo $notification->confession_title;?>"</font> has been approved <br> <font class="notiTime"><?php echo $notification->time;?> / <?php echo $notification->date;?></font></p>
 				</td>
 				

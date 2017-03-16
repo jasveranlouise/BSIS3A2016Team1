@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
 	<LINK REL="icon" HREF="<?php echo base_url();?>img/ushare4.png"/>
-	<title>Welcome to Ushare</title>
+	<title>Ushare About</title>
 
 <style>
 
@@ -326,49 +326,6 @@ function myFunction() {
 }
 </script>
  
-<div id="id01" class="w3-modal">
-  <div style = "width: 40%; margin-top: -3%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
-    <header class="w3-container postModal">
-      <span onclick="document.getElementById('id01').style.display='none'"
-      class="w3-closebtn">&times;</span>
-      <h4><img style = "margin: -15% -.9% -2% -1%" src="<?php echo base_url();?>img/confession.png" height="35" width="35"> onfess</h4>
-    </header>
-    <div class="w3-container ">
-	
-		<p>
-			<form method = "POST" action ="reqcon">
-				<input type = "hidden" name = "id_confession"  > 
-				<input type = "hidden" name = "date" value = "<?php echo date("Y-m-d");?>"> 
-				<input type = "hidden" name = "time" value = "<?php echo date("h:ia");?>"> 
-				<input type = "hidden" name = "account_name"> 
-
-
-				<h4>Confession Title</h4>
-					<input class = "w3-round textBox w3-border-red" type = "text" name = "confession_title" placeholder = "Confession title">
-				<h4>Confession Text</h4> 
-					<textarea rows = "5" class = "w3-round textArea  w3-border-red" name = "confession_text" > </textarea>	
-
-						
-		<?php foreach($details3 as $detail3){?>
-		<input type = "hidden" name = "hidden_name" value="<?php echo $detail3->hidden_name;?>">
-		<?php }?>
-
-
-		<?php foreach($details2 as $detail2){?>
-		<input type = "hidden" name = "college" value = "<?php echo $detail2->college;?>">
-		<?php }?>
-										
-					<br>
-				<font style = "Century Gothic" size = "2" color = "red"> <br> *You will be notified once confession request is approved. </font>
-				<input style = "margin: -4px 0px 10px 0px;" class = "w3-round padding right w3-btn w3-white w3-border w3-border-red" type = "submit" value = "Confess" >
-			</form>
-			<br>
-			
-		</p>
-    </div>
-  </div>
-</div>
-
 <div id="id02" class="w3-modal">
  
   <div style = "width: 40%; margin-top: -1%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
@@ -379,7 +336,6 @@ function myFunction() {
 		  <?php foreach($details as $detail){?>
 		  
 			<center>
-			
 			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
 			</center>
 			
@@ -474,7 +430,7 @@ function myFunction() {
 				</td>
 			</tr>
 		</table>
-		<hr class = "hr">
+		<hr>
 		<?php }?>
 		
 		<?php foreach($details2 as $detail2){?>
@@ -526,7 +482,7 @@ function myFunction() {
 			
 			
 		</table>
-		<hr class = "hr">
+		<hr>
 		<?php }?>
 		
 		<?php foreach($details3 as $detail3){?>
@@ -566,6 +522,214 @@ function myFunction() {
 		<?php }?>
 		  
 		
+		<br>
+	</font>
+    </div>
+  </div>
+
+</div>
+
+<div id="id03" class="w3-modal">
+ 
+  <div style = "width: 40%; margin-top: -1%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
+  
+  <?php foreach($details as $detail){?>
+  
+    <header class="w3-container postModal">
+		  <span onclick="document.getElementById('id03').style.display='none'"
+		  class="w3-closebtn">&times;</span>
+		  
+		<center>
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
+
+			<?php echo form_open_multipart('users/do_upload');?>
+				<input type = "hidden" name = "fn" value = "<?php echo $detail->id_users;?>" >
+				<input type="file" name="userfile" size="20" />
+				<input type="submit" value="upload" />
+				</form>
+		</center>
+		  
+	<form method = "POST" action ="update_info">	
+		
+		<h4>
+			<center> 
+				<input class = "userName confessBox" type "text" name = "display_name" value = "<?php echo $detail->display_name;?>">
+
+			</center>
+		</h4>
+    </header>
+    <div class="w3-container ">
+	
+	<font face = "Century Gothic" size = "3" >
+		
+		<p> <b>Info</b> </p>
+		<table>
+
+			<input type = "hidden" name="id_users" value="<?php echo $detail->id_users;?>">
+			<tr >
+				<td width = "28%">
+					<p class = "infoMargin" > First Name:</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" >  <input class = "inputWidth confessBox" type = "text" name = "first_name" value = "<?php echo $detail->first_name;?>"  > </p>
+				</td>
+			</tr>
+			
+			<tr >
+				<td width = "25%">
+					<p class = "infoMargin" > Last Name:</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" >  <input class = "inputWidth confessBox" type = "text" name = "last_name" value = "<?php echo $detail->last_name;?>" > </p>
+				</td>
+			</tr>
+			
+			<tr >
+				<td width = "25%">
+					<p class = "infoMargin" > Middle Name:</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" >  <input class = "inputWidth confessBox" type = "text" name = "middle_name" value = "<?php echo $detail->middle_name;?>" > </p>
+				</td>
+			</tr>
+			
+			<tr >
+				<td width = "25%">
+					<p class = "infoMargin" > Email:</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" >  <input class = "inputWidth confessBox" type = "email" name = "email" value = "<?php echo $detail->email;?>"  > </p>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p class = "infoMargin" > Contact No:</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" ><input class = "inputWidth confessBox" type = "number" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p class = "infoMargin" > Birthdate:</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > <input class = "inputWidth confessBox" type = "date" name = "birthdate" value = "<?php $a = $detail->birthdate; if( $a == '0000-00-00') {echo "";} else {echo "$a";} ?>"></p>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p class = "infoMargin" > Sex:</p>
+				</td>
+				
+				<td>
+					<p class = "infoMargin" > 
+					<select class="w3-select w3-border paddingtb inputWidth confessBox" name="sex">
+						<option <?php $s = $detail->sex; if($s == "") echo "selected"?> value="" disabled selected>Choose your option</option>
+						<option <?php $s = $detail->sex; if($s == "Male") echo "selected"?> value="Male">Male</option>
+						<option <?php $s = $detail->sex; if($s == "Female") echo "selected"?> value="Female">Female</option>
+					</select></p>
+				</td>
+			</tr>
+		</table>
+			
+		
+		<?php }?>  
+		
+		<hr>
+		
+		<p> <b>Student Info</b> </p>
+			
+			<?php foreach($details2 as $detail2){?>
+			<table>
+				<input type = "hidden" name="id_users" value="<?php echo $detail2->id_users;?>">
+
+				<tr >
+					<td width = "28%">
+						<p class = "infoMargin" > Student No:</p>
+					</td>
+					
+					<td>
+						<p class = "infoMargin" > <input class = "inputWidth confessBox" value = "<?php echo $detail2->student_no;?>" placeholder = "xx-xxx-xx" pattern = "\d{2}[\-]\d{3}[\-]\d{3}" type = "text" name = "student_no" ></p>
+					</td>
+				</tr>
+					
+				<tr>
+					<td>
+						<p class = "infoMargin" > Course:</p>
+					</td>
+					
+					<td>
+						<p class = "infoMargin" > <input class = "inputWidth confessBox" type = "text" name = "course" value = "<?php echo $detail2->course;?>"></p>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<p class = "infoMargin" > College:</p>
+					</td>
+					
+					<td>
+						<p class = "infoMargin" > <select class="w3-select w3-border paddingtb inputWidth" name="college">
+							<option <?php $c = $detail2->college; if($c == "") echo "selected"?> value="" disabled selected>Choose your option</option>
+							<option <?php $c = $detail2->college; if($c == "College of Science") echo "selected"?> value="College of Science">College of Science</option>
+							<option <?php $c = $detail2->college; if($c == "College of Engineering") echo "selected"?> value="College of Engineering">College of Engineering</option>
+							<option <?php $c = $detail2->college; if($c == "College of Industrial Technology") echo "selected"?> value="College of Industrial Technology">College of Industrial Technology</option>
+							<option <?php $c = $detail2->college; if($c == "College of Industrial Education") echo "selected"?> value="College of Industrial Education">College of Industrial Education</option>
+							<option <?php $c = $detail2->college; if($c == "College of Architecture and Fine Arts") echo "selected"?> value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
+							<option <?php $c = $detail2->college; if($c == "College of Liberal Arts") echo "selected"?> value="College of Liberal Arts">College of Liberal Arts</option>
+						</select></p>
+					</td>
+				</tr>
+				
+				<tr >
+					<td width = "25%">
+						<p class = "infoMargin" > Year Graduated:</p>
+					</td>
+					
+					<td>
+						<p class = "infoMargin" ><input class = "inputWidth confessBox" type = "month" name = "year_graduated" value = "<?php echo $detail2->year_graduated;?>" ></p>
+					</td> 
+				</tr>
+			</table>
+			
+			<?php }?>  
+		
+		<hr>			
+		
+		<p> <b>Confession Info</b> </p>
+			
+		
+			<?php foreach($details3 as $detail3){?>
+			<table>
+				<input type = "hidden" name="id_users" value="<?php echo $detail3->id_users;?>">
+
+				<tr >
+					<td width = "28%">
+						<p class = "infoMargin" > Hidden Name:</p>
+					</td>
+					
+					<td>
+						<p class = "infoMargin" > <input class = "inputWidth confessBox" value = "<?php echo $detail3->hidden_name;?>" placeholder = "hidden name" type = "text" name = "hidden_name" ></p>
+					</td>
+				</tr>
+					
+			</table>
+			
+			<input style = "margin-left: 82%;" type = "submit" value = "save"> <br>
+			
+			<?php }?>  
+		</form>
+
 		<br>
 	</font>
     </div>
@@ -1050,218 +1214,7 @@ function myFunction() {
 
 </div>
 
-<div id="id03" class="w3-modal">
- 
-  <div style = "width: 40%; margin-top: -1%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
-  
-  <?php foreach($details as $detail){?>
-  		  
-    	  <header class="w3-container postModal">
-		  <span onclick="document.getElementById('id03').style.display='none'"
-		  class="w3-closebtn">&times;</span>
-		  
-		<center>
-			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
-			    <?php echo form_open_multipart('users/do_upload');?>
-				<input type = "hidden" name = "fn" value = "<?php echo $detail->id_users;?>" >
-				<input type="file" name="userfile" size="20" />
-				<input type="submit" value="upload" />
-				</form>
-		</center>
 
-				
-		  
-	<form method = "POST" action ="update_info">	
-		
-		<h4>
-			<center> 
-				<input class = "userName" type "text" name = "display_name" value = "<?php echo $detail->display_name;?>">
-			</center>
-		</h4>
-    </header>
-    <div class="w3-container ">
-	
-	<font face = "Century Gothic" size = "3" >
-		
-		<p> <b>Info</b> </p>
-		<table>
-			
-			<input type = "hidden" name="id_users" value="<?php echo $detail->id_users;?>">
-			<tr >
-				<td width = "28%">
-					<p class = "infoMargin" > First Name:</p>
-				</td>
-				
-				<td>
-					<p class = "infoMargin" >  <input class = "inputWidth" type = "text" name = "first_name" value = "<?php echo $detail->first_name;?>"  > </p>
-				</td>
-			</tr>
-			
-			<tr >
-				<td width = "25%">
-					<p class = "infoMargin" > Last Name:</p>
-				</td>
-				
-				<td>
-					<p class = "infoMargin" >  <input class = "inputWidth" type = "text" name = "last_name" value = "<?php echo $detail->last_name;?>" > </p>
-				</td>
-			</tr>
-			
-			<tr >
-				<td width = "25%">
-					<p class = "infoMargin" > Middle Name:</p>
-				</td>
-				
-				<td>
-					<p class = "infoMargin" >  <input class = "inputWidth" type = "text" name = "middle_name" value = "<?php echo $detail->middle_name;?>" > </p>
-				</td>
-			</tr>
-			
-			<tr >
-				<td width = "25%">
-					<p class = "infoMargin" > Email:</p>
-				</td>
-				
-				<td>
-					<p class = "infoMargin" >  <input class = "inputWidth" type = "email" name = "email" value = "<?php echo $detail->email;?>"  > </p>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<p class = "infoMargin" > Contact No:</p>
-				</td>
-				
-				<td>
-					<p class = "infoMargin" ><input class = "inputWidth" type = "number" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<p class = "infoMargin" > Birthdate:</p>
-				</td>
-				
-				<td>
-					<p class = "infoMargin" > <input class = "inputWidth" type = "date" name = "birthdate" value = "<?php $a = $detail->birthdate; if( $a == '0000-00-00') {echo "";} else {echo "$a";} ?>"></p>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<p class = "infoMargin" > Sex:</p>
-				</td>
-				
-				<td>
-					<p class = "infoMargin" > 
-					<select class="w3-select w3-border paddingtb inputWidth" name="sex">
-						<option <?php $s = $detail->sex; if($s == "") echo "selected"?> value="" disabled selected>Choose your option</option>
-						<option <?php $s = $detail->sex; if($s == "Male") echo "selected"?> value="Male">Male</option>
-						<option <?php $s = $detail->sex; if($s == "Female") echo "selected"?> value="Female">Female</option>
-					</select></p>
-				</td>
-			</tr>
-		</table>
-		
-		<input style = "margin-left: 82%;" type = "submit" value = "save">
-		</form>	
-		
-		<?php }?>  
-		
-		<hr class = "hr">
-		
-		<p> <b>Student Info</b> </p>
-			
-		<form method = "POST" action ="update_info2">
-			<?php foreach($details2 as $detail2){?>
-			<table>
-				<input type = "hidden" name="id_users" value="<?php echo $detail2->id_users;?>">
-
-				<tr >
-					<td width = "28%">
-						<p class = "infoMargin" > Student No:</p>
-					</td>
-					
-					<td>
-						<p class = "infoMargin" > <input class = "inputWidth" value = "<?php echo $detail2->student_no;?>" placeholder = "xx-xxx-xx" pattern = "\d{2}[\-]\d{3}[\-]\d{3}" type = "text" name = "student_no" ></p>
-					</td>
-				</tr>
-					
-				<tr>
-					<td>
-						<p class = "infoMargin" > Course:</p>
-					</td>
-					
-					<td>
-						<p class = "infoMargin" > <input class = "inputWidth" type = "text" name = "course" value = "<?php echo $detail2->course;?>"></p>
-					</td>
-				</tr>
-				
-				<tr>
-					<td>
-						<p class = "infoMargin" > College:</p>
-					</td>
-					
-					<td>
-						<p class = "infoMargin" > <select class="w3-select w3-border paddingtb inputWidth" name="college">
-							<option <?php $c = $detail2->college; if($c == "") echo "selected"?> value="" disabled selected>Choose your option</option>
-							<option <?php $c = $detail2->college; if($c == "College of Science") echo "selected"?> value="College of Science">College of Science</option>
-							<option <?php $c = $detail2->college; if($c == "College of Engineering") echo "selected"?> value="College of Engineering">College of Engineering</option>
-							<option <?php $c = $detail2->college; if($c == "College of Industrial Technology") echo "selected"?> value="College of Industrial Technology">College of Industrial Technology</option>
-							<option <?php $c = $detail2->college; if($c == "College of Industrial Education") echo "selected"?> value="College of Industrial Education">College of Industrial Education</option>
-							<option <?php $c = $detail2->college; if($c == "College of Architecture and Fine Arts") echo "selected"?> value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
-							<option <?php $c = $detail2->college; if($c == "College of Liberal Arts") echo "selected"?> value="College of Liberal Arts">College of Liberal Arts</option>
-						</select></p>
-					</td>
-				</tr>
-				
-				<tr >
-					<td width = "25%">
-						<p class = "infoMargin" > Year Graduated:</p>
-					</td>
-					
-					<td>
-						<p class = "infoMargin" ><input class = "inputWidth" type = "month" name = "year_graduated" value = "<?php echo $detail2->year_graduated;?>" ></p>
-					</td> 
-				</tr>
-			</table>
-			
-			<input style = "margin-left: 82%;" type = "submit" value = "save">
-			
-			<?php }?>  
-		</form>
-		<hr class = "hr">			
-		
-		<p> <b>Confession Info</b> </p>
-			
-		<form method = "POST" action ="update_info3">
-			<?php foreach($details3 as $detail3){?>
-			<table>
-				<input type = "hidden" name="id_users" value="<?php echo $detail3->id_users;?>">
-
-				<tr >
-					<td width = "28%">
-						<p class = "infoMargin" > Hidden Name:</p>
-					</td>
-					
-					<td>
-						<p class = "infoMargin" > <input class = "inputWidth" value = "<?php echo $detail3->hidden_name;?>" placeholder = "hidden name" type = "text" name = "hidden_name" ></p>
-					</td>
-				</tr>
-					
-			</table>
-			
-			<input style = "margin-left: 82%;" type = "submit" value = "save">
-			
-			<?php }?>  
-		</form>
-
-		<br>
-	</font>
-    </div>
-  </div>
-
-</div>
 
 <div id="id04" class="w3-modal">
   <div style = "width: 40%; margin-top: -3%; margin-bottom: 3%;" class="w3-modal-content w3-animate-top">
@@ -1370,7 +1323,6 @@ function myFunction() {
 
 <script>
 // Get the modal
-var modal = document.getElementById('id01');
 var modal2 = document.getElementById('id02');
 var modal3 = document.getElementById('id03');
 var modal4 = document.getElementById('id04');
@@ -1381,9 +1333,6 @@ var modal8 = document.getElementById('id08');
 var modal9 = document.getElementById('id09');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
 	if (event.target == modal2) {
         modal2.style.display = "none";
     }

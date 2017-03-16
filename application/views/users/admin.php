@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url();?>css/admin.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/font-awesome-4.7.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
-	<title>Welcome to Ushare</title>
+	<title>Ushare Admin</title>
 
 
 
@@ -470,7 +470,7 @@ function openCity(evt, cityName) {
 		  <?php foreach($details as $detail){?>
 		  
 			<center>
-			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>img/hakeem_2.jpg" alt="Smiley face" onerror="this.src='<?php echo base_url();?>img/try.jpg'" height="150" width="150"> 
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
 			</center>
 			
 			<h4>
@@ -564,7 +564,7 @@ function openCity(evt, cityName) {
 				</td>
 			</tr>
 		</table>
-		<hr class = "hr">
+		<hr>
 		<?php }?>
 		
 		<?php foreach($details2 as $detail2){?>
@@ -616,7 +616,7 @@ function openCity(evt, cityName) {
 			
 			
 		</table>
-		<hr class = "hr">
+		<hr>
 		<?php }?>
 		
 		<?php foreach($details3 as $detail3){?>
@@ -674,14 +674,21 @@ function openCity(evt, cityName) {
 		  class="w3-closebtn">&times;</span>
 		  
 		<center>
-			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>img/hakeem_2.jpg" alt="Smiley face" height="150" width="150"> 
+			<img class = "w3-circle imageCircle" style = "margin: -15% 0% -1.5% -1%" src="<?php echo base_url();?>uploads/<?php echo $detail->id_users;?>.jpg" onerror="this.src='<?php echo base_url();?>img/try.jpg'" alt="Smiley face" height="150" width="150"> 
+
+			<?php echo form_open_multipart('users/do_upload');?>
+				<input type = "hidden" name = "fn" value = "<?php echo $detail->id_users;?>" >
+				<input type="file" name="userfile" size="20" />
+				<input type="submit" value="upload" />
+				</form>
 		</center>
 		  
 	<form method = "POST" action ="update_info">	
 		
 		<h4>
 			<center> 
-				<input class = "userName" type "text" name = "display_name" value = "<?php echo $detail->display_name;?>">
+				<input class = "userName confessBox" type "text" name = "display_name" value = "<?php echo $detail->display_name;?>">
+
 			</center>
 		</h4>
     </header>
@@ -699,7 +706,7 @@ function openCity(evt, cityName) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" >  <input class = "inputWidth" type = "text" name = "first_name" value = "<?php echo $detail->first_name;?>"  > </p>
+					<p class = "infoMargin" >  <input class = "inputWidth confessBox" type = "text" name = "first_name" value = "<?php echo $detail->first_name;?>"  > </p>
 				</td>
 			</tr>
 			
@@ -709,7 +716,7 @@ function openCity(evt, cityName) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" >  <input class = "inputWidth" type = "text" name = "last_name" value = "<?php echo $detail->last_name;?>" > </p>
+					<p class = "infoMargin" >  <input class = "inputWidth confessBox" type = "text" name = "last_name" value = "<?php echo $detail->last_name;?>" > </p>
 				</td>
 			</tr>
 			
@@ -719,7 +726,7 @@ function openCity(evt, cityName) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" >  <input class = "inputWidth" type = "text" name = "middle_name" value = "<?php echo $detail->middle_name;?>" > </p>
+					<p class = "infoMargin" >  <input class = "inputWidth confessBox" type = "text" name = "middle_name" value = "<?php echo $detail->middle_name;?>" > </p>
 				</td>
 			</tr>
 			
@@ -729,7 +736,7 @@ function openCity(evt, cityName) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" >  <input class = "inputWidth" type = "email" name = "email" value = "<?php echo $detail->email;?>"  > </p>
+					<p class = "infoMargin" >  <input class = "inputWidth confessBox" type = "email" name = "email" value = "<?php echo $detail->email;?>"  > </p>
 				</td>
 			</tr>
 			
@@ -739,7 +746,7 @@ function openCity(evt, cityName) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" ><input class = "inputWidth" type = "number" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
+					<p class = "infoMargin" ><input class = "inputWidth confessBox" type = "number" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
 				</td>
 			</tr>
 			
@@ -749,7 +756,7 @@ function openCity(evt, cityName) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" > <input class = "inputWidth" type = "date" name = "birthdate" value = "<?php $a = $detail->birthdate; if( $a == '0000-00-00') {echo "";} else {echo "$a";} ?>"></p>
+					<p class = "infoMargin" > <input class = "inputWidth confessBox" type = "date" name = "birthdate" value = "<?php $a = $detail->birthdate; if( $a == '0000-00-00') {echo "";} else {echo "$a";} ?>"></p>
 				</td>
 			</tr>
 			
@@ -760,7 +767,7 @@ function openCity(evt, cityName) {
 				
 				<td>
 					<p class = "infoMargin" > 
-					<select class="w3-select w3-border paddingtb inputWidth" name="sex">
+					<select class="w3-select w3-border paddingtb inputWidth confessBox" name="sex">
 						<option <?php $s = $detail->sex; if($s == "") echo "selected"?> value="" disabled selected>Choose your option</option>
 						<option <?php $s = $detail->sex; if($s == "Male") echo "selected"?> value="Male">Male</option>
 						<option <?php $s = $detail->sex; if($s == "Female") echo "selected"?> value="Female">Female</option>
@@ -768,17 +775,14 @@ function openCity(evt, cityName) {
 				</td>
 			</tr>
 		</table>
-		
-		<input style = "margin-left: 82%;" type = "submit" value = "save">
-		</form>	
+			
 		
 		<?php }?>  
 		
-		<hr class = "hr">
+		<hr>
 		
 		<p> <b>Student Info</b> </p>
 			
-		<form method = "POST" action ="update_info2">
 			<?php foreach($details2 as $detail2){?>
 			<table>
 				<input type = "hidden" name="id_users" value="<?php echo $detail2->id_users;?>">
@@ -789,7 +793,7 @@ function openCity(evt, cityName) {
 					</td>
 					
 					<td>
-						<p class = "infoMargin" > <input class = "inputWidth" value = "<?php echo $detail2->student_no;?>" placeholder = "xx-xxx-xx" pattern = "\d{2}[\-]\d{3}[\-]\d{3}" type = "text" name = "student_no" ></p>
+						<p class = "infoMargin" > <input class = "inputWidth confessBox" value = "<?php echo $detail2->student_no;?>" placeholder = "xx-xxx-xx" pattern = "\d{2}[\-]\d{3}[\-]\d{3}" type = "text" name = "student_no" ></p>
 					</td>
 				</tr>
 					
@@ -799,7 +803,7 @@ function openCity(evt, cityName) {
 					</td>
 					
 					<td>
-						<p class = "infoMargin" > <input class = "inputWidth" type = "text" name = "course" value = "<?php echo $detail2->course;?>"></p>
+						<p class = "infoMargin" > <input class = "inputWidth confessBox" type = "text" name = "course" value = "<?php echo $detail2->course;?>"></p>
 					</td>
 				</tr>
 				
@@ -827,20 +831,18 @@ function openCity(evt, cityName) {
 					</td>
 					
 					<td>
-						<p class = "infoMargin" ><input class = "inputWidth" type = "month" name = "year_graduated" value = "<?php echo $detail2->year_graduated;?>" ></p>
+						<p class = "infoMargin" ><input class = "inputWidth confessBox" type = "month" name = "year_graduated" value = "<?php echo $detail2->year_graduated;?>" ></p>
 					</td> 
 				</tr>
 			</table>
 			
-			<input style = "margin-left: 82%;" type = "submit" value = "save">
-			
 			<?php }?>  
-		</form>
-		<hr class = "hr">			
+		
+		<hr>			
 		
 		<p> <b>Confession Info</b> </p>
 			
-		<form method = "POST" action ="update_info3">
+		
 			<?php foreach($details3 as $detail3){?>
 			<table>
 				<input type = "hidden" name="id_users" value="<?php echo $detail3->id_users;?>">
@@ -851,13 +853,13 @@ function openCity(evt, cityName) {
 					</td>
 					
 					<td>
-						<p class = "infoMargin" > <input class = "inputWidth" value = "<?php echo $detail3->hidden_name;?>" placeholder = "hidden name" type = "text" name = "hidden_name" ></p>
+						<p class = "infoMargin" > <input class = "inputWidth confessBox" value = "<?php echo $detail3->hidden_name;?>" placeholder = "hidden name" type = "text" name = "hidden_name" ></p>
 					</td>
 				</tr>
 					
 			</table>
 			
-			<input style = "margin-left: 82%;" type = "submit" value = "save">
+			<input style = "margin-left: 82%;" type = "submit" value = "save"> <br>
 			
 			<?php }?>  
 		</form>
