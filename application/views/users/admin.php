@@ -367,7 +367,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    </tr>
 			<?php }?>
 			</table>
-			
 			  </div>
 			</div>
 			

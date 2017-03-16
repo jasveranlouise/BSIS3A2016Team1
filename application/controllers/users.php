@@ -134,6 +134,36 @@ class Users extends CI_Controller {
 
 		
 	}
+
+	public function notifications()
+	{	
+		
+		$li = $this->session->userdata('logged_in');
+
+		if($li == TRUE){
+			if($this->input->get()){
+				$this->load->model('reqconfess_model'); // load model
+				$this->load->model('active_model'); // load active_model
+				$a = $this->input->get('title');
+				$result = $this->reqconfess_model->getPostsNoti($a);
+				$this->data['posts'] = $result;
+				$this->data['notifications'] = $this->reqconfess_model->getNoti();
+				$this->data['comments'] = $this->reqconfess_model->getComments(); 
+				$this->data['details'] = $this->active_model->getPosts();
+				$this->data['details2'] = $this->active_model->getPosts2();
+				$this->data['details3'] = $this->active_model->getPosts3();
+
+			$this->load->view('welcome_message_2', $this->data);
+				}
+
+			
+		}
+		else{
+			redirect ('/users/');
+		}
+
+		
+	}
 	
 	public function register()
 	{

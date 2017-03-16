@@ -770,18 +770,26 @@ function myFunction(id) {
 		
 		<table id = "mytable" class="w3-bordered">
 			<?php $i = 0; foreach($notifications as $notification){ if(++$i > 5) break;?>
-			<tr class="notiRow">			
-				<td class="trPad" width = "35%">
+			<tr class="notiRow" onclick="Function('<?php echo $notification->confession_title;?>')">			
+				<td class="trPad" width = "35%" >
 					<p class = "infoMargin noti"><font class = "notiTitle" >"<?php echo $notification->confession_title;?>"</font> has been approved <br> <font class="notiTime"><?php echo $notification->time;?> / <?php echo $notification->date;?></font></p>
 				</td>
 			</tr>
+			<script>
+				function Function(x) {
+				        var table = document.getElementById('mytable');		
+						window.location="notifications?title=" + x; 
+				}
+			</script>
+			<?php } ?>
 		    
 			<tr class="notiRow">
 				<td class="trPad" width = "35%">
 					<p class = "infoMargin noti" align="center"> <a onclick="document.getElementById('id05').style.display='block'" class="seeAll"> See All Notifications</a></p>
 				</td>
 			</tr>
-			<?php } ?>
+
+			
 		</table>		  
 
 	</font>
