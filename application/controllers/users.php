@@ -38,6 +38,7 @@ class Users extends CI_Controller {
 
 	public function index()
 	{	
+		
 
 		$li = $this->session->userdata('logged_in');
 		if($li == TRUE){

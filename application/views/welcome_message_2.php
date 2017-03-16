@@ -768,15 +768,16 @@ function myFunction(id) {
 			</h4>
 			
     </header>	
+    <div style="overflow-y:scroll;">
     <div class="w3-container" style="padding: 0px;">
 	
 	<font face = "Century Gothic" size = "3" >
 		
-		<table class="w3-bordered">
+		<table id = "mytable" class="w3-bordered">
 			<?php $i = 0; foreach($notifications as $notification){ if(++$i > 5) break;?>
-			<tr>			
+			<tr class="notiRow">			
 				<td width = "35%">
-					<p class = "infoMargin noti"> <font >Confession request entitled "<?php echo $notification->confession_title;?>" has been approved <br> <font class="notiTime"><?php echo $notification->time;?> / <?php echo $notification->date;?></font></p>
+					<p class = "infoMargin noti"><font color="darkblue">"<?php echo $notification->confession_title;?>"</font> has been approved <br> <font class="notiTime"><?php echo $notification->time;?> / <?php echo $notification->date;?></font></p>
 				</td>
 			</tr>
 		    <?php } ?>
@@ -791,8 +792,9 @@ function myFunction(id) {
 	</font>
     </div>
 	</div>
+	</div>
   </div>
-
+ 
   <div id="id05" class="w3-modal" style="margin-bottom: 30px;">
 
 <div style = "width: 25%; margin-right: 1%; margin-bottom: 2%; " class="w3-modal-content w3-animate-top">
@@ -806,22 +808,25 @@ function myFunction(id) {
 			</h4>
 			
     </header>	
-    <div class="w3-container" style="padding: 0px;" >
+    <div style="overflow-y:scroll;">
+    <div class="w3-container" style="padding: 0px; max-height: 450px" >
 	
 	<font face = "Century Gothic" size = "3" >
 		
 		<table class="w3-bordered">
 			<?php $i = 0; foreach($notifications as $notification){ ?>
-			<tr>			
+			<tr class="notiRow">			
 				<td width = "35%">
-					<p class = "infoMargin noti"> <font >Confession request entitled "<?php echo $notification->confession_title;?>" has been approved <br> <font class="notiTime"><?php echo $notification->time;?> / <?php echo $notification->date;?></font></p>
+					<p class = "infoMargin noti"> <font ><font color="darkblue">"<?php echo $notification->confession_title;?>"</font> has been approved <br> <font class="notiTime"><?php echo $notification->time;?> / <?php echo $notification->date;?></font></p>
 				</td>
+				
 			</tr>
 		    <?php } ?>
 			
 		</table>		  
 
 	</font>
+    </div>
     </div>
 	</div>
   </div>
@@ -858,6 +863,7 @@ window.onclick = function(event) {
 
 	
 }
+
 </script>
 
 </body>

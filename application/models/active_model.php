@@ -12,7 +12,7 @@ class active_model extends CI_Model{
 		$this->db->select('*');
 		$this->db->from('users');
 		$this->db->join('personal_info', 'users.id_users = personal_info.id_personal_info', 'inner');
-		$this->db->where('log =', '1');	
+		$this->db->where('id_users =', $_SESSION['id_no']);	
 		$query = $this->db->get();
 				
 		return $query->result();
@@ -22,7 +22,7 @@ class active_model extends CI_Model{
 		$this->db->select('*');
 		$this->db->from('users');
 		$this->db->join('student_info', 'users.id_users = student_info.id_student_info', 'inner');
-		$this->db->where('log =', '1');	
+		$this->db->where('id_users =', $_SESSION['id_no']);	
 		$query = $this->db->get();
 				
 		return $query->result();
@@ -32,7 +32,7 @@ class active_model extends CI_Model{
 		$this->db->select('*');
 		$this->db->from('users');
 		$this->db->join('confession_info', 'users.id_users = confession_info.id_confession_info', 'inner');
-		$this->db->where('log =', '1');	
+		$this->db->where('id_users =', $_SESSION['id_no']);	
 		$query = $this->db->get();
 				
 		return $query->result();
@@ -57,7 +57,7 @@ class active_model extends CI_Model{
 	}
 
 	function logout($data){
-		$this->db->where('log','1');
+		$this->db->where('id_users',$_SESSION['id_no']);
 		$this->db->update('users',$data);
 	}
 }
