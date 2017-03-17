@@ -262,7 +262,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  </div>
 	</div>
 </div>
+
+
 </div>
+
       
 <script>
 function w3_open() {
@@ -625,7 +628,7 @@ function myFunction(id) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" ><input class = "inputWidth confessBox" type = "number" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
+					<p class = "infoMargin" ><input class = "inputWidth confessBox" type = "text" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
 				</td>
 			</tr>
 			
@@ -782,13 +785,13 @@ function myFunction(id) {
 				}
 			</script>
 			<?php } ?>
-		    
+			<?php $i = 0; foreach($notifications as $notification){ if(++$i > 1) break;?>
 			<tr class="notiRow">
 				<td class="trPad" width = "35%">
 					<p class = "infoMargin noti" align="center"> <a onclick="document.getElementById('id05').style.display='block'" class="seeAll"> See All Notifications</a></p>
 				</td>
 			</tr>
-
+			<?php } ?>
 			
 		</table>		  
 

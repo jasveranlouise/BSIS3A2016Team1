@@ -80,8 +80,8 @@ class reqconfess_model extends CI_Model{
 		$this->db->select("*");
 		$this->db->from('comment');
 		$this->db->join('personal_info', 'comment.id_user_com=personal_info.id_personal_info', 'left');
-		$this->db->order_by('comm_date', 'ASC');
-		$this->db->order_by('comm_time', 'ASC');
+		$this->db->order_by('comm_date', 'DESC');
+		$this->db->order_by('comm_time', 'DESC');
 		$query = $this->db->get();
 		return $query->result();
 	}

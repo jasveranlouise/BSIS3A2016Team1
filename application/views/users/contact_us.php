@@ -573,7 +573,7 @@ function myFunction() {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" ><input class = "inputWidth" type = "number" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
+					<p class = "infoMargin" ><input class = "inputWidth" type = "text" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
 				</td>
 			</tr>
 			

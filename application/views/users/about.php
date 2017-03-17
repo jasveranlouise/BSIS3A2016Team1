@@ -48,13 +48,13 @@ body {
  */
 
 .footer {
-  position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 1rem;
   background-color: #808080;
   text-align: center;	
+  margin-bottom: -10%;
 }
 </style>
 
@@ -292,11 +292,7 @@ body {
 
 </div>
       
-	  
-
-<div class="demo">
-</div>
-<div class="footer"><h6>Copyright &copy; 2017 USHARE Confession Site. All rights reserved.</h6></font>
+<div id="main2" class="footer"> <h6>Copyright &copy; 2017 USHARE Confession Site. All rights reserved.</h6></font>
 
 </div>
 	  
@@ -305,6 +301,8 @@ function w3_open() {
    
   document.getElementById("main").style.marginLeft = "10%";
   document.getElementById("main").style.width = "100%";
+  document.getElementById("main2").style.marginLeft = "10%";
+  document.getElementById("main2").style.width = "100%";
   document.getElementById("header2").style.marginLeft = "205px";
   document.getElementById("mySidenav").style.width = "205px";
   document.getElementById("mySidenav").style.display = "block";
@@ -312,6 +310,7 @@ function w3_open() {
 }
 function w3_close() {
   document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("main2").style.marginLeft = "0%";
   document.getElementById("header2").style.marginLeft = "0%";
   document.getElementById("mySidenav").style.display = "none";
   document.getElementById("openNav").style.display = "inline-block";
@@ -612,7 +611,7 @@ function myFunction() {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" ><input class = "inputWidth confessBox" type = "number" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
+					<p class = "infoMargin" ><input class = "inputWidth confessBox" type = "text" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
 				</td>
 			</tr>
 			

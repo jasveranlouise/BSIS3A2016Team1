@@ -380,6 +380,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  </div>
 	</div>
 
+	<div id="main2" class="footer"> <h6>Copyright &copy; 2017 USHARE Confession Site. All rights reserved.</h6>
+	</div>
 </div>
       
 <script>
@@ -745,7 +747,7 @@ function openCity(evt, cityName) {
 				</td>
 				
 				<td>
-					<p class = "infoMargin" ><input class = "inputWidth confessBox" type = "number" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
+					<p class = "infoMargin" ><input class = "inputWidth confessBox" type = "text" name = "contact_no" value = "<?php $a = $detail->contact_no; if( $a == '0') {echo "";} else {echo "$a";} ?>" ></p>
 				</td>
 			</tr>
 			

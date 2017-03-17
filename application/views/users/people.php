@@ -217,8 +217,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  <div class="w3-container w3-col" style="width:25%">
 		 
 	  </div>
+			
 	</div>
-
+		<div id="main2" class="footer"> <h6>Copyright &copy; 2017 USHARE Confession Site. All rights reserved.</h6>
+		</div>			
 </div>
       
 <script>
@@ -226,6 +228,8 @@ function w3_open() {
    
   document.getElementById("main").style.marginLeft = "10%";
   document.getElementById("main").style.width = "100%";
+  document.getElementById("main2").style.marginLeft = "10%";
+  document.getElementById("main2").style.width = "100%";
   document.getElementById("header2").style.marginLeft = "205px";
   document.getElementById("mySidenav").style.width = "205px";
   document.getElementById("mySidenav").style.display = "block";
@@ -234,6 +238,7 @@ function w3_open() {
 }
 function w3_close() {
   document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("main2").style.marginLeft = "0%";
   document.getElementById("header2").style.marginLeft = "0%";
   document.getElementById("mySidenav").style.display = "none";
   document.getElementById("openNav").style.display = "inline-block";
